@@ -66,4 +66,6 @@ static site without the `/api/contact` endpoint.
 The root `.pages.yml` connects six existing-content editors to the rendered site.
 See [the Pages CMS setup and editing guide](docs/pages-cms.md) for connection steps,
 the complete content inventory, protected publishing settings, image guidance,
-verification commands, and recovery. Review on `codex/pages-cms-setup` before merging.
+verification commands, and recovery. After the setup's production deployment,
+select `main` in Pages CMS. Content saves publish when Cloudflare's build succeeds;
+use a separate review branch for temporary tests.

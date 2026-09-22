@@ -1,13 +1,19 @@
 # Pages CMS editing guide
 
-Repository: `bryguy-404/Wyckoff-New`  
-Review branch: `codex/pages-cms-setup`  
-Branch preview: https://codex-pages-cms-setup.wyckoff-new.pages.dev
+- Repository: `bryguy-404/Wyckoff-New`
+- Production branch: `main`
+- Initial review branch: `codex/pages-cms-setup`
+- Branch preview: https://codex-pages-cms-setup.wyckoff-new.pages.dev
 
-This setup is for editing existing content. Nothing has been merged into `main`.
+This setup is for editing existing content. The setup preview was reviewed and
+approved for production on September 22, 2026.
 Pages CMS saves Git commits to the selected branch; Cloudflare builds that branch.
-Keep `codex/pages-cms-setup` selected while reviewing. Saving on `main` after a future
-approved merge would publish to the production site.
+After the setup is merged and its production deployment succeeds, select `main`
+in Pages CMS for live editing. Saving on `main` starts a production build; changes
+appear when that deployment succeeds, not immediately on clicking Save. A failed
+build leaves the previous successful deployment live. Draft and scheduled
+Insights retain their publication rules. Use a separate review branch for future
+experiments that should not affect the live site.
 
 ## Connect the repository, one step at a time
 
@@ -20,23 +26,23 @@ Complete one numbered step and check its result before moving to the next.
    select repositories**, and grant access to **Wyckoff-New**. The repository owner
    should complete GitHub's permission approval. If the repository is already
    listed, skip this step; there is no need to reinstall.
-3. Open **Wyckoff-New** and select branch **codex/pages-cms-setup**. The existing
-   `.pages.yml` on that branch supplies the configuration. Do not create a new
-   configuration, switch to `main`, or replace the supplied YAML. If prompted to
+3. Open **Wyckoff-New** and select branch **main** after the setup's production
+   deployment has succeeded. The existing `.pages.yml` supplies the configuration.
+   Do not create a new configuration or replace the supplied YAML. If prompted to
    configure the repository, check the selected branch and refresh first.
 4. Confirm the six editor entries below appear. Open **Home**, then the Hero group.
    The current headline should begin “The EBITDA you want next year”.
-5. For a first trial, make one small copy change, save it, wait for the Cloudflare
-   check on that commit to succeed, and reload the branch preview. Restore the
-   original copy and save again. The save is a real commit on the selected branch.
-6. Try a replacement image using an existing image field. Upload/select the image,
-   save the content entry, and inspect both desktop and mobile preview. Restore
-   the original selection afterward. Uploading a file alone does not select it in
-   a page. Keep original image files so restoring a selection remains easy.
-7. Review and approve the branch separately before any merge to `main`. Client
-   access can be arranged after this review; no client invitations are sent by
+5. For an intended live update, edit an existing field, save it, wait for the
+   Cloudflare check on that commit to succeed, and reload the live site. The save
+   is a real commit on the selected branch. Use a review branch and its preview
+   for temporary test wording or experimental changes.
+6. For a replacement image, upload/select it through the existing image field and
+   save the content entry. After deployment, inspect desktop and mobile. Uploading
+   a file alone does not select it in a page. Keep original image files so restoring
+   a selection remains easy.
+7. Client access can be arranged separately; no client invitations are sent by
    this setup. A developer should retain responsibility for publication scheduling,
-   configuration, repository permissions, and production rollout.
+   configuration, repository permissions, and code deployment.
 
 If working through this with Codex, stop after each step and report what you see.
 The [official quick start](https://pagescms.org/docs/quick-start/) describes the
