@@ -2,7 +2,8 @@
 import pageContent from "../data/pages/home.json";
 const content = pageContent.stats;
 import { fromContentSlots } from "../lib/contentSlots";
-const stats = fromContentSlots(content.stats);
+// Pages CMS omits blank optional strings when saving the page.
+const stats: { count: number; suffix?: string; label: string }[] = fromContentSlots(content.stats);
 ---
 <section class="wrap band band--tan rv">
   <p class="label">{content.paragraph}</p>

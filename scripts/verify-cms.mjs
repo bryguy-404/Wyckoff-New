@@ -28,14 +28,20 @@ let fieldCount = 0;
 function visit(fields, content, callback, trail = []) {
   for (const field of fields) {
     const keys = [...trail, field.name];
-    assert(Object.hasOwn(content, field.name), `Missing content: ${keys.join('.')}`);
+    if (field.required || field.type === 'object') {
+      assert(Object.hasOwn(content, field.name), `Missing content: ${keys.join('.')}`);
+    }
     if (field.type === 'object') {
       assert(!field.list, 'Page layout must use fixed slots');
       visit(field.fields, content[field.name], callback, keys);
     } else {
       fieldCount++;
-      if (field.pattern) assert(new RegExp(field.pattern.regex ?? field.pattern).test(content[field.name]), `Invalid link: ${keys.join('.')}`);
-      if (field.type === 'image') assert(fs.existsSync(path.join('public', content[field.name])), `Missing image: ${content[field.name]}`);
+      if (field.type === 'number') {
+        assert.equal(field.required, true, 'Numeric page values must remain present after saving');
+        assert(Number.isFinite(content[field.name]), `Invalid number: ${keys.join('.')}`);
+      }
+      if (field.pattern && content[field.name] != null) assert(new RegExp(field.pattern.regex ?? field.pattern).test(content[field.name]), `Invalid link: ${keys.join('.')}`);
+      if (field.type === 'image' && content[field.name] != null) assert(fs.existsSync(path.join('public', content[field.name])), `Missing image: ${content[field.name]}`);
       callback?.(field, content, keys);
     }
   }

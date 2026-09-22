@@ -165,9 +165,13 @@ connected in source. On September 22, 2026, 16 articles are publishable and five
 remain scheduled. All test content was restored. The root configuration was also
 validated against the current upstream Pages CMS configuration schema.
 
-A real authenticated Pages CMS save is the remaining onboarding check in steps
-4–6; local tests simulate the documented merge behavior but do not claim to have
-completed a save inside your CMS account.
+Authenticated Home editing was verified on September 22, 2026: Pages CMS commit
+`260427e` saved a temporary Hero kicker change, and Cloudflare deployed and rendered
+it successfully. The test wording was then restored on the setup branch. Pages
+CMS removes blank optional fields when saving; the statistics renderer and checks
+accept omitted suffixes, and numeric statistics remain required. Article tests
+simulate the documented merge behavior; a hosted article-editor save has not
+been performed.
 
 Configuration references: [fields](https://pagescms.org/docs/configuration/content/fields/),
 [operations](https://pagescms.org/docs/configuration/content/operations/),
