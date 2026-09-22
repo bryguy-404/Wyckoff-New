@@ -1,46 +1,45 @@
 ---
+import { contentImageSize } from "../lib/contentImages";
+import sharedContent from "../data/pages/shared.json";
+import pageContent from "../data/pages/home.json";
+const content = pageContent.about;
+import { fromContentSlots } from "../lib/contentSlots";
 import ExternalArrow from "./ExternalArrow.astro";
 import LinkedInIcon from "./LinkedInIcon.astro";
 
-const facts = [
-  { value: "1993", label: "In practice since" },
-  { value: "20+", label: "Vertical markets" },
-  { value: "12", label: "Countries" },
-];
+const facts = fromContentSlots(content.facts);
 ---
 <section class="wrap band" id="about">
-  <p class="label rv">Who Is Wyckoff</p>
-  <h2 class="about2__name rv">Luke <span class="surname">Wyckoff</span></h2>
+  <p class="label rv">{content.paragraph}</p>
+  <h2 class="about2__name rv">{content.name} <span class="surname">{content.text}</span></h2>
   <div class="about2__grid">
     <figure class="about2__figure">
       <div class="about2__media" id="aboutMedia">
         <img
-          src="/images/wyckoff/luke-headshot.webp"
-          alt="Luke Wyckoff, Fractional Chief Marketing Officer"
-          width="958"
-          height="959"
+          src={sharedContent.business.portrait.src}
+          alt={sharedContent.business.portrait.alt}
           loading="lazy"
           decoding="async"
-        />
+        {...await contentImageSize(sharedContent.business.portrait.src)} />
         <span class="about2__tint" aria-hidden="true"></span>
-        <figcaption class="about2__quote">&ldquo;Without margin, there is no mission.&rdquo;</figcaption>
+        <figcaption class="about2__quote">{content.quote}</figcaption>
       </div>
-      <span class="about2__side" aria-hidden="true">Fractional CMO &mdash; Est. 1993</span>
+      <span class="about2__side" aria-hidden="true">{content.side}</span>
     </figure>
     <div class="about2__body rv">
-      <p>A creative operator with a finance background, placed on your executive team in a part-time capacity. What you get is an unbiased expert whose only focus is growth and profitability.</p>
-      <p>Since 1993, Wyckoff has worked across more than 20 vertical markets in 12 countries, executing marketing strategies that drive owners' equity and shareholder value. The catch: you can't hire him as a W2.</p>
+      <p>{content.paragraph2}</p>
+      <p>{content.paragraph3}</p>
       <div class="about2__facts">
         {facts.map((f) => (
           <div class="about2__fact"><span class="about2__fact-value">{f.value}</span><span class="about2__fact-label">{f.label}</span></div>
         ))}
       </div>
       <div class="about2__prompt">
-        <a class="textlink" href="https://www.linkedin.com/in/lukewyckoff/" target="_blank" rel="noopener noreferrer">
+        <a class="textlink" href={sharedContent.business.linkedInUrl} target="_blank" rel="noopener noreferrer">
           <LinkedInIcon />
-          <span>Do you already know someone who knows Wyckoff?</span>
+          <span>{content.text2}</span>
           <ExternalArrow />
-          <span class="sr-only"> (opens in a new tab)</span>
+          <span class="sr-only"> {content.text3}</span>
         </a>
       </div>
     </div>

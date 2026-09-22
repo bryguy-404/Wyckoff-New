@@ -1,0 +1,33 @@
+{
+  "listing": {
+    "title": "Insights | Wyckoff Consulting",
+    "description": "Explore Wyckoff Consulting insights on marketing leadership, growth, sales, strategy, and the decisions that shape enterprise value.",
+    "paragraph2": "Full collection",
+    "heading2": "All insights.",
+    "empty": "More perspectives are on the way.",
+    "empty2": "Insights will be published here soon.",
+    "articleSingular": "article",
+    "articlePlural": "articles"
+  },
+  "hero": {
+    "eyebrow": "Insights",
+    "heading": "Wyckoff’s Thought Leadership",
+    "text": "Perspectives in the collection",
+    "label": "Latest insight",
+    "action": "Read the latest insight"
+  },
+  "card": {
+    "action": "Read insight"
+  },
+  "article": {
+    "backHref": "/insights/",
+    "back": "All insights",
+    "text": "Insight",
+    "text2": "By",
+    "updated": "Updated",
+    "paragraph3": "More insights",
+    "heading2": "Continue reading.",
+    "href2": "/insights/",
+    "linkLabel2": "View all insights"
+  }
+}

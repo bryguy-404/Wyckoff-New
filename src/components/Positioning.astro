@@ -1,12 +1,16 @@
+---
+import pageContent from "../data/pages/home.json";
+const content = pageContent.positioning;
+---
 <section class="wrap band rv">
   <div class="split">
     <div>
-      <p class="label">The premise</p>
-      <h2 class="display wordrise">Every business has a moment when profitable growth has stalled.</h2>
+      <p class="label">{content.paragraph}</p>
+      <h2 class="display wordrise">{content.heading}</h2>
     </div>
     <div class="positioning__copy">
-      <p class="lede">Growth stalls. A leader walks out. A buyer comes to the table. In those moments a company doesn't need more marketing activity &mdash; it needs someone who has sat in the chair before and knows which decisions compound.</p>
-      <p class="lede" style="margin-top:1.6rem">Wyckoff steps in as executive marketing leadership, at the capacity the business actually needs, for exactly as long as it needs it.</p>
+      <p class="lede">{content.paragraph2}</p>
+      <p class="lede" style="margin-top:1.6rem">{content.paragraph3}</p>
     </div>
   </div>
 </section>

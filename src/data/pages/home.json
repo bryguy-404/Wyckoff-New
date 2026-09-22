@@ -1,0 +1,294 @@
+{
+  "about": {
+    "facts": {
+      "item01": {
+        "value": "1993",
+        "label": "In practice since"
+      },
+      "item02": {
+        "value": "20+",
+        "label": "Vertical markets"
+      },
+      "item03": {
+        "value": "12",
+        "label": "Countries"
+      }
+    },
+    "paragraph": "Who Is Wyckoff",
+    "name": "Luke",
+    "text": "Wyckoff",
+    "quote": "“Without margin, there is no mission.”",
+    "side": "Fractional CMO — Est. 1993",
+    "paragraph2": "A creative operator with a finance background, placed on your executive team in a part-time capacity. What you get is an unbiased expert whose only focus is growth and profitability.",
+    "paragraph3": "Since 1993, Wyckoff has worked across more than 20 vertical markets in 12 countries, executing marketing strategies that drive owners' equity and shareholder value. The catch: you can't hire him as a W2.",
+    "text2": "Do you already know someone who knows Wyckoff?",
+    "text3": "(opens in a new tab)"
+  },
+  "stats": {
+    "stats": {
+      "item01": {
+        "count": 33,
+        "suffix": "",
+        "label": "Years in practice"
+      },
+      "item02": {
+        "count": 20,
+        "suffix": "+",
+        "label": "Vertical markets"
+      },
+      "item03": {
+        "count": 12,
+        "suffix": "",
+        "label": "Countries"
+      },
+      "item04": {
+        "count": 100,
+        "suffix": "s",
+        "label": "Growth initiatives led"
+      }
+    },
+    "paragraph": "Since 1993",
+    "heading": "Three decades of decisions, in rooms like yours."
+  },
+  "taglineMarquee": {
+    "words": {
+      "item01": "Strategy",
+      "item02": "Growth",
+      "item03": "Enterprise Value",
+      "item04": "A Stronger Business",
+      "item05": "A Stronger Future"
+    }
+  },
+  "testimonials": {
+    "recommendations": {
+      "item01": {
+        "sourceEntry": 1,
+        "name": "Sarah Rosenberger",
+        "role": "Digital Transformer @Elanco, Team Unifier & Growth Marketing 🦄 Systems Thinker Bringing Pattern Recognition Across Industries to Scale What Works Faster (People>Outcomes) #Tech #Healthcare #Startups #eComm",
+        "quote": {
+          "item01": "Luke is one of a kind. To say that he’s a game changer would be an understatement. It only took minutes into our first call to discuss how his company could support my team to feel the inspiration and creativity pouring out of him. I say this with a smile still, because he’s the type of entrepreneur and executive you remember regardless of how much you’ve interacted with him. His strategy and humility while working with us has drastically changed our social media performance and I look to more of the same in the coming year. Here’s to you, Luke!"
+        }
+      },
+      "item02": {
+        "sourceEntry": 2,
+        "name": "Linda Thomas",
+        "role": "Strategic Advisor | Senior Level Business Development Leader | Enabling individuals and organizations to grow and perform better.",
+        "quote": {
+          "item01": "Luke is the crème de la crème of creativity, an ultimate “connector”, inspirational leader and partner. Everything he does is focused on helping individuals and organizations be their best. And he gets it done! Combine that with a strong code of ethics and a desire for everyone to succeed, you have a consummate professional who inspires and advances the cause. Goodness to the core, it’s an honor and privilege to know and work alongside Luke! Anyone who has the benefit to work with Luke will be forever enriched."
+        }
+      },
+      "item03": {
+        "sourceEntry": 3,
+        "name": "Diane Burgess Faber",
+        "role": "Solving business challenges through dynamic learning experiences using the best of technology, design and science",
+        "quote": {
+          "item01": "Luke has an uncanny ability to focus a person/team on their true goal and then help them reverse engineer everything that needs to happen to achieve that goal. He is smart, clever, fun, energetic, knows absolutely everyone, and is a marketing and business wiz! Such a pleasure..."
+        }
+      },
+      "item04": {
+        "sourceEntry": 11,
+        "name": "Dave Patrick",
+        "role": "Fractional CRO - Chief Commercial Officer | AI-Era Revenue Growth & Workforce Transformation | Co-founder, SightGlass AI Readiness | $130M P&L.",
+        "quote": {
+          "item01": "I have had the pleasure of knowing Luke for more than 10 years in various roles. He is the consummate professional. Luke demonstrates tremendous enthusiasm and passion for all that he does. He blends business acumen and interpersonal skills into a wicked and energetic blend that fosters creativity and attracts people to him, his business and those that engage with him."
+        }
+      },
+      "item05": {
+        "sourceEntry": 12,
+        "name": "Eric Weeks",
+        "role": "HR Executive and Business Leader at Delta Dental Insurance Company",
+        "quote": {
+          "item01": "Luke is a highly strategic and effective visionary who will transform business. I've had the privilege of working with Luke and his team, I consider them to be subject matter experts who understand how to deliver value to you and your customers."
+        }
+      },
+      "item06": {
+        "sourceEntry": 9,
+        "name": "Marty Vondrell",
+        "role": "Certified EOS Implementer, Author, Speaker",
+        "quote": {
+          "item01": "Luke is one of the most energetic upbeat people I know. He always has a positive slant to things. This make it a joy to work with him. He is also a very creative person that will come up with the ideas that make a difference. I highly recommend Luke and what he can do for anybody."
+        }
+      },
+      "item07": {
+        "sourceEntry": 20,
+        "name": "John O’Loughlin",
+        "role": "EVP, McAleer Gray, LLC / Founder & CEO HR Capital Partners, LLC / President, BOJUMJOL, LTD./bojumjol.com C-Suite and Board Practice and Advisor/Interim CHRO",
+        "quote": {
+          "item01": "Luke is the ultimate value-add consultant and consummate business partner delivering services/solutions that exceed expectations/requirements. I strongly endorse him and his services."
+        }
+      },
+      "item08": {
+        "sourceEntry": 26,
+        "name": "Dan Smith",
+        "role": "Director, Spectrum Health Office of Commercial Innovation",
+        "quote": {
+          "item01": "Luke and his firm have been strategic partners to ThinkWise. Luke is a trusted partner who has the rare ability to engage clients in both strategic discussions/direction as well as deliver meaningful solutions that provide great value -- he talks big picture and gets it done.",
+          "item02": "His background in talent management and organizational development shows up in how he motivates and interacts with his partners, his employees and our shared-clients.",
+          "item03": "I recommend Luke and his firm without reservation."
+        }
+      },
+      "item09": {
+        "sourceEntry": 40,
+        "name": "Norm Devine",
+        "role": "Sales and Marketing Leader",
+        "quote": {
+          "item01": "Luke's positive energy and client-outcome focus permeate everything he does. He's a problem solver with great strategic vision, and he truly values the relationships he establishes with his clients and partners."
+        }
+      },
+      "item10": {
+        "sourceEntry": 46,
+        "name": "Keith Akins",
+        "role": "When did titles ever really matter? at To Be Determined",
+        "quote": {
+          "item01": "Luke's business acumen gives him uncommon ability to distill the key issues at play in his clients' organizations and to recommend strategies that pay off. That talent is combined with a heart as big as the Montana sky."
+        }
+      }
+    },
+    "paragraph": "From the people who have worked with Wyckoff",
+    "heading": "What clients and colleagues say.",
+    "status": "Showing recommendations 1–2 of"
+  },
+  "clients": {
+    "clientLogos": {
+      "item01": {
+        "src": "/images/clients/res.webp",
+        "alt": "RES",
+        "width": 578,
+        "height": 350
+      },
+      "item02": {
+        "src": "/images/clients/hca-healthcare.webp",
+        "alt": "HCA Healthcare",
+        "width": 400,
+        "height": 172
+      },
+      "item03": {
+        "src": "/images/clients/big-rapids-products.webp",
+        "alt": "Big Rapids Products",
+        "width": 900,
+        "height": 240
+      },
+      "item04": {
+        "src": "/images/clients/broe-real-estate-group.svg",
+        "alt": "Broe Real Estate Group",
+        "width": 900,
+        "height": 439
+      },
+      "item05": {
+        "src": "/images/clients/green-improvements.webp",
+        "alt": "Green Improvements LLC",
+        "width": 498,
+        "height": 500
+      },
+      "item06": {
+        "src": "/images/clients/remax.webp",
+        "alt": "RE/MAX",
+        "width": 900,
+        "height": 247
+      },
+      "item07": {
+        "src": "/images/clients/steelcase.webp",
+        "alt": "Steelcase",
+        "width": 317,
+        "height": 58
+      },
+      "item08": {
+        "src": "/images/clients/usa-rugby.webp",
+        "alt": "USA Rugby",
+        "width": 509,
+        "height": 500
+      },
+      "item09": {
+        "src": "/images/clients/american-cancer-society.webp",
+        "alt": "American Cancer Society",
+        "width": 743,
+        "height": 410
+      },
+      "item10": {
+        "src": "/images/clients/university-of-michigan.webp",
+        "alt": "University of Michigan",
+        "width": 470,
+        "height": 500
+      },
+      "item11": {
+        "src": "/images/clients/micron.webp",
+        "alt": "Micron",
+        "width": 817,
+        "height": 500
+      },
+      "item12": {
+        "src": "/images/clients/adept-machine-tools.webp",
+        "alt": "Adept Machine Tools, Inc.",
+        "width": 1096,
+        "height": 275
+      },
+      "item13": {
+        "src": "/images/clients/adamy-valuation.svg",
+        "alt": "Adamy Valuation",
+        "width": 466,
+        "height": 27
+      },
+      "item14": {
+        "src": "/images/clients/cavallo.svg",
+        "alt": "Cavallo",
+        "width": 215,
+        "height": 40
+      },
+      "item15": {
+        "src": "/images/clients/larson-tax-relief.svg",
+        "alt": "Larson Tax Relief",
+        "width": 233,
+        "height": 101
+      },
+      "item16": {
+        "src": "/images/clients/wanaware.png",
+        "alt": "WanAware",
+        "width": 777,
+        "height": 153
+      }
+    }
+  },
+  "hero": {
+    "fallbackSrc": "/images/hero-fallback.jpg",
+    "videoPoster": "/images/hero-poster.jpg",
+    "kicker": "Fractional Chief Marketing Officer",
+    "headingLine1": "The EBITDA you want next year",
+    "headingLine2": "will have a direct causation",
+    "headingLine3": "to the Marketing decisions you",
+    "headingLine4": "make next quarter.",
+    "sub": "Executive marketing leadership for $3M–$50M+ companies, at the moments that decide their next decade.",
+    "linkHref": "/inflection-points/",
+    "linkLabel": "See the eight inflection points →"
+  },
+  "positioning": {
+    "paragraph": "The premise",
+    "heading": "Every business has a moment when profitable growth has stalled.",
+    "paragraph2": "Growth stalls. A leader walks out. A buyer comes to the table. In those moments a company doesn't need more marketing activity — it needs someone who has sat in the chair before and knows which decisions compound.",
+    "paragraph3": "Wyckoff steps in as executive marketing leadership, at the capacity the business actually needs, for exactly as long as it needs it."
+  },
+  "parallaxBand": {
+    "src": "/images/wyckoff/denver-aerial.webp",
+    "cap": "Manufacturing · Healthcare · Industrial B2B · 20+ verticals"
+  },
+  "inflectionPoints": {
+    "paragraph": "Eight critical business inflection points",
+    "heading": "This is why we get the call.",
+    "meta": "Why Companies Choose Wyckoff",
+    "text": "The challenge",
+    "text2": "What's needed",
+    "link": "Explore this inflection point"
+  },
+  "statement": {
+    "bgSrc": "/images/statement-bg.jpg",
+    "paragraph": "Marketing exists for one reason.",
+    "emphasis": "To create profitable growth."
+  },
+  "page": {
+    "visibleLabel": "Selected past clients",
+    "accessibleLabel": "Past clients of Wyckoff Consulting"
+  },
+  "seo": {
+    "title": "Wyckoff Consulting — Executive Marketing Leadership",
+    "description": "Executive marketing leadership for $3M–$50M+ companies, at the moments that decide their next decade. Fractional CMO services since 1993."
+  }
+}

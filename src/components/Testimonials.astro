@@ -1,4 +1,7 @@
 ---
+import pageContent from "../data/pages/home.json";
+const content = pageContent.testimonials;
+import { fromContentSlots } from "../lib/contentSlots";
 interface Recommendation {
   sourceEntry: number;
   name: string;
@@ -6,90 +9,7 @@ interface Recommendation {
   quote: string[];
 }
 
-const recommendations: Recommendation[] = [
-  {
-    sourceEntry: 1,
-    name: "Sarah Rosenberger",
-    role: "Digital Transformer @Elanco, Team Unifier & Growth Marketing 🦄 Systems Thinker Bringing Pattern Recognition Across Industries to Scale What Works Faster (People>Outcomes) #Tech #Healthcare #Startups #eComm",
-    quote: [
-      "Luke is one of a kind. To say that he’s a game changer would be an understatement. It only took minutes into our first call to discuss how his company could support my team to feel the inspiration and creativity pouring out of him. I say this with a smile still, because he’s the type of entrepreneur and executive you remember regardless of how much you’ve interacted with him. His strategy and humility while working with us has drastically changed our social media performance and I look to more of the same in the coming year. Here’s to you, Luke!",
-    ],
-  },
-  {
-    sourceEntry: 2,
-    name: "Linda Thomas",
-    role: "Strategic Advisor | Senior Level Business Development Leader | Enabling individuals and organizations to grow and perform better.",
-    quote: [
-      "Luke is the crème de la crème of creativity, an ultimate “connector”, inspirational leader and partner. Everything he does is focused on helping individuals and organizations be their best. And he gets it done! Combine that with a strong code of ethics and a desire for everyone to succeed, you have a consummate professional who inspires and advances the cause. Goodness to the core, it’s an honor and privilege to know and work alongside Luke! Anyone who has the benefit to work with Luke will be forever enriched.",
-    ],
-  },
-  {
-    sourceEntry: 3,
-    name: "Diane Burgess Faber",
-    role: "Solving business challenges through dynamic learning experiences using the best of technology, design and science",
-    quote: [
-      "Luke has an uncanny ability to focus a person/team on their true goal and then help them reverse engineer everything that needs to happen to achieve that goal. He is smart, clever, fun, energetic, knows absolutely everyone, and is a marketing and business wiz! Such a pleasure...",
-    ],
-  },
-  {
-    sourceEntry: 11,
-    name: "Dave Patrick",
-    role: "Fractional CRO - Chief Commercial Officer | AI-Era Revenue Growth & Workforce Transformation | Co-founder, SightGlass AI Readiness | $130M P&L.",
-    quote: [
-      "I have had the pleasure of knowing Luke for more than 10 years in various roles. He is the consummate professional. Luke demonstrates tremendous enthusiasm and passion for all that he does. He blends business acumen and interpersonal skills into a wicked and energetic blend that fosters creativity and attracts people to him, his business and those that engage with him.",
-    ],
-  },
-  {
-    sourceEntry: 12,
-    name: "Eric Weeks",
-    role: "HR Executive and Business Leader at Delta Dental Insurance Company",
-    quote: [
-      "Luke is a highly strategic and effective visionary who will transform business. I've had the privilege of working with Luke and his team, I consider them to be subject matter experts who understand how to deliver value to you and your customers.",
-    ],
-  },
-  {
-    sourceEntry: 9,
-    name: "Marty Vondrell",
-    role: "Certified EOS Implementer, Author, Speaker",
-    quote: [
-      "Luke is one of the most energetic upbeat people I know. He always has a positive slant to things. This make it a joy to work with him. He is also a very creative person that will come up with the ideas that make a difference. I highly recommend Luke and what he can do for anybody.",
-    ],
-  },
-  {
-    sourceEntry: 20,
-    name: "John O’Loughlin",
-    role: "EVP, McAleer Gray, LLC / Founder & CEO HR Capital Partners, LLC / President, BOJUMJOL, LTD./bojumjol.com C-Suite and Board Practice and Advisor/Interim CHRO",
-    quote: [
-      "Luke is the ultimate value-add consultant and consummate business partner delivering services/solutions that exceed expectations/requirements. I strongly endorse him and his services.",
-    ],
-  },
-  {
-    sourceEntry: 26,
-    name: "Dan Smith",
-    role: "Director, Spectrum Health Office of Commercial Innovation",
-    quote: [
-      "Luke and his firm have been strategic partners to ThinkWise. Luke is a trusted partner who has the rare ability to engage clients in both strategic discussions/direction as well as deliver meaningful solutions that provide great value -- he talks big picture and gets it done.",
-      "His background in talent management and organizational development shows up in how he motivates and interacts with his partners, his employees and our shared-clients.",
-      "I recommend Luke and his firm without reservation.",
-    ],
-  },
-  {
-    sourceEntry: 40,
-    name: "Norm Devine",
-    role: "Sales and Marketing Leader",
-    quote: [
-      "Luke's positive energy and client-outcome focus permeate everything he does. He's a problem solver with great strategic vision, and he truly values the relationships he establishes with his clients and partners.",
-    ],
-  },
-  {
-    sourceEntry: 46,
-    name: "Keith Akins",
-    role: "When did titles ever really matter? at To Be Determined",
-    quote: [
-      "Luke's business acumen gives him uncommon ability to distill the key issues at play in his clients' organizations and to recommend strategies that pay off. That talent is combined with a heart as big as the Montana sky.",
-    ],
-  },
-];
+const recommendations: Recommendation[] = fromContentSlots(content.recommendations) as Recommendation[];
 
 const carouselId = "wyckoff-recommendations";
 const trackId = `${carouselId}-track`;
@@ -106,8 +26,8 @@ const headingId = `${carouselId}-heading`;
     aria-labelledby={headingId}
   >
     <div class="testimonial-carousel__heading">
-      <p class="label">From the people who have worked with Wyckoff</p>
-      <h2 class="display display--sm" id={headingId}>What clients and colleagues say.</h2>
+      <p class="label">{content.paragraph}</p>
+      <h2 class="display display--sm" id={headingId}>{content.heading}</h2>
     </div>
 
     <div class="testimonial-carousel__viewport" data-carousel-viewport>
@@ -181,7 +101,7 @@ const headingId = `${carouselId}-heading`;
       aria-live="polite"
       aria-atomic="true"
     >
-      Showing recommendations 1–2 of {recommendations.length}
+      {content.status} {recommendations.length}
     </p>
   </div>
 </section>

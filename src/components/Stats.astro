@@ -1,14 +1,12 @@
 ---
-const stats = [
-  { count: 33, suffix: "", label: "Years in practice" },
-  { count: 20, suffix: "+", label: "Vertical markets" },
-  { count: 12, suffix: "", label: "Countries" },
-  { count: 100, suffix: "s", label: "Growth initiatives led" },
-];
+import pageContent from "../data/pages/home.json";
+const content = pageContent.stats;
+import { fromContentSlots } from "../lib/contentSlots";
+const stats = fromContentSlots(content.stats);
 ---
 <section class="wrap band band--tan rv">
-  <p class="label">Since 1993</p>
-  <h2 class="display display--sm" style="max-width:17ch">Three decades of decisions, in rooms like yours.</h2>
+  <p class="label">{content.paragraph}</p>
+  <h2 class="display display--sm" style="max-width:17ch">{content.heading}</h2>
   <div class="stats">
     {stats.map((s) => (
       <div class="stat">

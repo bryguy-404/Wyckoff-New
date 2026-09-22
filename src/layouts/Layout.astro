@@ -1,4 +1,7 @@
 ---
+import { contentImage } from "../lib/contentImages";
+import sharedContent from "../data/pages/shared.json";
+import homeContent from "../data/pages/home.json";
 import "../styles/global.css";
 import BrandLogo from "../components/BrandLogo.astro";
 import Nav from "../components/Nav.astro";
@@ -16,13 +19,13 @@ interface Props {
   structuredData?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-const defaultSocialImage = "/images/brand/wyckoff-social-share.png";
+const defaultSocialImage = sharedContent.business.socialImage;
 
 const {
-  title = "Wyckoff Consulting — Executive Marketing Leadership",
-  description = "Executive marketing leadership for $3M–$50M+ companies, at the moments that decide their next decade. Fractional CMO services since 1993.",
+  title = homeContent.seo.title,
+  description = homeContent.seo.description,
   image = defaultSocialImage,
-  imageAlt = "Wyckoff Consulting logo",
+  imageAlt = sharedContent.business.socialImageAlt,
   ogType = "website",
   publishedTime,
   modifiedTime,
@@ -32,7 +35,7 @@ const {
 
 const canonical = new URL(canonicalPath ?? Astro.url.pathname, Astro.site ?? Astro.url);
 const socialImage = new URL(image, canonical);
-const usesDefaultSocialImage = image === defaultSocialImage;
+const socialMetadata = await contentImage(image);
 ---
 <!doctype html>
 <html lang="en">
@@ -50,9 +53,9 @@ const usesDefaultSocialImage = image === defaultSocialImage;
   <meta property="og:url" content={canonical} />
   <meta property="og:image" content={socialImage} />
   <meta property="og:image:secure_url" content={socialImage} />
-  {usesDefaultSocialImage && <meta property="og:image:type" content="image/png" />}
-  {usesDefaultSocialImage && <meta property="og:image:width" content="1200" />}
-  {usesDefaultSocialImage && <meta property="og:image:height" content="630" />}
+  <meta property="og:image:type" content={`image/${socialMetadata.format === "svg" ? "svg+xml" : socialMetadata.format}`} />
+  <meta property="og:image:width" content={String(socialMetadata.width)} />
+  <meta property="og:image:height" content={String(socialMetadata.height)} />
   {imageAlt && <meta property="og:image:alt" content={imageAlt} />}
   {ogType === "article" && publishedTime && <meta property="article:published_time" content={publishedTime} />}
   {ogType === "article" && modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}

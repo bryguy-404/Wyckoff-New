@@ -60,3 +60,10 @@ Until these are set, the form returns "The contact form is not configured yet."
 
 Note: Pages Functions only run on Cloudflare — `npm run preview` serves the
 static site without the `/api/contact` endpoint.
+
+## Pages CMS
+
+The root `.pages.yml` connects six existing-content editors to the rendered site.
+See [the Pages CMS setup and editing guide](docs/pages-cms.md) for connection steps,
+the complete content inventory, protected publishing settings, image guidance,
+verification commands, and recovery. Review on `codex/pages-cms-setup` before merging.

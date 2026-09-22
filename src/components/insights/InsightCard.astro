@@ -1,4 +1,7 @@
 ---
+import { contentImageSize } from "../../lib/contentImages";
+import pageContent from "../../data/pages/insights.json";
+const content = pageContent.card;
 import {
   formatInsightDate,
   getDisplayCategory,
@@ -23,12 +26,10 @@ const href = getInsightPath(entry);
       <img
         src={entry.data.featuredImage}
         alt=""
-        width={entry.data.featuredImageWidth}
-        height={entry.data.featuredImageHeight}
         loading={eager ? "eager" : "lazy"}
         fetchpriority={eager ? "high" : "auto"}
         decoding="async"
-      />
+      {...await contentImageSize(entry.data.featuredImage)} />
     </figure>
 
     <div class="insight-card__body">
@@ -40,7 +41,7 @@ const href = getInsightPath(entry);
       </p>
       <h3>{entry.data.title}</h3>
       <p class="insight-card__description">{entry.data.description}</p>
-      <span class="insight-card__action">Read insight <span aria-hidden="true">&rarr;</span></span>
+      <span class="insight-card__action">{content.action} <span aria-hidden="true">&rarr;</span></span>
     </div>
   </a>
 </article>

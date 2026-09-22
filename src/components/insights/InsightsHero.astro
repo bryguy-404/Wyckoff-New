@@ -1,4 +1,7 @@
 ---
+import { contentImageSize } from "../../lib/contentImages";
+import pageContent from "../../data/pages/insights.json";
+const content = pageContent.hero;
 import {
   formatInsightDate,
   getDisplayCategory,
@@ -21,12 +24,12 @@ const category = getDisplayCategory(featured);
   <div class="wrap insights-hero__inner">
     <header class="insights-hero__heading">
       <div>
-        <p class="insights-hero__eyebrow">Insights</p>
-        <h1 id="insights-title">Wyckoff&rsquo;s Thought Leadership</h1>
+        <p class="insights-hero__eyebrow">{content.eyebrow}</p>
+        <h1 id="insights-title">{content.heading}</h1>
       </div>
       <p class="insights-hero__count">
         <strong>{String(total).padStart(2, "0")}</strong>
-        <span>Perspectives in the collection</span>
+        <span>{content.text}</span>
       </p>
     </header>
 
@@ -35,16 +38,14 @@ const category = getDisplayCategory(featured);
         <img
           src={featured.data.featuredImage}
           alt=""
-          width={featured.data.featuredImageWidth}
-          height={featured.data.featuredImageHeight}
           loading="eager"
           fetchpriority="high"
           decoding="async"
-        />
+        {...await contentImageSize(featured.data.featuredImage)} />
       </figure>
 
       <div class="featured-insight__copy">
-        <p class="featured-insight__label">Latest insight</p>
+        <p class="featured-insight__label">{content.label}</p>
         <p class="featured-insight__meta">
           <time datetime={getInsightDateTime(featured.data.publishedAt)}>
             {formatInsightDate(featured.data.publishedAt)}
@@ -54,7 +55,7 @@ const category = getDisplayCategory(featured);
         <h2>{featured.data.title}</h2>
         <p class="featured-insight__description">{featured.data.description}</p>
         <span class="featured-insight__action">
-          Read the latest insight <span aria-hidden="true">&rarr;</span>
+          {content.action} <span aria-hidden="true">&rarr;</span>
         </span>
       </div>
     </a>

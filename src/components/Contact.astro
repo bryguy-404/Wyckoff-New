@@ -1,31 +1,33 @@
 ---
+import pageContent from "../data/pages/shared.json";
+const content = pageContent.contact;
 const revenueOptions = ["$3M – $10M", "$10M – $25M", "$25M – $50M", "$50M+"];
 ---
 <section class="band band--ink" id="contact">
   <div class="wrap contact__grid">
     <div class="rv">
-      <p class="label">The next step</p>
-      <h2 class="display" style="max-width:11ch">Let's discuss profitable growth.</h2>
-      <p class="lede" style="margin-top:2rem">Tell us what's shifted in the business. If there's a fit, you'll hear back directly from Luke.</p>
+      <p class="label">{content.eyebrow}</p>
+      <h2 class="display" style="max-width:11ch">{content.heading}</h2>
+      <p class="lede" style="margin-top:2rem">{content.intro}</p>
     </div>
-    <form class="rv" id="contactForm" method="post" action="/api/contact" novalidate>
-      <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required /></div>
-      <div class="field"><label for="f-co">Company</label><input id="f-co" name="company" type="text" autocomplete="organization" /></div>
-      <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required /></div>
-      <div class="field"><label for="f-rev">Annual revenue</label>
+    <form class="rv" id="contactForm" data-messages={JSON.stringify(content.messages)} method="post" action="/api/contact" novalidate>
+      <div class="field"><label for="f-name">{content.nameLabel}</label><input id="f-name" name="name" type="text" autocomplete="name" required /></div>
+      <div class="field"><label for="f-co">{content.companyLabel}</label><input id="f-co" name="company" type="text" autocomplete="organization" /></div>
+      <div class="field"><label for="f-email">{content.emailLabel}</label><input id="f-email" name="email" type="email" autocomplete="email" required /></div>
+      <div class="field"><label for="f-rev">{content.revenueLabel}</label>
         <select id="f-rev" name="revenue">
-          <option value="">Select a revenue range</option>
+          <option value="">{content.revenuePlaceholder}</option>
           {revenueOptions.map((opt) => <option value={opt}>{opt}</option>)}
         </select>
       </div>
-      <div class="field"><label for="f-what">What's changed?</label><textarea id="f-what" name="message" rows="3" required></textarea></div>
+      <div class="field"><label for="f-what">{content.messageLabel}</label><textarea id="f-what" name="message" rows="3" required></textarea></div>
       <div class="hp-field" aria-hidden="true">
         <label for="f-website" tabindex="-1">Leave this field empty</label>
         <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off" />
       </div>
-      <button class="submit" type="submit"><span>Send it to Luke</span></button>
+      <button class="submit" type="submit"><span>{content.submitLabel}</span></button>
       <p class="formstatus" id="formStatus" role="status" aria-live="polite"></p>
-      <p class="formnote">Every inquiry is read personally. Nothing is shared, sold, or added to a list.</p>
+      <p class="formnote">{content.privacyNote}</p>
     </form>
   </div>
 </section>
@@ -34,6 +36,8 @@ const revenueOptions = ["$3M – $10M", "$10M – $25M", "$25M – $50M", "$50M+
 (function(){
   var form=document.getElementById('contactForm');
   if(!form) return;
+  var messages=JSON.parse(form.dataset.messages);
+  var submitLabel=form.querySelector('.submit span').textContent;
   var status=document.getElementById('formStatus');
   var btn=form.querySelector('.submit');
   var btnText=btn.querySelector('span');
@@ -43,10 +47,10 @@ const revenueOptions = ["$3M – $10M", "$10M – $25M", "$25M – $50M", "$50M+
     new FormData(form).forEach(function(v,k){ data[k]=v; });
     if(!data.name || !data.email || !data.message){
       status.classList.add('err');
-      status.textContent='Please fill in your name, email, and what’s changed.';
+      status.textContent=messages.required;
       return;
     }
-    btn.disabled=true; btnText.textContent='Sending…';
+    btn.disabled=true; btnText.textContent=messages.sending;
     status.classList.remove('err'); status.textContent='';
     fetch('/api/contact',{
       method:'POST',
@@ -56,17 +60,17 @@ const revenueOptions = ["$3M – $10M", "$10M – $25M", "$25M – $50M", "$50M+
       return res.json().catch(function(){return {};}).then(function(out){
         if(res.ok){
           form.reset();
-          status.textContent='Thank you — your note is on its way to Luke.';
+          status.textContent=messages.success;
         }else{
           status.classList.add('err');
-          status.textContent=out.error||'Something went wrong. Please try again in a moment.';
+          status.textContent=out.error||messages.failure;
         }
       });
     }).catch(function(){
       status.classList.add('err');
-      status.textContent='Network error — please try again.';
+      status.textContent=messages.network;
     }).finally(function(){
-      btn.disabled=false; btnText.textContent='Send it to Luke';
+      btn.disabled=false; btnText.textContent=submitLabel;
     });
   });
 })();

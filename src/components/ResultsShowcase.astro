@@ -1,4 +1,7 @@
 ---
+import pageContent from "../data/pages/about.json";
+const content = pageContent.results;
+import { fromContentSlots } from "../lib/contentSlots";
 type Metric = {
   value: string;
   label: string;
@@ -18,128 +21,7 @@ type AnnualResult = {
   groups: MetricGroup[];
 };
 
-const annualResults: AnnualResult[] = [
-  {
-    year: "2023",
-    title: "Built across every channel.",
-    highlights: [
-      { value: "17%", label: "Reported average sales growth", detail: "Top-line revenue" },
-      { value: "1,280", label: "Original social posts", detail: "Across 6 platforms" },
-      { value: "$2.3M", label: "Digital ad spending" },
-    ],
-    groups: [
-      {
-        title: "Market presence",
-        metrics: [
-          { value: "5", label: "Keynote speeches" },
-          { value: "13", label: "Tradeshow designs" },
-          { value: "23", label: "Published marketing articles" },
-        ],
-      },
-      {
-        title: "Campaign volume",
-        metrics: [
-          { value: "69", label: "New marketing materials" },
-          { value: "890", label: "Email campaigns" },
-        ],
-      },
-      {
-        title: "Growth initiatives",
-        metrics: [
-          { value: "5", label: "New product launches" },
-          { value: "7", label: "Product expansions" },
-        ],
-      },
-    ],
-  },
-  {
-    year: "2024",
-    title: "Scale, without losing the details.",
-    highlights: [
-      { value: "21%", label: "Reported average sales growth", detail: "Top-line revenue" },
-      {
-        value: "35,000+",
-        label: "Leads generated",
-        detail: "Across 5 clients",
-        ariaLabel: "More than 35,000 leads generated across 5 clients",
-      },
-      { value: "1,885", label: "Original social posts", detail: "Across 6 platforms" },
-    ],
-    groups: [
-      {
-        title: "Market presence",
-        metrics: [
-          { value: "7", label: "Keynote speeches" },
-          { value: "6", label: "Tradeshow designs" },
-          { value: "28", label: "Published marketing articles" },
-        ],
-      },
-      {
-        title: "Campaign scale",
-        metrics: [
-          { value: "84", label: "New marketing materials" },
-          { value: "992", label: "Email campaigns" },
-          { value: "$3.9M", label: "Digital ad spending" },
-        ],
-      },
-      {
-        title: "Growth & leadership",
-        metrics: [
-          { value: "11", label: "New product launches" },
-          { value: "4", label: "Product expansions" },
-          { value: "14", label: "Direct reports managed" },
-          { value: "3", label: "Digital transformation sessions coached" },
-        ],
-      },
-    ],
-  },
-  {
-    year: "2025",
-    title: "A wider footprint. A stronger finish.",
-    highlights: [
-      { value: "22%", label: "Reported average sales growth", detail: "Top-line revenue" },
-      {
-        value: "12,000+",
-        label: "Leads generated",
-        detail: "Across 5 clients",
-        ariaLabel: "More than 12,000 leads generated across 5 clients",
-      },
-      {
-        value: "17",
-        label: "Cities worked in",
-        detail: "Across 5 countries",
-        ariaLabel: "Worked in 17 cities across 5 countries",
-      },
-    ],
-    groups: [
-      {
-        title: "Market presence",
-        metrics: [
-          { value: "4", label: "Keynote speeches" },
-          { value: "3", label: "Tradeshow designs" },
-          { value: "2,965", label: "Original social posts", detail: "Across 6 platforms" },
-        ],
-      },
-      {
-        title: "Campaign scale",
-        metrics: [
-          { value: "84", label: "New marketing materials" },
-          { value: "1,422", label: "Email campaigns" },
-          { value: "$3.2M", label: "Digital ad spending" },
-        ],
-      },
-      {
-        title: "Growth & leadership",
-        metrics: [
-          { value: "6", label: "New product launches" },
-          { value: "3", label: "Product expansions" },
-          { value: "9", label: "Direct reports managed" },
-          { value: "4", label: "AI transformation sessions coached" },
-        ],
-      },
-    ],
-  },
-];
+const annualResults: AnnualResult[] = fromContentSlots(content.annualResults) as AnnualResult[];
 ---
 
 <section
@@ -152,11 +34,11 @@ const annualResults: AnnualResult[] = [
   <div class="results__wrap">
     <header class="results__intro">
       <div>
-        <p class="results__eyebrow"><span aria-hidden="true"></span>The work in numbers</p>
-        <h2 id="annual-results-heading">You expect results? <span>Here is the report card.</span></h2>
+        <p class="results__eyebrow"><span aria-hidden="true"></span>{content.eyebrow}</p>
+        <h2 id="annual-results-heading">{content.heading} <span>{content.text}</span></h2>
       </div>
       <p class="results__lede">
-        Start with the outcomes that matter most. Then open the full annual report for the activity behind them.
+        {content.lede}
       </p>
     </header>
 
@@ -190,7 +72,7 @@ const annualResults: AnnualResult[] = [
               aria-labelledby={`results-${result.year}-title`}
             >
               <header class="result-panel__header">
-                <p class="result-panel__kicker">{result.year} report card</p>
+                <p class="result-panel__kicker">{result.year} {content.kicker}</p>
                 <h3 id={`results-${result.year}-title`}>{result.title}</h3>
               </header>
 
@@ -210,8 +92,8 @@ const annualResults: AnnualResult[] = [
 
               <details class="report-details">
                 <summary>
-                  <span>View full {result.year} report card</span>
-                  <em>{supportingMetricCount} supporting measures</em>
+                  <span>{content.text2} {result.year} {content.text3}</span>
+                  <em>{supportingMetricCount} {content.text4}</em>
                 </summary>
 
                 <div class="report-groups">
@@ -240,7 +122,7 @@ const annualResults: AnnualResult[] = [
     </div>
 
     <p class="results__disclosure">
-      Figures reflect annual activity and results reported by Wyckoff Consulting. Top-line sales growth figures are reported annual averages.
+      {content.disclosure}
     </p>
   </div>
 </section>

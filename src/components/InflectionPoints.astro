@@ -1,16 +1,18 @@
 ---
+import pageContent from "../data/pages/home.json";
+const content = pageContent.inflectionPoints;
 import { inflectionPoints as points } from "../data/inflectionPoints";
 ---
 <section class="band band--ink" id="points" style="padding-bottom:0">
   <div class="wrap">
     <div class="rv" style="margin-bottom:clamp(2rem,6vh,4rem)">
-      <p class="label">Eight critical business inflection points</p>
-      <h2 class="display" style="max-width:13ch">This is why we get the call.</h2>
+      <p class="label">{content.paragraph}</p>
+      <h2 class="display" style="max-width:13ch">{content.heading}</h2>
     </div>
 
     <div class="pin" id="pin">
       <div class="pin__left">
-        <div class="pin__meta">Why Companies Choose Wyckoff</div>
+        <div class="pin__meta">{content.meta}</div>
         <div class="pin__numwrap" id="numWrap" aria-hidden="true">
           {points.map((p, i) => <div class={`pin__num${i === 0 ? " on" : ""}`}>{p.num}</div>)}
         </div>
@@ -26,14 +28,14 @@ import { inflectionPoints as points } from "../data/inflectionPoints";
         {points.map((p) => (
           <article class="pin__item">
             <h3 class="pin__mobtit"><span>{p.title}</span><span class="pin__mobnum">{p.num}</span></h3>
-            <div class="pin__seg"><h4>The challenge</h4><p>{p.challenge}</p></div>
-            <div class="pin__seg"><h4>What's needed</h4><p>{p.needed}</p></div>
+            <div class="pin__seg"><h4>{content.text}</h4><p>{p.challenge}</p></div>
+            <div class="pin__seg"><h4>{content.text2}</h4><p>{p.needed}</p></div>
             <a
               class="pin__link"
               href={`/inflection-points/#${p.slug}`}
               aria-label={`Explore ${p.title}`}
             >
-              Explore this inflection point <span aria-hidden="true">&rarr;</span>
+              {content.link} <span aria-hidden="true">&rarr;</span>
             </a>
           </article>
         ))}

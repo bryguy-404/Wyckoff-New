@@ -1,0 +1,608 @@
+{
+  "summaries": {
+    "inflectionPoints": {
+      "item01": {
+        "num": "01",
+        "slug": "growth-has-stalled",
+        "title": "Growth Has Stalled",
+        "challenge": "Revenue has plateaued. The pipeline is inconsistent. Growth has lost momentum.",
+        "needed": "A strategic reset, measurable KPIs, and a revenue-focused growth plan."
+      },
+      "item02": {
+        "num": "02",
+        "slug": "marketing-leadership-gap",
+        "title": "Marketing Leadership Gap",
+        "challenge": "Your marketing leader is gone, and the team lacks senior direction.",
+        "needed": "Immediate Fractional CMO leadership, stability, and a clear path forward."
+      },
+      "item03": {
+        "num": "03",
+        "slug": "entering-a-new-market",
+        "title": "Entering a New Market",
+        "challenge": "You’re expanding into a new industry, geography, service, or customer segment.",
+        "needed": "Sharp positioning, the right message, and a proven go-to-market strategy."
+      },
+      "item04": {
+        "num": "04",
+        "slug": "no-marketing-function",
+        "title": "No Marketing Function",
+        "challenge": "Growth has been driven by sales, relationships, and the founder—not a marketing system.",
+        "needed": "A scalable marketing foundation aligned with sales and revenue."
+      },
+      "item05": {
+        "num": "05",
+        "slug": "rebranding-or-repositioning",
+        "title": "Rebranding or Repositioning",
+        "challenge": "Your company has evolved, but your brand has not.",
+        "needed": "Stronger positioning, clearer messaging, and meaningful differentiation."
+      },
+      "item06": {
+        "num": "06",
+        "slug": "preparing-for-sale",
+        "title": "Preparing for Sale",
+        "challenge": "You want to maximize valuation and reduce dependence on the owner.",
+        "needed": "Predictable revenue, a compelling growth story, and stronger enterprise value."
+      },
+      "item07": {
+        "num": "07",
+        "slug": "merger-or-acquisition",
+        "title": "Merger or Acquisition",
+        "challenge": "Brands, teams, customers, and strategies must come together quickly.",
+        "needed": "Unified messaging, aligned go-to-market strategy, and confident communication."
+      },
+      "item08": {
+        "num": "08",
+        "slug": "private-equity-venture-backed-companies",
+        "title": "Private Equity & Venture-Backed Companies",
+        "challenge": "Your portfolio company needs experienced leadership to accelerate growth and increase enterprise value.",
+        "needed": "Executive Fractional CMO leadership, strategic alignment, and a proven value creation plan."
+      }
+    }
+  },
+  "details": {
+    "inflectionPointDetails": {
+      "growth-has-stalled": {
+        "slug": "growth-has-stalled",
+        "headline": "Revenue Growth Strategy for Companies Experiencing Stalled Growth",
+        "blocks": {
+          "item01": {
+            "type": "paragraph",
+            "text": "Has your company’s growth plateaued?",
+            "emphasis": "lead"
+          },
+          "item02": {
+            "type": "paragraph",
+            "text": "Many businesses reach a point where the strategies that fueled their initial success no longer produce the same results. Revenue levels off, customer acquisition slows, and leadership teams struggle to identify the next path forward."
+          },
+          "item03": {
+            "type": "paragraph",
+            "text": "Wyckoff Consulting helps companies from $3 million to $50 million+ in revenue break through growth plateaus by providing executive-level marketing leadership through a Fractional Chief Marketing Officer (CMO) model."
+          },
+          "item04": {
+            "type": "paragraph",
+            "text": "We begin by identifying the root causes of stalled growth, including market positioning challenges, ineffective messaging, lead generation issues, sales and marketing misalignment, or changing customer behavior. From there, we develop and execute a strategic growth plan focused on increasing revenue, improving profitability, and creating sustainable demand."
+          },
+          "item05": {
+            "type": "paragraph",
+            "text": "Whether your organization has hit a ceiling or simply needs a fresh perspective, Wyckoff Consulting provides the strategic leadership necessary to reignite growth and build momentum."
+          },
+          "item06": {
+            "type": "list",
+            "heading": "Common Signs You Need a Growth Strategy",
+            "items": {
+              "item01": "Revenue has flattened over the last 12 to 24 months",
+              "item02": "Lead generation has become inconsistent",
+              "item03": "Marketing activities lack measurable ROI",
+              "item04": "Competitors are gaining market share",
+              "item05": "Sales teams are struggling to reach goals",
+              "item06": "Leadership lacks confidence in current marketing efforts"
+            }
+          },
+          "item07": {
+            "type": "list",
+            "heading": "How Wyckoff Consulting Helps",
+            "items": {
+              "item01": "Revenue growth planning",
+              "item02": "Market analysis and competitive positioning",
+              "item03": "Customer acquisition strategies",
+              "item04": "Sales and marketing alignment",
+              "item05": "Demand generation programs",
+              "item06": "Marketing performance measurement"
+            }
+          },
+          "item08": {
+            "type": "callout",
+            "text": "If your business has stopped growing, it may be time for a new strategy—not more tactics."
+          }
+        }
+      },
+      "marketing-leadership-gap": {
+        "slug": "marketing-leadership-gap",
+        "headline": "Fractional CMO Services for Companies Facing a Marketing Leadership Gap",
+        "blocks": {
+          "item01": {
+            "type": "paragraph",
+            "text": "Has your marketing leader left the organization?",
+            "emphasis": "lead"
+          },
+          "item02": {
+            "type": "paragraph",
+            "text": "Whether your Chief Marketing Officer, Marketing Director, or senior marketing leader has resigned, retired, or been terminated, the business cannot afford to lose momentum while searching for a replacement."
+          },
+          "item03": {
+            "type": "paragraph",
+            "text": "Wyckoff Consulting provides experienced Fractional CMO leadership to bridge the gap between marketing executives. We step in quickly to stabilize operations, lead internal teams, manage vendors, maintain strategic initiatives, and provide executive-level guidance during the transition."
+          },
+          "item04": {
+            "type": "paragraph",
+            "text": "This allows business owners and CEOs to continue focusing on operations and growth while ensuring marketing remains aligned with organizational goals."
+          },
+          "item05": {
+            "type": "list",
+            "heading": "Ideal Situations for Fractional CMO Support",
+            "items": {
+              "item01": "Marketing executive departure",
+              "item02": "Unexpected leadership vacancy",
+              "item03": "Company restructuring",
+              "item04": "Executive search in progress",
+              "item05": "Rapid growth requiring interim leadership"
+            }
+          },
+          "item06": {
+            "type": "list",
+            "heading": "Benefits of an Interim Fractional CMO",
+            "items": {
+              "item01": "Immediate executive-level expertise",
+              "item02": "No long-term employment commitment",
+              "item03": "Strategic continuity",
+              "item04": "Team leadership and accountability",
+              "item05": "Objective outside perspective"
+            }
+          },
+          "item07": {
+            "type": "callout",
+            "text": "When your marketing leadership changes, your growth strategy should not."
+          }
+        }
+      },
+      "entering-a-new-market": {
+        "slug": "entering-a-new-market",
+        "headline": "Go-To-Market Strategy for Companies Entering New Markets",
+        "blocks": {
+          "item01": {
+            "type": "paragraph",
+            "text": "Expanding into a new market presents significant opportunity—and significant risk.",
+            "emphasis": "lead"
+          },
+          "item02": {
+            "type": "paragraph",
+            "text": "Whether your organization is launching a new service, targeting a new customer segment, expanding geographically, or entering a new industry vertical, success requires more than marketing tactics. It requires a strategic go-to-market plan."
+          },
+          "item03": {
+            "type": "paragraph",
+            "text": "Wyckoff Consulting helps organizations develop and execute market entry strategies that reduce risk and accelerate growth."
+          },
+          "item04": {
+            "type": "paragraph",
+            "text": "Our team evaluates market opportunities, competitive landscapes, customer needs, positioning strategies, messaging frameworks, and sales enablement requirements to ensure your expansion efforts are successful."
+          },
+          "item05": {
+            "type": "list",
+            "heading": "Common Market Expansion Challenges",
+            "items": {
+              "item01": "Unclear customer demand",
+              "item02": "Lack of market intelligence",
+              "item03": "Weak differentiation",
+              "item04": "Inconsistent messaging",
+              "item05": "Misaligned sales and marketing efforts"
+            }
+          },
+          "item06": {
+            "type": "list",
+            "heading": "Our Market Entry Services Include",
+            "items": {
+              "item01": "Market research",
+              "item02": "Customer segmentation",
+              "item03": "Competitive analysis",
+              "item04": "Positioning strategy",
+              "item05": "Go-to-market planning",
+              "item06": "Sales enablement"
+            }
+          },
+          "item07": {
+            "type": "callout",
+            "text": "Entering a new market should be a calculated growth strategy—not a guessing game."
+          }
+        }
+      },
+      "no-marketing-function": {
+        "slug": "no-marketing-function",
+        "headline": "Fractional CMO Services for Companies Without a Marketing Department",
+        "blocks": {
+          "item01": {
+            "type": "paragraph",
+            "text": "Many successful companies reach $3 million, $10 million, or even $20 million in revenue without ever hiring a dedicated marketing leader.",
+            "emphasis": "lead"
+          },
+          "item02": {
+            "type": "paragraph",
+            "text": "Growth often comes from founder relationships, referrals, networking, or sales-driven efforts. Eventually, however, organizations need a scalable marketing engine to support continued growth."
+          },
+          "item03": {
+            "type": "paragraph",
+            "text": "Wyckoff Consulting helps businesses establish their first formal marketing function."
+          },
+          "item04": {
+            "type": "paragraph",
+            "text": "We provide executive leadership, strategic planning, marketing systems, performance measurement, and operational structure that create long-term scalability."
+          },
+          "item05": {
+            "type": "list",
+            "heading": "We Help Companies Build",
+            "items": {
+              "item01": "Marketing strategy",
+              "item02": "Brand positioning",
+              "item03": "Lead generation systems",
+              "item04": "Marketing technology stacks",
+              "item05": "Performance dashboards",
+              "item06": "Internal marketing teams"
+            }
+          },
+          "item06": {
+            "type": "list",
+            "heading": "Who This Is For",
+            "items": {
+              "item01": "Founder-led companies",
+              "item02": "Family-owned businesses",
+              "item03": "Growing organizations without a marketing leader",
+              "item04": "Businesses preparing for expansion"
+            }
+          },
+          "item07": {
+            "type": "callout",
+            "text": "Building a marketing department is one of the most important investments a growing company can make. We help ensure it is built correctly from the start."
+          }
+        }
+      },
+      "rebranding-or-repositioning": {
+        "slug": "rebranding-or-repositioning",
+        "headline": "Corporate Rebranding and Market Positioning Services",
+        "blocks": {
+          "item01": {
+            "type": "paragraph",
+            "text": "Your brand should reflect who your company is today—not who it was ten years ago.",
+            "emphasis": "lead"
+          },
+          "item02": {
+            "type": "paragraph",
+            "text": "As organizations grow, acquire companies, launch new services, or evolve their business models, their brand often falls behind."
+          },
+          "item03": {
+            "type": "paragraph",
+            "text": "Wyckoff Consulting helps companies modernize their market positioning, messaging, and brand strategy to better align with current business objectives and future growth goals."
+          },
+          "item04": {
+            "type": "paragraph",
+            "text": "Our approach goes beyond logos and colors. We focus on creating a strategic market position that strengthens customer perception, supports sales efforts, and drives business growth."
+          },
+          "item05": {
+            "type": "list",
+            "heading": "Reasons Companies Rebrand",
+            "items": {
+              "item01": "Growth and expansion",
+              "item02": "New leadership",
+              "item03": "Mergers and acquisitions",
+              "item04": "Outdated brand image",
+              "item05": "New product offerings",
+              "item06": "Competitive pressures"
+            }
+          },
+          "item06": {
+            "type": "list",
+            "heading": "Our Rebranding Services Include",
+            "items": {
+              "item01": "Brand strategy",
+              "item02": "Positioning development",
+              "item03": "Messaging architecture",
+              "item04": "Customer perception analysis",
+              "item05": "Visual identity guidance",
+              "item06": "Internal brand adoption"
+            }
+          },
+          "item07": {
+            "type": "callout",
+            "text": "A successful rebrand creates clarity, confidence, and competitive advantage."
+          }
+        }
+      },
+      "preparing-for-sale": {
+        "slug": "preparing-for-sale",
+        "headline": "Marketing Strategy for Business Owners Preparing to Sell Their Company",
+        "blocks": {
+          "item01": {
+            "type": "paragraph",
+            "text": "A company’s value is not determined solely by financial performance.",
+            "emphasis": "lead"
+          },
+          "item02": {
+            "type": "paragraph",
+            "text": "Buyers evaluate market position, customer relationships, growth potential, brand strength, and the predictability of future revenue."
+          },
+          "item03": {
+            "type": "paragraph",
+            "text": "Wyckoff Consulting helps business owners prepare their companies for sale by strengthening the marketing and growth systems that drive valuation."
+          },
+          "item04": {
+            "type": "paragraph",
+            "text": "We work with owners 12 to 36 months before a planned exit to improve market perception, reduce founder dependency, document growth processes, and create a compelling growth story for potential buyers."
+          },
+          "item05": {
+            "type": "list",
+            "heading": "How Marketing Impacts Company Valuation",
+            "items": {
+              "item01": "Brand equity",
+              "item02": "Customer acquisition systems",
+              "item03": "Revenue predictability",
+              "item04": "Market differentiation",
+              "item05": "Customer retention",
+              "item06": "Growth opportunities"
+            }
+          },
+          "item06": {
+            "type": "list",
+            "heading": "Exit Readiness Services",
+            "items": {
+              "item01": "Strategic positioning",
+              "item02": "Growth planning",
+              "item03": "Brand strengthening",
+              "item04": "Marketing infrastructure development",
+              "item05": "Customer experience optimization",
+              "item06": "Investor and buyer presentation support"
+            }
+          },
+          "item07": {
+            "type": "callout",
+            "text": "The best time to prepare your business for sale is long before it goes to market."
+          }
+        }
+      },
+      "merger-or-acquisition": {
+        "slug": "merger-or-acquisition",
+        "headline": "Marketing Leadership for Mergers and Acquisitions",
+        "blocks": {
+          "item01": {
+            "type": "paragraph",
+            "text": "Mergers and acquisitions create opportunities for growth, but they also create uncertainty.",
+            "emphasis": "lead"
+          },
+          "item02": {
+            "type": "paragraph",
+            "text": "Customers, employees, vendors, and stakeholders often have questions about the future direction of the organization. Without a clear communication and branding strategy, confusion can slow momentum and reduce value."
+          },
+          "item03": {
+            "type": "paragraph",
+            "text": "Wyckoff Consulting helps organizations navigate marketing, branding, and communication challenges during mergers, acquisitions, and business integrations."
+          },
+          "item04": {
+            "type": "paragraph",
+            "text": "We provide executive-level guidance to align brands, messaging, customer communications, and go-to-market strategies across newly combined organizations."
+          },
+          "item05": {
+            "type": "list",
+            "heading": "Common M&A Marketing Challenges",
+            "items": {
+              "item01": "Multiple brands and identities",
+              "item02": "Conflicting market positions",
+              "item03": "Customer confusion",
+              "item04": "Internal communication gaps",
+              "item05": "Sales team alignment issues"
+            }
+          },
+          "item06": {
+            "type": "list",
+            "heading": "How We Help",
+            "items": {
+              "item01": "Brand integration strategy",
+              "item02": "Customer communication planning",
+              "item03": "Market positioning",
+              "item04": "Internal communication support",
+              "item05": "Sales and marketing alignment",
+              "item06": "Post-acquisition growth planning"
+            }
+          },
+          "item07": {
+            "type": "callout",
+            "text": "Successful integrations require more than operational alignment—they require market alignment."
+          }
+        }
+      },
+      "private-equity-venture-backed-companies": {
+        "slug": "private-equity-venture-backed-companies",
+        "headline": "Fractional CMO Services for Private Equity and Venture-Backed Portfolio Companies",
+        "subtitle": "Accelerating Growth, Increasing Enterprise Value, and Preparing Portfolio Companies for Successful Exits",
+        "blocks": {
+          "item01": {
+            "type": "paragraph",
+            "text": "Private equity firms and venture capital investors don’t invest in marketing.",
+            "emphasis": "lead"
+          },
+          "item02": {
+            "type": "callout",
+            "text": "They invest in growth."
+          },
+          "item03": {
+            "type": "paragraph",
+            "text": "When a portfolio company isn’t reaching its revenue potential, lacks experienced marketing leadership, or needs to accelerate growth before the next funding round or exit, bringing in an experienced executive can create immediate impact."
+          },
+          "item04": {
+            "type": "paragraph",
+            "text": "Wyckoff Consulting partners with private equity firms, venture capital firms, family offices, independent sponsors, and their portfolio companies by providing executive-level Fractional Chief Marketing Officer (CMO) leadership focused on increasing enterprise value."
+          },
+          "item05": {
+            "type": "paragraph",
+            "text": "Rather than hiring a full-time executive for every portfolio company, investment firms gain access to proven strategic marketing leadership that can quickly assess the business, identify growth opportunities, align sales and marketing, and implement scalable revenue systems."
+          },
+          "item06": {
+            "type": "callout",
+            "eyebrow": "Our objective is simple:",
+            "text": "Increase company value while reducing execution risk."
+          },
+          "item07": {
+            "type": "list",
+            "heading": "How Wyckoff Consulting Supports Portfolio Companies",
+            "intro": "Every portfolio company is different, but the challenges are often remarkably similar.",
+            "items": {
+              "item01": "Growth has stalled following an acquisition.",
+              "item02": "Sales and marketing operate independently.",
+              "item03": "The company lacks executive marketing leadership.",
+              "item04": "Customer acquisition costs continue to rise.",
+              "item05": "The organization is preparing for a recapitalization or exit.",
+              "item06": "Leadership needs an objective outside perspective.",
+              "item07": "Multiple portfolio companies require strategic oversight without adding permanent executive headcount."
+            },
+            "outro": "Wyckoff Consulting becomes an extension of both the investment firm and the portfolio company’s leadership team, providing strategic direction while helping management execute with confidence."
+          },
+          "item08": {
+            "type": "services",
+            "heading": "Strategic Services for Investors and Portfolio Companies",
+            "items": {
+              "item01": {
+                "title": "Executive Marketing Leadership",
+                "description": "Provide experienced Fractional CMO leadership without the cost or commitment of a full-time executive."
+              },
+              "item02": {
+                "title": "Growth Strategy Development",
+                "description": "Identify the highest-impact opportunities to accelerate revenue, improve profitability, and strengthen competitive positioning."
+              },
+              "item03": {
+                "title": "Due Diligence Support",
+                "description": "Evaluate a company’s marketing capabilities, competitive position, customer acquisition systems, brand strength, and growth potential before or after acquisition."
+              },
+              "item04": {
+                "title": "100-Day Growth Planning",
+                "description": "Develop and execute strategic initiatives that establish momentum immediately following an acquisition or investment."
+              },
+              "item05": {
+                "title": "Sales and Marketing Alignment",
+                "description": "Create measurable systems that improve lead quality, increase conversion rates, and support scalable growth."
+              },
+              "item06": {
+                "title": "Brand and Market Positioning",
+                "description": "Clarify market differentiation, strengthen messaging, and improve customer perception to support long-term value creation."
+              },
+              "item07": {
+                "title": "Exit Preparation",
+                "description": "Prepare portfolio companies for recapitalization, acquisition, or sale by strengthening marketing infrastructure, documenting growth systems, and building a compelling investment story."
+              }
+            }
+          },
+          "item09": {
+            "type": "final-section",
+            "heading": "Why Private Equity Firms Choose Wyckoff Consulting",
+            "content": {
+              "item01": {
+                "type": "paragraph",
+                "text": "Investment firms need experienced operators—not agencies.",
+                "emphasis": "lead"
+              },
+              "item02": {
+                "type": "paragraph",
+                "text": "Wyckoff Consulting provides executive-level leadership built on decades of experience helping organizations navigate periods of rapid growth, organizational change, market expansion, and strategic transformation."
+              },
+              "item03": {
+                "type": "paragraph",
+                "text": "Because every engagement is customized, investors gain the flexibility to deploy executive marketing leadership exactly where it creates the greatest return—whether that’s one portfolio company or an entire portfolio."
+              },
+              "item04": {
+                "type": "paragraph",
+                "text": "Our role is to help management teams make better strategic decisions, execute with greater confidence, and create measurable improvements that increase enterprise value."
+              }
+            }
+          },
+          "item10": {
+            "type": "final-section",
+            "heading": "Ideal Clients",
+            "content": {
+              "item01": {
+                "type": "list",
+                "intro": "Wyckoff Consulting works with:",
+                "items": {
+                  "item01": "Private Equity Firms",
+                  "item02": "Venture Capital Firms",
+                  "item03": "Family Offices",
+                  "item04": "Independent Sponsors",
+                  "item05": "Search Funds",
+                  "item06": "Holding Companies",
+                  "item07": "Portfolio Companies generating $3 million to $50 million+ in annual revenue"
+                }
+              }
+            }
+          },
+          "item11": {
+            "type": "final-section",
+            "heading": "Common Engagement Scenarios",
+            "content": {
+              "item01": {
+                "type": "list",
+                "intro": "Organizations typically engage Wyckoff Consulting when:",
+                "items": {
+                  "item01": "A newly acquired company needs strategic marketing leadership.",
+                  "item02": "Revenue growth has slowed across a portfolio company.",
+                  "item03": "An investment firm wants an independent assessment of marketing performance.",
+                  "item04": "A portfolio company is preparing for its next funding round.",
+                  "item05": "Leadership is preparing for an acquisition, recapitalization, or exit.",
+                  "item06": "Multiple portfolio companies require executive marketing expertise without adding permanent overhead."
+                }
+              }
+            }
+          },
+          "item12": {
+            "type": "final-section",
+            "heading": "Build Stronger Companies. Create Greater Enterprise Value.",
+            "content": {
+              "item01": {
+                "type": "paragraph",
+                "text": "Successful investments require more than operational improvements—they require sustainable revenue growth, differentiated market positioning, and executive leadership capable of transforming strategy into measurable results."
+              },
+              "item02": {
+                "type": "paragraph",
+                "text": "Wyckoff Consulting helps investment firms and portfolio company leadership teams build stronger businesses, accelerate growth, and maximize long-term enterprise value."
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "page": {
+    "title": "Inflection Points | Wyckoff Consulting",
+    "paragraph": "Inflection Points",
+    "text": "This is why we",
+    "text2": "get the call.",
+    "paragraph2": "Executive marketing leadership for $3M–$50M+ companies, at the moments that decide their next decade.",
+    "href": "/inflection-points/#point-index",
+    "linkLabel": "See all eight",
+    "paragraph3": "Eight critical business inflection points",
+    "text3": "Choose a moment",
+    "paragraph4": "Why Companies Choose Wyckoff",
+    "heading": "The moments that define a company’s future.",
+    "text4": "Point",
+    "text5": "Business moment",
+    "text6": "The challenge",
+    "text7": "What’s needed",
+    "paragraph5": "Inflection Point",
+    "text8": "The challenge",
+    "text9": "What’s needed"
+  },
+  "labels": {
+    "text": "Detailed strategy",
+    "moreClosed": "Explore how Wyckoff helps",
+    "text2": "with",
+    "moreOpen": "Close detailed strategy",
+    "text3": "for",
+    "paragraph": "Inflection Point",
+    "paragraph2": "· In depth",
+    "backHref": "/inflection-points/#point-index",
+    "back": "Back to all eight"
+  }
+}

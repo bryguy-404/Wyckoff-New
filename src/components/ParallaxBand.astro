@@ -1,4 +1,9 @@
+---
+import { contentImageSize } from "../lib/contentImages";
+import pageContent from "../data/pages/home.json";
+const content = pageContent.parallaxBand;
+---
 <div class="plxband" aria-hidden="true">
-  <img data-plx="0.16" src="/images/wyckoff/denver-aerial.webp" alt="" loading="lazy" width="1714" height="823" />
-  <div class="plxband__cap">Manufacturing &middot; Healthcare &middot; Industrial B2B &middot; 20+ verticals</div>
+  <img data-plx="0.16" src={content.src} alt="" loading="lazy" {...await contentImageSize(content.src)} />
+  <div class="plxband__cap">{content.cap}</div>
 </div>

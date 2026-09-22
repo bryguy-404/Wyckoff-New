@@ -1,4 +1,6 @@
 ---
+import pageContent from "../data/pages/inflectionPoints.json";
+const content = pageContent.labels;
 import type { InflectionPoint } from "../data/inflectionPoints";
 import type { InflectionPointDetail } from "../data/inflectionPointDetails";
 
@@ -14,16 +16,16 @@ const detailTitleId = `${point.slug}-detail-title`;
 <details class="point-row__more">
   <summary>
     <span class="point-row__more-copy">
-      <span>Detailed strategy</span>
-      <strong class="point-row__more-closed">Explore how Wyckoff helps<span class="sr-only"> with {point.title}</span></strong>
-      <strong class="point-row__more-open">Close detailed strategy<span class="sr-only"> for {point.title}</span></strong>
+      <span>{content.text}</span>
+      <strong class="point-row__more-closed">{content.moreClosed}<span class="sr-only"> {content.text2} {point.title}</span></strong>
+      <strong class="point-row__more-open">{content.moreOpen}<span class="sr-only"> {content.text3} {point.title}</span></strong>
     </span>
     <span class="point-row__more-icon" aria-hidden="true"></span>
   </summary>
 
   <div class="point-detail" aria-labelledby={detailTitleId}>
     <header class="point-detail__header">
-      <p>Inflection Point {point.num} &middot; In depth</p>
+      <p>{content.paragraph} {point.num} {content.paragraph2}</p>
       <h4 id={detailTitleId}>{detail.headline}</h4>
       {detail.subtitle && <p class="point-detail__subtitle">{detail.subtitle}</p>}
     </header>
@@ -95,8 +97,8 @@ const detailTitleId = `${point.slug}-detail-title`;
       })}
     </div>
 
-    <a class="point-detail__back" href="/inflection-points/#point-index">
-      Back to all eight <span aria-hidden="true">&uarr;</span>
+    <a class="point-detail__back" href={content.backHref}>
+      {content.back} <span aria-hidden="true">&uarr;</span>
     </a>
   </div>
 </details>

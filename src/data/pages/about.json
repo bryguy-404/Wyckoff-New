@@ -1,0 +1,422 @@
+{
+  "results": {
+    "annualResults": {
+      "item01": {
+        "year": "2023",
+        "title": "Built across every channel.",
+        "highlights": {
+          "item01": {
+            "value": "17%",
+            "label": "Reported average sales growth",
+            "detail": "Top-line revenue"
+          },
+          "item02": {
+            "value": "1,280",
+            "label": "Original social posts",
+            "detail": "Across 6 platforms"
+          },
+          "item03": {
+            "value": "$2.3M",
+            "label": "Digital ad spending"
+          }
+        },
+        "groups": {
+          "item01": {
+            "title": "Market presence",
+            "metrics": {
+              "item01": {
+                "value": "5",
+                "label": "Keynote speeches"
+              },
+              "item02": {
+                "value": "13",
+                "label": "Tradeshow designs"
+              },
+              "item03": {
+                "value": "23",
+                "label": "Published marketing articles"
+              }
+            }
+          },
+          "item02": {
+            "title": "Campaign volume",
+            "metrics": {
+              "item01": {
+                "value": "69",
+                "label": "New marketing materials"
+              },
+              "item02": {
+                "value": "890",
+                "label": "Email campaigns"
+              }
+            }
+          },
+          "item03": {
+            "title": "Growth initiatives",
+            "metrics": {
+              "item01": {
+                "value": "5",
+                "label": "New product launches"
+              },
+              "item02": {
+                "value": "7",
+                "label": "Product expansions"
+              }
+            }
+          }
+        }
+      },
+      "item02": {
+        "year": "2024",
+        "title": "Scale, without losing the details.",
+        "highlights": {
+          "item01": {
+            "value": "21%",
+            "label": "Reported average sales growth",
+            "detail": "Top-line revenue"
+          },
+          "item02": {
+            "value": "35,000+",
+            "label": "Leads generated",
+            "detail": "Across 5 clients",
+            "ariaLabel": "More than 35,000 leads generated across 5 clients"
+          },
+          "item03": {
+            "value": "1,885",
+            "label": "Original social posts",
+            "detail": "Across 6 platforms"
+          }
+        },
+        "groups": {
+          "item01": {
+            "title": "Market presence",
+            "metrics": {
+              "item01": {
+                "value": "7",
+                "label": "Keynote speeches"
+              },
+              "item02": {
+                "value": "6",
+                "label": "Tradeshow designs"
+              },
+              "item03": {
+                "value": "28",
+                "label": "Published marketing articles"
+              }
+            }
+          },
+          "item02": {
+            "title": "Campaign scale",
+            "metrics": {
+              "item01": {
+                "value": "84",
+                "label": "New marketing materials"
+              },
+              "item02": {
+                "value": "992",
+                "label": "Email campaigns"
+              },
+              "item03": {
+                "value": "$3.9M",
+                "label": "Digital ad spending"
+              }
+            }
+          },
+          "item03": {
+            "title": "Growth & leadership",
+            "metrics": {
+              "item01": {
+                "value": "11",
+                "label": "New product launches"
+              },
+              "item02": {
+                "value": "4",
+                "label": "Product expansions"
+              },
+              "item03": {
+                "value": "14",
+                "label": "Direct reports managed"
+              },
+              "item04": {
+                "value": "3",
+                "label": "Digital transformation sessions coached"
+              }
+            }
+          }
+        }
+      },
+      "item03": {
+        "year": "2025",
+        "title": "A wider footprint. A stronger finish.",
+        "highlights": {
+          "item01": {
+            "value": "22%",
+            "label": "Reported average sales growth",
+            "detail": "Top-line revenue"
+          },
+          "item02": {
+            "value": "12,000+",
+            "label": "Leads generated",
+            "detail": "Across 5 clients",
+            "ariaLabel": "More than 12,000 leads generated across 5 clients"
+          },
+          "item03": {
+            "value": "17",
+            "label": "Cities worked in",
+            "detail": "Across 5 countries",
+            "ariaLabel": "Worked in 17 cities across 5 countries"
+          }
+        },
+        "groups": {
+          "item01": {
+            "title": "Market presence",
+            "metrics": {
+              "item01": {
+                "value": "4",
+                "label": "Keynote speeches"
+              },
+              "item02": {
+                "value": "3",
+                "label": "Tradeshow designs"
+              },
+              "item03": {
+                "value": "2,965",
+                "label": "Original social posts",
+                "detail": "Across 6 platforms"
+              }
+            }
+          },
+          "item02": {
+            "title": "Campaign scale",
+            "metrics": {
+              "item01": {
+                "value": "84",
+                "label": "New marketing materials"
+              },
+              "item02": {
+                "value": "1,422",
+                "label": "Email campaigns"
+              },
+              "item03": {
+                "value": "$3.2M",
+                "label": "Digital ad spending"
+              }
+            }
+          },
+          "item03": {
+            "title": "Growth & leadership",
+            "metrics": {
+              "item01": {
+                "value": "6",
+                "label": "New product launches"
+              },
+              "item02": {
+                "value": "3",
+                "label": "Product expansions"
+              },
+              "item03": {
+                "value": "9",
+                "label": "Direct reports managed"
+              },
+              "item04": {
+                "value": "4",
+                "label": "AI transformation sessions coached"
+              }
+            }
+          }
+        }
+      }
+    },
+    "eyebrow": "The work in numbers",
+    "heading": "You expect results?",
+    "text": "Here is the report card.",
+    "lede": "Start with the outcomes that matter most. Then open the full annual report for the activity behind them.",
+    "kicker": "report card",
+    "text2": "View full",
+    "text3": "report card",
+    "text4": "supporting measures",
+    "disclosure": "Figures reflect annual activity and results reported by Wyckoff Consulting. Top-line sales growth figures are reported annual averages."
+  },
+  "lectures": {
+    "guestLectureLogos": {
+      "item01": {
+        "src": "/images/guest-lectures/ferris-state-university.webp",
+        "alt": "Ferris State University",
+        "width": 191,
+        "height": 268
+      },
+      "item02": {
+        "src": "/images/guest-lectures/university-of-findlay.webp",
+        "alt": "University of Findlay",
+        "width": 645,
+        "height": 500
+      },
+      "item03": {
+        "src": "/images/guest-lectures/university-of-michigan.webp",
+        "alt": "University of Michigan",
+        "width": 699,
+        "height": 500
+      },
+      "item04": {
+        "src": "/images/guest-lectures/university-of-colorado-boulder.webp",
+        "alt": "University of Colorado Boulder",
+        "width": 375,
+        "height": 274
+      },
+      "item05": {
+        "src": "/images/guest-lectures/grand-valley-state-university.webp",
+        "alt": "Grand Valley State University",
+        "width": 650,
+        "height": 500
+      },
+      "item06": {
+        "src": "/images/guest-lectures/university-of-denver.webp",
+        "alt": "University of Denver",
+        "width": 722,
+        "height": 500
+      },
+      "item07": {
+        "src": "/images/guest-lectures/brigham-young-university.webp",
+        "alt": "Brigham Young University",
+        "width": 556,
+        "height": 359
+      },
+      "item08": {
+        "src": "/images/guest-lectures/metropolitan-state-university-denver.svg",
+        "alt": "Metropolitan State University of Denver",
+        "width": 168,
+        "height": 141
+      }
+    },
+    "visibleLabel": "Where Luke has guest lectured",
+    "accessibleLabel": "Colleges and universities where Luke Wyckoff has guest lectured",
+    "keynoteLink": {
+      "label": "Explore Luke's keynote work",
+      "href": "https://lukewyckoff.com/"
+    },
+    "speakingImage": {
+      "src": "/images/wyckoff/luke-speaking.webp",
+      "alt": "A collage of Luke Wyckoff speaking and engaging with an audience",
+      "width": 940,
+      "height": 788
+    }
+  },
+  "seo": {
+    "title": "About Luke Wyckoff | Wyckoff Consulting",
+    "description": "Meet Luke Wyckoff, a Fractional Chief Marketing Officer bringing more than three decades of executive growth leadership across 20+ industries and 12 countries."
+  },
+  "hero": {
+    "eyebrow": "About Luke Wyckoff",
+    "titleLine": "Three decades of",
+    "titleLine2": "cross-industry experience.",
+    "titleLine3": "One goal:",
+    "titleLine4": "accelerate your growth.",
+    "lede": "Strategic perspective built across 20+ industries and 12 countries.",
+    "linkHref": "#executive-leadership",
+    "link": "Meet your future Fractional CMO",
+    "text": "Fractional Chief Marketing Officer",
+    "text2": "In practice since 1993",
+    "emphasis": "30+",
+    "text3": "Years of executive experience",
+    "emphasis2": "20+",
+    "text4": "Industries served",
+    "text5": "Countries",
+    "countriesValue": "12"
+  },
+  "perspective": {
+    "paragraph": "Cross-Industry Perspective",
+    "line": "The best idea for",
+    "line2": "your business",
+    "line3": "may come from",
+    "line4": "somewhere else.",
+    "standfirst": "The most valuable ideas rarely come from inside your own industry.",
+    "paragraph2": "Companies engage Wyckoff Consulting because they want more than industry expertise—they want an executive advisor who brings fresh thinking, proven growth strategies, and executive-level experience from organizations around the world.",
+    "paragraph3": "For more than 30 years, Luke Wyckoff has helped business owners, CEOs, executive teams, private equity firms, and portfolio companies solve complex growth challenges across more than",
+    "emphasis3": "20 industries in 12 countries",
+    "paragraph4": "This breadth of experience allows clients to benefit from proven strategies that competitors often overlook because they're too focused on “the way our industry has always done it.”",
+    "paragraph5": "Instead of applying a one-size-fits-all marketing approach, Wyckoff Consulting identifies the best ideas from multiple industries and adapts them to fit your business, your market, and your growth objectives.",
+    "text6": "Wyckoff Principle",
+    "paragraph6": "Innovation happens when successful ideas cross industry boundaries.",
+    "emphasis4": "That's where competitive advantage is created."
+  },
+  "industries": {
+    "industries": {
+      "item01": "Manufacturing & Industrial",
+      "item02": "Private Equity & Venture Capital",
+      "item03": "Professional, Scientific & Technical Services",
+      "item04": "Information Technology & Software",
+      "item05": "Healthcare & Healthcare Technology",
+      "item06": "Financial Services & Insurance",
+      "item07": "Energy & Utilities",
+      "item08": "Defense & Aerospace",
+      "item09": "Consumer Products",
+      "item10": "Retail & E-Commerce",
+      "item11": "Telecommunications",
+      "item12": "Education & Higher Education",
+      "item13": "Market Research",
+      "item14": "Travel & Hospitality",
+      "item15": "Media, Communications & Entertainment",
+      "item16": "Natural Resources",
+      "item17": "Sports & Recreation",
+      "item18": "Faith-Based Organizations",
+      "item19": "Political Organizations",
+      "item20": "Scientific Research"
+    },
+    "paragraph7": "Industries Served",
+    "paragraph8": "Perspective earned across markets, business models, and moments of change.",
+    "closing": "Whether your company generates",
+    "emphasis5": "$3 million or $50 million+ in annual revenue",
+    "closing2": ", the challenges of growth, differentiation, leadership, and value creation are remarkably similar. Wyckoff Consulting brings the strategic perspective, cross-industry experience, and executive leadership needed to help organizations solve those challenges—and capitalize on opportunities others never see."
+  },
+  "leadership": {
+    "paragraph9": "The Fractional Chief Marketing Officer",
+    "line5": "Executive leadership",
+    "line6": "when your business",
+    "line7": "needs it most.",
+    "opening": "Growing companies don't hire Wyckoff Consulting because they need another marketing agency.",
+    "paragraph10": "They engage a Fractional Chief Marketing Officer because they're facing an important business decision—and they need experienced executive leadership to help them move forward with confidence.",
+    "paragraph11": "For more than 30 years, Luke Wyckoff has partnered with business owners, CEOs, executive teams, private equity firms, and portfolio companies to navigate the moments that define a company's future.",
+    "paragraph12": "Whether growth has stalled, leadership has changed, a company is entering a new market, preparing for a sale, integrating an acquisition, or building its first marketing function, Wyckoff Consulting provides the strategic direction and executive leadership needed to accelerate growth and increase enterprise value."
+  },
+  "expectations": {
+    "expectations": {
+      "item01": {
+        "title": "Executive Perspective",
+        "body": "Receive executive-level guidance that aligns marketing, sales, operations, and financial objectives into one cohesive growth strategy."
+      },
+      "item02": {
+        "title": "Strategic Partnership",
+        "body": "Work with a trusted advisor who becomes an extension of your leadership team and is fully invested in your company's long-term success."
+      },
+      "item03": {
+        "title": "Growth-Focused Leadership",
+        "body": "Every recommendation is designed to increase revenue, improve profitability, strengthen your competitive position, and create long-term enterprise value."
+      },
+      "item04": {
+        "title": "Proven Experience",
+        "body": "Benefit from more than three decades of helping organizations across 20+ industries and 12 countries solve complex growth challenges."
+      },
+      "item05": {
+        "title": "Decisive Execution",
+        "body": "Ideas create opportunity. Execution creates results. Wyckoff Consulting helps leadership teams turn strategy into measurable business outcomes."
+      },
+      "item06": {
+        "title": "Customized Solutions",
+        "body": "No two companies face the same challenges. Every engagement is tailored to your business, your leadership team, and your growth objectives."
+      },
+      "item07": {
+        "title": "Confidence During Change",
+        "body": "From leadership transitions and market expansion to mergers, acquisitions, and exit planning, receive experienced guidance during your company's most important moments."
+      },
+      "item08": {
+        "title": "A Partner Invested in Your Success",
+        "body": "Your business goals become our mission. Every engagement is driven by integrity, accountability, urgency, and an unwavering commitment to helping your company reach its next stage of growth."
+      }
+    },
+    "paragraph13": "What You Can Expect",
+    "line8": "A senior partner for",
+    "line9": "the decisions that shape",
+    "line10": "what comes next.",
+    "paragraph14": "Clear thinking, decisive execution, and an unwavering commitment to creating long-term enterprise value."
+  }
+}

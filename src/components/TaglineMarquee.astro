@@ -1,5 +1,8 @@
 ---
-const words = ["Strategy", "Growth", "Enterprise Value", "A Stronger Business", "A Stronger Future"];
+import pageContent from "../data/pages/home.json";
+const content = pageContent.taglineMarquee;
+import { fromContentSlots } from "../lib/contentSlots";
+const words = fromContentSlots(content.words);
 // The design doubles the word list inside each track, and doubles the track,
 // so the CSS translateX(-100%) loop never shows a gap.
 const track = [...words, ...words];

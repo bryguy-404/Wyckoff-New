@@ -1,4 +1,6 @@
 ---
+import pageContent from "../../data/pages/insights.json";
+const content = pageContent.listing;
 import { getCollection } from "astro:content";
 import InsightCard from "../../components/insights/InsightCard.astro";
 import InsightsHero from "../../components/insights/InsightsHero.astro";
@@ -16,8 +18,8 @@ const remaining = insights.slice(1);
 ---
 
 <Layout
-  title="Insights | Wyckoff Consulting"
-  description="Explore Wyckoff Consulting insights on marketing leadership, growth, sales, strategy, and the decisions that shape enterprise value."
+  title={content.title}
+  description={content.description}
   image={featured?.data.featuredImage}
   imageAlt={featured?.data.featuredImageAlt}
   canonicalPath="/insights/"
@@ -27,8 +29,8 @@ const remaining = insights.slice(1);
   ) : (
     <header class="insights-empty-hero" id="top" data-nav-dark>
       <div class="wrap">
-        <p>Insights</p>
-        <h1>Wyckoff&rsquo;s Thought Leadership</h1>
+        <p>{pageContent.hero.eyebrow}</p>
+        <h1>{pageContent.hero.heading}</h1>
       </div>
     </header>
   )}
@@ -37,10 +39,10 @@ const remaining = insights.slice(1);
     <div class="wrap">
       <header class="insights-archive__heading">
         <div>
-          <p>Full collection</p>
-          <h2 id="all-insights-title">All insights.</h2>
+          <p>{content.paragraph2}</p>
+          <h2 id="all-insights-title">{content.heading2}</h2>
         </div>
-        <p>{insights.length} {insights.length === 1 ? "article" : "articles"}</p>
+        <p>{insights.length} {insights.length === 1 ? content.articleSingular : content.articlePlural}</p>
       </header>
 
       {remaining.length > 0 ? (
@@ -50,9 +52,9 @@ const remaining = insights.slice(1);
           ))}
         </div>
       ) : featured ? (
-        <p class="insights-archive__empty">More perspectives are on the way.</p>
+        <p class="insights-archive__empty">{content.empty}</p>
       ) : (
-        <p class="insights-archive__empty">Insights will be published here soon.</p>
+        <p class="insights-archive__empty">{content.empty2}</p>
       )}
     </div>
   </section>

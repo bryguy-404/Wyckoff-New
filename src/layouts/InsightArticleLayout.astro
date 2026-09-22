@@ -1,4 +1,8 @@
 ---
+import { contentImage } from "../lib/contentImages";
+import sharedContent from "../data/pages/shared.json";
+import pageContent from "../data/pages/insights.json";
+const content = pageContent.article;
 import InsightCard from "../components/insights/InsightCard.astro";
 import Layout from "./Layout.astro";
 import {
@@ -15,6 +19,7 @@ interface Props {
 }
 
 const { entry, related } = Astro.props;
+const featuredImage = await contentImage(entry.data.featuredImage);
 const category = getDisplayCategory(entry);
 const author =
   entry.data.author && entry.data.author.trim().toLowerCase() !== "admin"
@@ -45,14 +50,14 @@ const articleSchema = {
     : undefined,
   publisher: {
     "@type": "Organization",
-    name: "Wyckoff Consulting",
+    name: sharedContent.business.name,
     url: new URL("/", canonical).href,
   },
 };
 ---
 
 <Layout
-  title={`${entry.data.title} | Wyckoff Consulting`}
+  title={`${entry.data.title} | ${sharedContent.business.name}`}
   description={entry.data.description}
   image={entry.data.featuredImage}
   imageAlt={entry.data.featuredImageAlt}
@@ -66,41 +71,39 @@ const articleSchema = {
     <header class="insight-article__hero" id="top" data-nav-dark>
       <div class="insight-article__texture" aria-hidden="true"></div>
       <div class="wrap insight-article__hero-inner">
-        <a class="insight-article__back" href="/insights/">
-          <span aria-hidden="true">&larr;</span> All insights
+        <a class="insight-article__back" href={content.backHref}>
+          <span aria-hidden="true">&larr;</span> {content.back}
         </a>
 
         <div class="insight-article__heading">
           <p class="insight-article__meta">
-            <span>Insight</span>
+            <span>{content.text}</span>
             <time datetime={getInsightDateTime(entry.data.publishedAt)}>
               {formatInsightDate(entry.data.publishedAt)}
             </time>
             {category && <span>{category}</span>}
-            {author && <span>By {author}</span>}
+            {author && <span>{content.text2} {author}</span>}
           </p>
           <h1>{entry.data.title}</h1>
           <p class="insight-article__description">{entry.data.description}</p>
           {showUpdatedDate && entry.data.updatedAt && (
             <p class="insight-article__updated">
-              Updated <time datetime={getInsightDateTime(entry.data.updatedAt)}>{formatInsightDate(entry.data.updatedAt)}</time>
+              {content.updated} <time datetime={getInsightDateTime(entry.data.updatedAt)}>{formatInsightDate(entry.data.updatedAt)}</time>
             </p>
           )}
         </div>
 
         <figure
           class="insight-article__featured"
-          style={`--featured-width:${entry.data.featuredImageWidth}px`}
+          style={`--featured-width:${featuredImage.width}px`}
         >
           <img
             src={entry.data.featuredImage}
             alt={entry.data.featuredImageAlt}
-            width={entry.data.featuredImageWidth}
-            height={entry.data.featuredImageHeight}
             loading="eager"
             fetchpriority="high"
             decoding="async"
-          />
+          {...{width: featuredImage.width, height: featuredImage.height}} />
         </figure>
       </div>
     </header>
@@ -112,12 +115,12 @@ const articleSchema = {
 
       <aside class="insight-article__cta" aria-labelledby="insight-cta-title">
         <div>
-          <p>The next step</p>
-          <h2 id="insight-cta-title">Let&rsquo;s discuss profitable growth.</h2>
+          <p>{sharedContent.contact.eyebrow}</p>
+          <h2 id="insight-cta-title">{sharedContent.contact.heading.replaceAll("'", "’")}</h2>
         </div>
         <div>
-          <p>Tell us what&rsquo;s shifted in the business. If there&rsquo;s a fit, you&rsquo;ll hear back directly from Luke.</p>
-          <a href="/#contact">Start a conversation <span aria-hidden="true">&rarr;</span></a>
+          <p>{sharedContent.contact.intro.replaceAll("'", "’")}</p>
+          <a href={sharedContent.navigation.contact.href}>{sharedContent.contact.linkLabel} <span aria-hidden="true">&rarr;</span></a>
         </div>
       </aside>
     </div>
@@ -128,10 +131,10 @@ const articleSchema = {
       <div class="wrap">
         <header class="related-insights__heading">
           <div>
-            <p>More insights</p>
-            <h2 id="related-insights-title">Continue reading.</h2>
+            <p>{content.paragraph3}</p>
+            <h2 id="related-insights-title">{content.heading2}</h2>
           </div>
-          <a href="/insights/">View all insights <span aria-hidden="true">&rarr;</span></a>
+          <a href={content.href2}>{content.linkLabel2} <span aria-hidden="true">&rarr;</span></a>
         </header>
         <div class="related-insights__grid">
           {related.map((relatedEntry) => <InsightCard entry={relatedEntry} />)}

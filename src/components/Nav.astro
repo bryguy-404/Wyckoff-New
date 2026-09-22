@@ -1,4 +1,6 @@
 ---
+import pageContent from "../data/pages/shared.json";
+const content = pageContent.header;
 import BrandLogo from "./BrandLogo.astro";
 
 const pathname = Astro.url.pathname.replace(/\/+$/, "") || "/";
@@ -6,14 +8,14 @@ const onHome = pathname === "/";
 const onInflectionPoints = pathname === "/inflection-points" || pathname.startsWith("/inflection-points/");
 const onInsights = pathname === "/insights" || pathname.startsWith("/insights/");
 const links = [
-  { href: "/inflection-points/", label: "Inflection Points", cta: false, current: onInflectionPoints },
-  { href: "/about", label: "About", cta: false, current: pathname === "/about" },
-  { href: "/insights", label: "Insights", cta: false, current: onInsights },
-  { href: onHome ? "#contact" : "/#contact", label: "Start a Conversation", cta: true, current: false },
+  { ...pageContent.navigation.inflectionPoints, cta: false, current: onInflectionPoints },
+  { ...pageContent.navigation.about, cta: false, current: pathname === "/about" },
+  { ...pageContent.navigation.insights, cta: false, current: onInsights },
+  { ...pageContent.navigation.contact, href: onHome && pageContent.navigation.contact.href === "/#contact" ? "#contact" : pageContent.navigation.contact.href, cta: true, current: false },
 ];
 ---
 <nav class="nav" id="nav" aria-label="Main navigation">
-  <a class="nav__brand" href={onHome ? "#top" : "/"} aria-label="Wyckoff Consulting, home">
+  <a class="nav__brand" href={onHome ? "#top" : "/"} aria-label={pageContent.business.homeLabel}>
     <BrandLogo variant="lockup" class="nav__logo" />
   </a>
 
@@ -38,7 +40,7 @@ const links = [
 
   <div class="nav__overlay" id="mobile-menu" aria-hidden="true" inert>
     <div class="nav__overlay-inner">
-      <p class="nav__overlay-label">Navigate</p>
+      <p class="nav__overlay-label">{content.overlayLabel}</p>
       <div class="nav__overlay-links">
         {links.map((link, index) => (
           <a
@@ -52,7 +54,7 @@ const links = [
           </a>
         ))}
       </div>
-      <p class="nav__overlay-note">Executive marketing leadership since 1993.</p>
+      <p class="nav__overlay-note">{content.overlayNote}</p>
     </div>
   </div>
 </nav>

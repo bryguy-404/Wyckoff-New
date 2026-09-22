@@ -1,11 +1,14 @@
 ---
+import { contentImageSize } from "../lib/contentImages";
+import pageContent from "../data/pages/home.json";
+const content = pageContent.hero;
 const heroVideo = "/videos/luke-wyckoff-hero.mp4";
 ---
 <header class="hero" id="top">
   <div class="hero__media" aria-hidden="true">
-    <img class="hero__fallback" src="/images/hero-fallback.jpg" alt="" width="1800" height="1200" fetchpriority="high" />
+    <img class="hero__fallback" src={content.fallbackSrc} alt="" fetchpriority="high" {...await contentImageSize(content.fallbackSrc)} />
     <video class="hero__video" id="heroVideo" autoplay muted loop playsinline preload="metadata"
-      poster="/images/hero-poster.jpg">
+      poster={content.videoPoster}>
       <source src={heroVideo} type="video/mp4" />
     </video>
   </div>
@@ -13,16 +16,16 @@ const heroVideo = "/videos/luke-wyckoff-hero.mp4";
   <div class="hero__grain" aria-hidden="true"></div>
 
   <div class="hero__inner wrap" id="heroInner">
-    <p class="hero__kicker">Fractional Chief Marketing Officer</p>
+    <p class="hero__kicker">{content.kicker}</p>
     <h1 class="display display--xl">
-      <span class="ln"><span>The EBITDA you want next year </span></span>
-      <span class="ln"><span>will have a direct causation </span></span>
-      <span class="ln"><span class="soft">to the Marketing decisions you </span></span>
-      <span class="ln"><span class="soft">make next quarter.</span></span>
+      <span class="ln"><span>{content.headingLine1} </span></span>
+      <span class="ln"><span>{content.headingLine2} </span></span>
+      <span class="ln"><span class="soft">{content.headingLine3} </span></span>
+      <span class="ln"><span class="soft">{content.headingLine4}</span></span>
     </h1>
     <div class="hero__foot">
-      <p class="hero__sub">Executive marketing leadership for $3M–$50M+ companies, at the moments that decide their next decade.</p>
-      <a class="textlink" href="/inflection-points/">See the eight inflection points &rarr;</a>
+      <p class="hero__sub">{content.sub}</p>
+      <a class="textlink" href={content.linkHref}>{content.linkLabel}</a>
     </div>
   </div>
 </header>

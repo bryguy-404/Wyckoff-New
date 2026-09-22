@@ -1,0 +1,4062 @@
+# Existing-content editor. Layout, routes and publishing controls remain in code.
+# Preserve omitted publication/legacy metadata with settings.content.merge.
+media:
+  - name: images
+    label: Image library
+    input: public/images
+    output: /images
+    extensions:
+      - jpg
+      - jpeg
+      - png
+      - webp
+      - svg
+      - avif
+    rename: safe
+content:
+  - name: shared
+    label: Shared · business, header, footer & contact
+    type: file
+    path: src/data/pages/shared.json
+    format: json
+    operations:
+      create: false
+      rename: false
+      delete: false
+    fields:
+      - name: business
+        label: Business details & shared portrait
+        type: object
+        fields:
+          - name: name
+            label: Name
+            type: string
+            required: true
+          - name: linkedInUrl
+            label: Linked In Url
+            type: string
+            required: true
+            pattern:
+              regex: ^(https?://[^\s]+|mailto:[^\s]+|tel:[^\s]+|/(?!/)[^\s]*|#[^\s]+)$
+              message: Use a site path (/about), anchor (#contact), or full https:// URL.
+          - name: homeLabel
+            label: Home Label
+            type: string
+            required: true
+          - name: socialImage
+            label: Social Image
+            type: image
+            required: true
+            options:
+              media: images
+            description: Select or upload a replacement. Dimensions are detected automatically; the existing
+              crop and layout stay fixed.
+          - name: socialImageAlt
+            label: Image description (alt text)
+            type: string
+            required: true
+          - name: portrait
+            label: Portrait
+            type: object
+            fields:
+              - name: src
+                label: Src
+                type: image
+                required: true
+                options:
+                  media: images
+                description: Select or upload a replacement. Dimensions are detected automatically; the existing
+                  crop and layout stay fixed.
+              - name: alt
+                label: Image description (alt text)
+                type: string
+                required: true
+      - name: navigation
+        label: Header & footer links
+        type: object
+        fields:
+          - name: inflectionPoints
+            label: Inflection Points
+            type: object
+            fields:
+              - name: label
+                label: Label
+                type: string
+                required: true
+              - name: href
+                label: Link destination
+                type: string
+                required: true
+                pattern:
+                  regex: ^(https?://[^\s]+|mailto:[^\s]+|tel:[^\s]+|/(?!/)[^\s]*|#[^\s]+)$
+                  message: Use a site path (/about), anchor (#contact), or full https:// URL.
+          - name: about
+            label: About
+            type: object
+            fields:
+              - name: label
+                label: Label
+                type: string
+                required: true
+              - name: href
+                label: Link destination
+                type: string
+                required: true
+                pattern:
+                  regex: ^(https?://[^\s]+|mailto:[^\s]+|tel:[^\s]+|/(?!/)[^\s]*|#[^\s]+)$
+                  message: Use a site path (/about), anchor (#contact), or full https:// URL.
+          - name: insights
+            label: Insights
+            type: object
+            fields:
+              - name: label
+                label: Label
+                type: string
+                required: true
+              - name: href
+                label: Link destination
+                type: string
+                required: true
+                pattern:
+                  regex: ^(https?://[^\s]+|mailto:[^\s]+|tel:[^\s]+|/(?!/)[^\s]*|#[^\s]+)$
+                  message: Use a site path (/about), anchor (#contact), or full https:// URL.
+          - name: contact
+            label: Contact
+            type: object
+            fields:
+              - name: label
+                label: Label
+                type: string
+                required: true
+              - name: footerLabel
+                label: Footer Label
+                type: string
+                required: true
+              - name: href
+                label: Link destination
+                type: string
+                required: true
+                pattern:
+                  regex: ^(https?://[^\s]+|mailto:[^\s]+|tel:[^\s]+|/(?!/)[^\s]*|#[^\s]+)$
+                  message: Use a site path (/about), anchor (#contact), or full https:// URL.
+      - name: header
+        label: Mobile navigation
+        type: object
+        fields:
+          - name: overlayLabel
+            label: Overlay Label
+            type: string
+            required: true
+          - name: overlayNote
+            label: Overlay Note
+            type: string
+            required: true
+      - name: footer
+        label: Footer
+        type: object
+        fields:
+          - name: tagline
+            label: Tagline
+            type: string
+            required: true
+      - name: contact
+        label: Shared contact invitation & form copy
+        type: object
+        fields:
+          - name: eyebrow
+            label: Eyebrow
+            type: string
+            required: true
+          - name: heading
+            label: Heading — Let's discuss profitable growth.
+            type: string
+            required: true
+          - name: intro
+            label: Intro
+            type: text
+            required: true
+          - name: nameLabel
+            label: Name Label
+            type: string
+            required: true
+          - name: companyLabel
+            label: Company Label
+            type: string
+            required: true
+          - name: emailLabel
+            label: Email Label
+            type: string
+            required: true
+          - name: revenueLabel
+            label: Revenue Label
+            type: string
+            required: true
+          - name: revenuePlaceholder
+            label: Revenue Placeholder
+            type: string
+            required: true
+          - name: messageLabel
+            label: Message Label
+            type: string
+            required: true
+          - name: submitLabel
+            label: Submit Label
+            type: string
+            required: true
+          - name: privacyNote
+            label: Privacy Note
+            type: string
+            required: true
+          - name: linkLabel
+            label: Link Label
+            type: string
+            required: true
+          - name: messages
+            label: Messages
+            type: object
+            fields:
+              - name: required
+                label: Required
+                type: string
+                required: true
+              - name: sending
+                label: Sending
+                type: string
+                required: true
+              - name: success
+                label: Success
+                type: string
+                required: true
+              - name: failure
+                label: Failure
+                type: string
+                required: true
+              - name: network
+                label: Network
+                type: string
+                required: true
+  - name: home
+    label: Home
+    type: file
+    path: src/data/pages/home.json
+    format: json
+    operations:
+      create: false
+      rename: false
+      delete: false
+    fields:
+      - name: seo
+        label: Search & social title
+        type: object
+        fields:
+          - name: title
+            label: Title
+            type: string
+            required: true
+          - name: description
+            label: Description
+            type: text
+            required: true
+      - name: hero
+        label: Hero
+        type: object
+        fields:
+          - name: fallbackSrc
+            label: Fallback Src
+            type: image
+            required: true
+            options:
+              media: images
+            description: Select or upload a replacement. Dimensions are detected automatically; the existing
+              crop and layout stay fixed.
+          - name: videoPoster
+            label: Video Poster
+            type: image
+            required: true
+            options:
+              media: images
+            description: Select or upload a replacement. Dimensions are detected automatically; the existing
+              crop and layout stay fixed.
+          - name: kicker
+            label: Kicker
+            type: string
+            required: true
+          - name: headingLine1
+            label: Heading Line 1
+            type: string
+            required: true
+          - name: headingLine2
+            label: Heading Line 2
+            type: string
+            required: true
+          - name: headingLine3
+            label: Heading Line 3
+            type: string
+            required: true
+          - name: headingLine4
+            label: Heading Line 4
+            type: string
+            required: true
+          - name: sub
+            label: Sub
+            type: text
+            required: true
+          - name: linkHref
+            label: Link destination
+            type: string
+            required: true
+            pattern:
+              regex: ^(https?://[^\s]+|mailto:[^\s]+|tel:[^\s]+|/(?!/)[^\s]*|#[^\s]+)$
+              message: Use a site path (/about), anchor (#contact), or full https:// URL.
+          - name: linkLabel
+            label: Link Label
+            type: string
+            required: true
+      - name: taglineMarquee
+        label: Moving tagline
+        type: object
+        fields:
+          - name: words
+            label: Words
+            type: object
+            fields:
+              - name: item01
+                label: Item 01
+                type: string
+                required: true
+              - name: item02
+                label: Item 02
+                type: string
+                required: true
+              - name: item03
+                label: Item 03
+                type: string
+                required: true
+              - name: item04
+                label: Item 04
+                type: string
+                required: true
+              - name: item05
+                label: Item 05
+                type: string
+                required: true
+      - name: positioning
+        label: The premise
+        type: object
+        fields:
+          - name: paragraph
+            label: Paragraph — The premise
+            type: string
+            required: true
+          - name: heading
+            label: Heading — Every business has a moment when profitable growth has …
+            type: string
+            required: true
+          - name: paragraph2
+            label: Paragraph 2 — Growth stalls. A leader walks out. A buyer comes to the…
+            type: text
+            required: true
+          - name: paragraph3
+            label: Paragraph 3 — Wyckoff steps in as executive marketing leadership, at …
+            type: text
+            required: true
+      - name: parallaxBand
+        label: City image band
+        type: object
+        fields:
+          - name: src
+            label: Src
+            type: image
+            required: true
+            options:
+              media: images
+            description: Select or upload a replacement. Dimensions are detected automatically; the existing
+              crop and layout stay fixed.
+          - name: cap
+            label: Cap
+            type: string
+            required: true
+      - name: page
+        label: Page headings & links
+        type: object
+        fields:
+          - name: visibleLabel
+            label: Visible Label
+            type: string
+            required: true
+          - name: accessibleLabel
+            label: Accessible Label
+            type: string
+            required: true
+      - name: clients
+        label: Selected past clients
+        type: object
+        fields:
+          - name: clientLogos
+            label: Client Logos
+            type: object
+            fields:
+              - name: item01
+                label: RES
+                type: object
+                fields:
+                  - name: src
+                    label: Src
+                    type: image
+                    required: true
+                    options:
+                      media: images
+                    description: Select or upload a replacement. Dimensions are detected automatically; the existing
+                      crop and layout stay fixed.
+                  - name: alt
+                    label: Image description (alt text)
+                    type: string
+                    required: true
+              - name: item02
+                label: HCA Healthcare
+                type: object
+                fields:
+                  - name: src
+                    label: Src
+                    type: image
+                    required: true
+                    options:
+                      media: images
+                    description: Select or upload a replacement. Dimensions are detected automatically; the existing
+                      crop and layout stay fixed.
+                  - name: alt
+                    label: Image description (alt text)
+                    type: string
+                    required: true
+              - name: item03
+                label: Big Rapids Products
+                type: object
+                fields:
+                  - name: src
+                    label: Src
+                    type: image
+                    required: true
+                    options:
+                      media: images
+                    description: Select or upload a replacement. Dimensions are detected automatically; the existing
+                      crop and layout stay fixed.
+                  - name: alt
+                    label: Image description (alt text)
+                    type: string
+                    required: true
+              - name: item04
+                label: Broe Real Estate Group
+                type: object
+                fields:
+                  - name: src
+                    label: Src
+                    type: image
+                    required: true
+                    options:
+                      media: images
+                    description: Select or upload a replacement. Dimensions are detected automatically; the existing
+                      crop and layout stay fixed.
+                  - name: alt
+                    label: Image description (alt text)
+                    type: string
+                    required: true
+              - name: item05
+                label: Green Improvements LLC
+                type: object
+                fields:
+                  - name: src
+                    label: Src
+                    type: image
+                    required: true
+                    options:
+                      media: images
+                    description: Select or upload a replacement. Dimensions are detected automatically; the existing
+                      crop and layout stay fixed.
+                  - name: alt
+                    label: Image description (alt text)
+                    type: string
+                    required: true
+              - name: item06
+                label: RE/MAX
+                type: object
+                fields:
+                  - name: src
+                    label: Src
+                    type: image
+                    required: true
+                    options:
+                      media: images
+                    description: Select or upload a replacement. Dimensions are detected automatically; the existing
+                      crop and layout stay fixed.
+                  - name: alt
+                    label: Image description (alt text)
+                    type: string
+                    required: true
+              - name: item07
+                label: Steelcase
+                type: object
+                fields:
+                  - name: src
+                    label: Src
+                    type: image
+                    required: true
+                    options:
+                      media: images
+                    description: Select or upload a replacement. Dimensions are detected automatically; the existing
+                      crop and layout stay fixed.
+                  - name: alt
+                    label: Image description (alt text)
+                    type: string
+                    required: true
+              - name: item08
+                label: USA Rugby
+                type: object
+                fields:
+                  - name: src
+                    label: Src
+                    type: image
+                    required: true
+                    options:
+                      media: images
+                    description: Select or upload a replacement. Dimensions are detected automatically; the existing
+                      crop and layout stay fixed.
+                  - name: alt
+                    label: Image description (alt text)
+                    type: string
+                    required: true
+              - name: item09
+                label: American Cancer Society
+                type: object
+                fields:
+                  - name: src
+                    label: Src
+                    type: image
+                    required: true
+                    options:
+                      media: images
+                    description: Select or upload a replacement. Dimensions are detected automatically; the existing
+                      crop and layout stay fixed.
+                  - name: alt
+                    label: Image description (alt text)
+                    type: string
+                    required: true
+              - name: item10
+                label: University of Michigan
+                type: object
+                fields:
+                  - name: src
+                    label: Src
+                    type: image
+                    required: true
+                    options:
+                      media: images
+                    description: Select or upload a replacement. Dimensions are detected automatically; the existing
+                      crop and layout stay fixed.
+                  - name: alt
+                    label: Image description (alt text)
+                    type: string
+                    required: true
+              - name: item11
+                label: Micron
+                type: object
+                fields:
+                  - name: src
+                    label: Src
+                    type: image
+                    required: true
+                    options:
+                      media: images
+                    description: Select or upload a replacement. Dimensions are detected automatically; the existing
+                      crop and layout stay fixed.
+                  - name: alt
+                    label: Image description (alt text)
+                    type: string
+                    required: true
+              - name: item12
+                label: Adept Machine Tools, Inc.
+                type: object
+                fields:
+                  - name: src
+                    label: Src
+                    type: image
+                    required: true
+                    options:
+                      media: images
+                    description: Select or upload a replacement. Dimensions are detected automatically; the existing
+                      crop and layout stay fixed.
+                  - name: alt
+                    label: Image description (alt text)
+                    type: string
+                    required: true
+              - name: item13
+                label: Adamy Valuation
+                type: object
+                fields:
+                  - name: src
+                    label: Src
+                    type: image
+                    required: true
+                    options:
+                      media: images
+                    description: Select or upload a replacement. Dimensions are detected automatically; the existing
+                      crop and layout stay fixed.
+                  - name: alt
+                    label: Image description (alt text)
+                    type: string
+                    required: true
+              - name: item14
+                label: Cavallo
+                type: object
+                fields:
+                  - name: src
+                    label: Src
+                    type: image
+                    required: true
+                    options:
+                      media: images
+                    description: Select or upload a replacement. Dimensions are detected automatically; the existing
+                      crop and layout stay fixed.
+                  - name: alt
+                    label: Image description (alt text)
+                    type: string
+                    required: true
+              - name: item15
+                label: Larson Tax Relief
+                type: object
+                fields:
+                  - name: src
+                    label: Src
+                    type: image
+                    required: true
+                    options:
+                      media: images
+                    description: Select or upload a replacement. Dimensions are detected automatically; the existing
+                      crop and layout stay fixed.
+                  - name: alt
+                    label: Image description (alt text)
+                    type: string
+                    required: true
+              - name: item16
+                label: WanAware
+                type: object
+                fields:
+                  - name: src
+                    label: Src
+                    type: image
+                    required: true
+                    options:
+                      media: images
+                    description: Select or upload a replacement. Dimensions are detected automatically; the existing
+                      crop and layout stay fixed.
+                  - name: alt
+                    label: Image description (alt text)
+                    type: string
+                    required: true
+      - name: inflectionPoints
+        label: Inflection point introduction
+        type: object
+        fields:
+          - name: paragraph
+            label: Paragraph — Eight critical business inflection points
+            type: string
+            required: true
+          - name: heading
+            label: Heading — This is why we get the call.
+            type: string
+            required: true
+          - name: meta
+            label: Meta
+            type: string
+            required: true
+          - name: text
+            label: Text — The challenge
+            type: string
+            required: true
+          - name: text2
+            label: Text 2 — What's needed
+            type: string
+            required: true
+          - name: link
+            label: Link
+            type: string
+            required: true
+      - name: stats
+        label: Experience statistics
+        type: object
+        fields:
+          - name: stats
+            label: Stats
+            type: object
+            fields:
+              - name: item01
+                label: Years in practice
+                type: object
+                fields:
+                  - name: count
+                    label: Count
+                    type: number
+                  - name: suffix
+                    label: Suffix
+                    type: string
+                    required: false
+                  - name: label
+                    label: Label
+                    type: string
+                    required: true
+              - name: item02
+                label: Vertical markets
+                type: object
+                fields:
+                  - name: count
+                    label: Count
+                    type: number
+                  - name: suffix
+                    label: Suffix
+                    type: string
+                    required: true
+                  - name: label
+                    label: Label
+                    type: string
+                    required: true
+              - name: item03
+                label: Countries
+                type: object
+                fields:
+                  - name: count
+                    label: Count
+                    type: number
+                  - name: suffix
+                    label: Suffix
+                    type: string
+                    required: false
+                  - name: label
+                    label: Label
+                    type: string
+                    required: true
+              - name: item04
+                label: Growth initiatives led
+                type: object
+                fields:
+                  - name: count
+                    label: Count
+                    type: number
+                  - name: suffix
+                    label: Suffix
+                    type: string
+                    required: true
+                  - name: label
+                    label: Label
+                    type: string
+                    required: true
+          - name: paragraph
+            label: Paragraph — Since 1993
+            type: string
+            required: true
+          - name: heading
+            label: Heading — Three decades of decisions, in rooms like yours.
+            type: string
+            required: true
+      - name: about
+        label: Who is Wyckoff
+        type: object
+        fields:
+          - name: facts
+            label: Facts
+            type: object
+            fields:
+              - name: item01
+                label: In practice since
+                type: object
+                fields:
+                  - name: value
+                    label: Value
+                    type: string
+                    required: true
+                  - name: label
+                    label: Label
+                    type: string
+                    required: true
+              - name: item02
+                label: Vertical markets
+                type: object
+                fields:
+                  - name: value
+                    label: Value
+                    type: string
+                    required: true
+                  - name: label
+                    label: Label
+                    type: string
+                    required: true
+              - name: item03
+                label: Countries
+                type: object
+                fields:
+                  - name: value
+                    label: Value
+                    type: string
+                    required: true
+                  - name: label
+                    label: Label
+                    type: string
+                    required: true
+          - name: paragraph
+            label: Paragraph — Who Is Wyckoff
+            type: string
+            required: true
+          - name: name
+            label: Name
+            type: string
+            required: true
+          - name: text
+            label: Text — Wyckoff
+            type: string
+            required: true
+          - name: quote
+            label: Quote
+            type: string
+            required: true
+          - name: side
+            label: Side
+            type: string
+            required: true
+          - name: paragraph2
+            label: Paragraph 2 — A creative operator with a finance background, placed o…
+            type: text
+            required: true
+          - name: paragraph3
+            label: Paragraph 3 — Since 1993, Wyckoff has worked across more than 20 vert…
+            type: text
+            required: true
+          - name: text2
+            label: Text 2 — Do you already know someone who knows Wyckoff?
+            type: string
+            required: true
+          - name: text3
+            label: Text 3 — (opens in a new tab)
+            type: string
+            required: true
+      - name: statement
+        label: Growth statement
+        type: object
+        fields:
+          - name: bgSrc
+            label: Bg Src
+            type: image
+            required: true
+            options:
+              media: images
+            description: Select or upload a replacement. Dimensions are detected automatically; the existing
+              crop and layout stay fixed.
+          - name: paragraph
+            label: Paragraph — Marketing exists for one reason.
+            type: string
+            required: true
+          - name: emphasis
+            label: Emphasis — To create profitable growth.
+            type: string
+            required: true
+      - name: testimonials
+        label: Client recommendations
+        type: object
+        fields:
+          - name: recommendations
+            label: Recommendations
+            type: object
+            fields:
+              - name: item01
+                label: Sarah Rosenberger
+                type: object
+                fields:
+                  - name: name
+                    label: Name
+                    type: string
+                    required: true
+                  - name: role
+                    label: Role
+                    type: text
+                    required: true
+                  - name: quote
+                    label: Quote
+                    type: object
+                    fields:
+                      - name: item01
+                        label: Item 01
+                        type: text
+                        required: true
+              - name: item02
+                label: Linda Thomas
+                type: object
+                fields:
+                  - name: name
+                    label: Name
+                    type: string
+                    required: true
+                  - name: role
+                    label: Role
+                    type: text
+                    required: true
+                  - name: quote
+                    label: Quote
+                    type: object
+                    fields:
+                      - name: item01
+                        label: Item 01
+                        type: text
+                        required: true
+              - name: item03
+                label: Diane Burgess Faber
+                type: object
+                fields:
+                  - name: name
+                    label: Name
+                    type: string
+                    required: true
+                  - name: role
+                    label: Role
+                    type: text
+                    required: true
+                  - name: quote
+                    label: Quote
+                    type: object
+                    fields:
+                      - name: item01
+                        label: Item 01
+                        type: text
+                        required: true
+              - name: item04
+                label: Dave Patrick
+                type: object
+                fields:
+                  - name: name
+                    label: Name
+                    type: string
+                    required: true
+                  - name: role
+                    label: Role
+                    type: text
+                    required: true
+                  - name: quote
+                    label: Quote
+                    type: object
+                    fields:
+                      - name: item01
+                        label: Item 01
+                        type: text
+                        required: true
+              - name: item05
+                label: Eric Weeks
+                type: object
+                fields:
+                  - name: name
+                    label: Name
+                    type: string
+                    required: true
+                  - name: role
+                    label: Role
+                    type: string
+                    required: true
+                  - name: quote
+                    label: Quote
+                    type: object
+                    fields:
+                      - name: item01
+                        label: Item 01
+                        type: text
+                        required: true
+              - name: item06
+                label: Marty Vondrell
+                type: object
+                fields:
+                  - name: name
+                    label: Name
+                    type: string
+                    required: true
+                  - name: role
+                    label: Role
+                    type: string
+                    required: true
+                  - name: quote
+                    label: Quote
+                    type: object
+                    fields:
+                      - name: item01
+                        label: Item 01
+                        type: text
+                        required: true
+              - name: item07
+                label: John O’Loughlin
+                type: object
+                fields:
+                  - name: name
+                    label: Name
+                    type: string
+                    required: true
+                  - name: role
+                    label: Role
+                    type: text
+                    required: true
+                  - name: quote
+                    label: Quote
+                    type: object
+                    fields:
+                      - name: item01
+                        label: Item 01
+                        type: text
+                        required: true
+              - name: item08
+                label: Dan Smith
+                type: object
+                fields:
+                  - name: name
+                    label: Name
+                    type: string
+                    required: true
+                  - name: role
+                    label: Role
+                    type: string
+                    required: true
+                  - name: quote
+                    label: Quote
+                    type: object
+                    fields:
+                      - name: item01
+                        label: Item 01
+                        type: text
+                        required: true
+                      - name: item02
+                        label: Item 02
+                        type: text
+                        required: true
+                      - name: item03
+                        label: Item 03
+                        type: string
+                        required: true
+              - name: item09
+                label: Norm Devine
+                type: object
+                fields:
+                  - name: name
+                    label: Name
+                    type: string
+                    required: true
+                  - name: role
+                    label: Role
+                    type: string
+                    required: true
+                  - name: quote
+                    label: Quote
+                    type: object
+                    fields:
+                      - name: item01
+                        label: Item 01
+                        type: text
+                        required: true
+              - name: item10
+                label: Keith Akins
+                type: object
+                fields:
+                  - name: name
+                    label: Name
+                    type: string
+                    required: true
+                  - name: role
+                    label: Role
+                    type: string
+                    required: true
+                  - name: quote
+                    label: Quote
+                    type: object
+                    fields:
+                      - name: item01
+                        label: Item 01
+                        type: text
+                        required: true
+          - name: paragraph
+            label: Paragraph — From the people who have worked with Wyckoff
+            type: string
+            required: true
+          - name: heading
+            label: Heading — What clients and colleagues say.
+            type: string
+            required: true
+          - name: status
+            label: Status
+            type: string
+            required: true
+  - name: about
+    label: About
+    type: file
+    path: src/data/pages/about.json
+    format: json
+    operations:
+      create: false
+      rename: false
+      delete: false
+    fields:
+      - name: seo
+        label: Search & social title
+        type: object
+        fields:
+          - name: title
+            label: Title
+            type: string
+            required: true
+          - name: description
+            label: Description
+            type: text
+            required: true
+      - name: hero
+        label: Hero
+        type: object
+        fields:
+          - name: eyebrow
+            label: Eyebrow
+            type: string
+            required: true
+          - name: titleLine
+            label: Title Line
+            type: string
+            required: true
+          - name: titleLine2
+            label: Title Line 2
+            type: string
+            required: true
+          - name: titleLine3
+            label: Title Line 3
+            type: string
+            required: true
+          - name: titleLine4
+            label: Title Line 4
+            type: string
+            required: true
+          - name: lede
+            label: Lede
+            type: string
+            required: true
+          - name: linkHref
+            label: Link destination
+            type: string
+            required: true
+            pattern:
+              regex: ^(https?://[^\s]+|mailto:[^\s]+|tel:[^\s]+|/(?!/)[^\s]*|#[^\s]+)$
+              message: Use a site path (/about), anchor (#contact), or full https:// URL.
+          - name: link
+            label: Link
+            type: string
+            required: true
+          - name: text
+            label: Text — Fractional Chief Marketing Officer
+            type: string
+            required: true
+          - name: text2
+            label: Text 2 — In practice since 1993
+            type: string
+            required: true
+          - name: emphasis
+            label: Emphasis — 30+
+            type: string
+            required: true
+          - name: text3
+            label: Text 3 — Years of executive experience
+            type: string
+            required: true
+          - name: emphasis2
+            label: Emphasis 2 — 20+
+            type: string
+            required: true
+          - name: text4
+            label: Text 4 — Industries served
+            type: string
+            required: true
+          - name: text5
+            label: Text 5 — Countries
+            type: string
+            required: true
+          - name: countriesValue
+            label: Countries Value
+            type: string
+            required: true
+      - name: perspective
+        label: Cross-industry perspective
+        type: object
+        fields:
+          - name: paragraph
+            label: Paragraph — Cross-Industry Perspective
+            type: string
+            required: true
+          - name: line
+            label: Line — The best idea for
+            type: string
+            required: true
+          - name: line2
+            label: Line 2 — your business
+            type: string
+            required: true
+          - name: line3
+            label: Line 3 — may come from
+            type: string
+            required: true
+          - name: line4
+            label: Line 4 — somewhere else.
+            type: string
+            required: true
+          - name: standfirst
+            label: Standfirst
+            type: string
+            required: true
+          - name: paragraph2
+            label: Paragraph 2 — Companies engage Wyckoff Consulting because they want m…
+            type: text
+            required: true
+          - name: paragraph3
+            label: Paragraph 3 — For more than 30 years, Luke Wyckoff has helped busines…
+            type: text
+            required: true
+          - name: emphasis3
+            label: Emphasis 3 — 20 industries in 12 countries
+            type: string
+            required: true
+          - name: paragraph4
+            label: Paragraph 4 — This breadth of experience allows clients to benefit fr…
+            type: text
+            required: true
+          - name: paragraph5
+            label: Paragraph 5 — Instead of applying a one-size-fits-all marketing appro…
+            type: text
+            required: true
+          - name: text6
+            label: Text 6 — Wyckoff Principle
+            type: string
+            required: true
+          - name: paragraph6
+            label: Paragraph 6 — Innovation happens when successful ideas cross industry…
+            type: string
+            required: true
+          - name: emphasis4
+            label: Emphasis 4 — That's where competitive advantage is created.
+            type: string
+            required: true
+      - name: industries
+        label: Industries served
+        type: object
+        fields:
+          - name: industries
+            label: Industries
+            type: object
+            fields:
+              - name: item01
+                label: Item 01
+                type: string
+                required: true
+              - name: item02
+                label: Item 02
+                type: string
+                required: true
+              - name: item03
+                label: Item 03
+                type: string
+                required: true
+              - name: item04
+                label: Item 04
+                type: string
+                required: true
+              - name: item05
+                label: Item 05
+                type: string
+                required: true
+              - name: item06
+                label: Item 06
+                type: string
+                required: true
+              - name: item07
+                label: Item 07
+                type: string
+                required: true
+              - name: item08
+                label: Item 08
+                type: string
+                required: true
+              - name: item09
+                label: Item 09
+                type: string
+                required: true
+              - name: item10
+                label: Item 10
+                type: string
+                required: true
+              - name: item11
+                label: Item 11
+                type: string
+                required: true
+              - name: item12
+                label: Item 12
+                type: string
+                required: true
+              - name: item13
+                label: Item 13
+                type: string
+                required: true
+              - name: item14
+                label: Item 14
+                type: string
+                required: true
+              - name: item15
+                label: Item 15
+                type: string
+                required: true
+              - name: item16
+                label: Item 16
+                type: string
+                required: true
+              - name: item17
+                label: Item 17
+                type: string
+                required: true
+              - name: item18
+                label: Item 18
+                type: string
+                required: true
+              - name: item19
+                label: Item 19
+                type: string
+                required: true
+              - name: item20
+                label: Item 20
+                type: string
+                required: true
+          - name: paragraph7
+            label: Paragraph 7 — Industries Served
+            type: string
+            required: true
+          - name: paragraph8
+            label: Paragraph 8 — Perspective earned across markets, business models, and…
+            type: string
+            required: true
+          - name: closing
+            label: Closing — Whether your company generates
+            type: string
+            required: true
+          - name: emphasis5
+            label: Emphasis 5 — $3 million or $50 million+ in annual revenue
+            type: string
+            required: true
+          - name: closing2
+            label: Closing 2 — , the challenges of growth, differentiation, leadership…
+            type: text
+            required: true
+      - name: leadership
+        label: Executive leadership
+        type: object
+        fields:
+          - name: paragraph9
+            label: Paragraph 9 — The Fractional Chief Marketing Officer
+            type: string
+            required: true
+          - name: line5
+            label: Line 5 — Executive leadership
+            type: string
+            required: true
+          - name: line6
+            label: Line 6 — when your business
+            type: string
+            required: true
+          - name: line7
+            label: Line 7 — needs it most.
+            type: string
+            required: true
+          - name: opening
+            label: Opening
+            type: text
+            required: true
+          - name: paragraph10
+            label: Paragraph 10 — They engage a Fractional Chief Marketing Officer becaus…
+            type: text
+            required: true
+          - name: paragraph11
+            label: Paragraph 11 — For more than 30 years, Luke Wyckoff has partnered with…
+            type: text
+            required: true
+          - name: paragraph12
+            label: Paragraph 12 — Whether growth has stalled, leadership has changed, a c…
+            type: text
+            required: true
+      - name: expectations
+        label: What to expect
+        type: object
+        fields:
+          - name: expectations
+            label: Expectations
+            type: object
+            fields:
+              - name: item01
+                label: Executive Perspective
+                type: object
+                fields:
+                  - name: title
+                    label: Title
+                    type: string
+                    required: true
+                  - name: body
+                    label: Body
+                    type: text
+                    required: true
+              - name: item02
+                label: Strategic Partnership
+                type: object
+                fields:
+                  - name: title
+                    label: Title
+                    type: string
+                    required: true
+                  - name: body
+                    label: Body
+                    type: text
+                    required: true
+              - name: item03
+                label: Growth-Focused Leadership
+                type: object
+                fields:
+                  - name: title
+                    label: Title
+                    type: string
+                    required: true
+                  - name: body
+                    label: Body
+                    type: text
+                    required: true
+              - name: item04
+                label: Proven Experience
+                type: object
+                fields:
+                  - name: title
+                    label: Title
+                    type: string
+                    required: true
+                  - name: body
+                    label: Body
+                    type: text
+                    required: true
+              - name: item05
+                label: Decisive Execution
+                type: object
+                fields:
+                  - name: title
+                    label: Title
+                    type: string
+                    required: true
+                  - name: body
+                    label: Body
+                    type: text
+                    required: true
+              - name: item06
+                label: Customized Solutions
+                type: object
+                fields:
+                  - name: title
+                    label: Title
+                    type: string
+                    required: true
+                  - name: body
+                    label: Body
+                    type: text
+                    required: true
+              - name: item07
+                label: Confidence During Change
+                type: object
+                fields:
+                  - name: title
+                    label: Title
+                    type: string
+                    required: true
+                  - name: body
+                    label: Body
+                    type: text
+                    required: true
+              - name: item08
+                label: A Partner Invested in Your Success
+                type: object
+                fields:
+                  - name: title
+                    label: Title
+                    type: string
+                    required: true
+                  - name: body
+                    label: Body
+                    type: text
+                    required: true
+          - name: paragraph13
+            label: Paragraph 13 — What You Can Expect
+            type: string
+            required: true
+          - name: line8
+            label: Line 8 — A senior partner for
+            type: string
+            required: true
+          - name: line9
+            label: Line 9 — the decisions that shape
+            type: string
+            required: true
+          - name: line10
+            label: Line 10 — what comes next.
+            type: string
+            required: true
+          - name: paragraph14
+            label: Paragraph 14 — Clear thinking, decisive execution, and an unwavering c…
+            type: text
+            required: true
+      - name: lectures
+        label: Guest lectures & keynote link
+        type: object
+        fields:
+          - name: guestLectureLogos
+            label: Guest Lecture Logos
+            type: object
+            fields:
+              - name: item01
+                label: Ferris State University
+                type: object
+                fields:
+                  - name: src
+                    label: Src
+                    type: image
+                    required: true
+                    options:
+                      media: images
+                    description: Select or upload a replacement. Dimensions are detected automatically; the existing
+                      crop and layout stay fixed.
+                  - name: alt
+                    label: Image description (alt text)
+                    type: string
+                    required: true
+              - name: item02
+                label: University of Findlay
+                type: object
+                fields:
+                  - name: src
+                    label: Src
+                    type: image
+                    required: true
+                    options:
+                      media: images
+                    description: Select or upload a replacement. Dimensions are detected automatically; the existing
+                      crop and layout stay fixed.
+                  - name: alt
+                    label: Image description (alt text)
+                    type: string
+                    required: true
+              - name: item03
+                label: University of Michigan
+                type: object
+                fields:
+                  - name: src
+                    label: Src
+                    type: image
+                    required: true
+                    options:
+                      media: images
+                    description: Select or upload a replacement. Dimensions are detected automatically; the existing
+                      crop and layout stay fixed.
+                  - name: alt
+                    label: Image description (alt text)
+                    type: string
+                    required: true
+              - name: item04
+                label: University of Colorado Boulder
+                type: object
+                fields:
+                  - name: src
+                    label: Src
+                    type: image
+                    required: true
+                    options:
+                      media: images
+                    description: Select or upload a replacement. Dimensions are detected automatically; the existing
+                      crop and layout stay fixed.
+                  - name: alt
+                    label: Image description (alt text)
+                    type: string
+                    required: true
+              - name: item05
+                label: Grand Valley State University
+                type: object
+                fields:
+                  - name: src
+                    label: Src
+                    type: image
+                    required: true
+                    options:
+                      media: images
+                    description: Select or upload a replacement. Dimensions are detected automatically; the existing
+                      crop and layout stay fixed.
+                  - name: alt
+                    label: Image description (alt text)
+                    type: string
+                    required: true
+              - name: item06
+                label: University of Denver
+                type: object
+                fields:
+                  - name: src
+                    label: Src
+                    type: image
+                    required: true
+                    options:
+                      media: images
+                    description: Select or upload a replacement. Dimensions are detected automatically; the existing
+                      crop and layout stay fixed.
+                  - name: alt
+                    label: Image description (alt text)
+                    type: string
+                    required: true
+              - name: item07
+                label: Brigham Young University
+                type: object
+                fields:
+                  - name: src
+                    label: Src
+                    type: image
+                    required: true
+                    options:
+                      media: images
+                    description: Select or upload a replacement. Dimensions are detected automatically; the existing
+                      crop and layout stay fixed.
+                  - name: alt
+                    label: Image description (alt text)
+                    type: string
+                    required: true
+              - name: item08
+                label: Metropolitan State University of Denver
+                type: object
+                fields:
+                  - name: src
+                    label: Src
+                    type: image
+                    required: true
+                    options:
+                      media: images
+                    description: Select or upload a replacement. Dimensions are detected automatically; the existing
+                      crop and layout stay fixed.
+                  - name: alt
+                    label: Image description (alt text)
+                    type: string
+                    required: true
+          - name: visibleLabel
+            label: Visible Label
+            type: string
+            required: true
+          - name: accessibleLabel
+            label: Accessible Label
+            type: string
+            required: true
+          - name: keynoteLink
+            label: Keynote Link
+            type: object
+            fields:
+              - name: label
+                label: Label
+                type: string
+                required: true
+              - name: href
+                label: Link destination
+                type: string
+                required: true
+                pattern:
+                  regex: ^(https?://[^\s]+|mailto:[^\s]+|tel:[^\s]+|/(?!/)[^\s]*|#[^\s]+)$
+                  message: Use a site path (/about), anchor (#contact), or full https:// URL.
+          - name: speakingImage
+            label: Speaking Image
+            type: object
+            fields:
+              - name: src
+                label: Src
+                type: image
+                required: true
+                options:
+                  media: images
+                description: Select or upload a replacement. Dimensions are detected automatically; the existing
+                  crop and layout stay fixed.
+              - name: alt
+                label: Image description (alt text)
+                type: string
+                required: true
+      - name: results
+        label: Annual results
+        type: object
+        fields:
+          - name: annualResults
+            label: Annual Results
+            type: object
+            fields:
+              - name: item01
+                label: "2023"
+                type: object
+                fields:
+                  - name: title
+                    label: Title
+                    type: string
+                    required: true
+                  - name: highlights
+                    label: Highlights
+                    type: object
+                    fields:
+                      - name: item01
+                        label: Reported average sales growth
+                        type: object
+                        fields:
+                          - name: value
+                            label: Value
+                            type: string
+                            required: true
+                          - name: label
+                            label: Label
+                            type: string
+                            required: true
+                          - name: detail
+                            label: Detail
+                            type: string
+                            required: true
+                      - name: item02
+                        label: Original social posts
+                        type: object
+                        fields:
+                          - name: value
+                            label: Value
+                            type: string
+                            required: true
+                          - name: label
+                            label: Label
+                            type: string
+                            required: true
+                          - name: detail
+                            label: Detail
+                            type: string
+                            required: true
+                      - name: item03
+                        label: Digital ad spending
+                        type: object
+                        fields:
+                          - name: value
+                            label: Value
+                            type: string
+                            required: true
+                          - name: label
+                            label: Label
+                            type: string
+                            required: true
+                  - name: groups
+                    label: Groups
+                    type: object
+                    fields:
+                      - name: item01
+                        label: Market presence
+                        type: object
+                        fields:
+                          - name: title
+                            label: Title
+                            type: string
+                            required: true
+                          - name: metrics
+                            label: Metrics
+                            type: object
+                            fields:
+                              - name: item01
+                                label: Keynote speeches
+                                type: object
+                                fields:
+                                  - name: value
+                                    label: Value
+                                    type: string
+                                    required: true
+                                  - name: label
+                                    label: Label
+                                    type: string
+                                    required: true
+                              - name: item02
+                                label: Tradeshow designs
+                                type: object
+                                fields:
+                                  - name: value
+                                    label: Value
+                                    type: string
+                                    required: true
+                                  - name: label
+                                    label: Label
+                                    type: string
+                                    required: true
+                              - name: item03
+                                label: Published marketing articles
+                                type: object
+                                fields:
+                                  - name: value
+                                    label: Value
+                                    type: string
+                                    required: true
+                                  - name: label
+                                    label: Label
+                                    type: string
+                                    required: true
+                      - name: item02
+                        label: Campaign volume
+                        type: object
+                        fields:
+                          - name: title
+                            label: Title
+                            type: string
+                            required: true
+                          - name: metrics
+                            label: Metrics
+                            type: object
+                            fields:
+                              - name: item01
+                                label: New marketing materials
+                                type: object
+                                fields:
+                                  - name: value
+                                    label: Value
+                                    type: string
+                                    required: true
+                                  - name: label
+                                    label: Label
+                                    type: string
+                                    required: true
+                              - name: item02
+                                label: Email campaigns
+                                type: object
+                                fields:
+                                  - name: value
+                                    label: Value
+                                    type: string
+                                    required: true
+                                  - name: label
+                                    label: Label
+                                    type: string
+                                    required: true
+                      - name: item03
+                        label: Growth initiatives
+                        type: object
+                        fields:
+                          - name: title
+                            label: Title
+                            type: string
+                            required: true
+                          - name: metrics
+                            label: Metrics
+                            type: object
+                            fields:
+                              - name: item01
+                                label: New product launches
+                                type: object
+                                fields:
+                                  - name: value
+                                    label: Value
+                                    type: string
+                                    required: true
+                                  - name: label
+                                    label: Label
+                                    type: string
+                                    required: true
+                              - name: item02
+                                label: Product expansions
+                                type: object
+                                fields:
+                                  - name: value
+                                    label: Value
+                                    type: string
+                                    required: true
+                                  - name: label
+                                    label: Label
+                                    type: string
+                                    required: true
+              - name: item02
+                label: "2024"
+                type: object
+                fields:
+                  - name: title
+                    label: Title
+                    type: string
+                    required: true
+                  - name: highlights
+                    label: Highlights
+                    type: object
+                    fields:
+                      - name: item01
+                        label: Reported average sales growth
+                        type: object
+                        fields:
+                          - name: value
+                            label: Value
+                            type: string
+                            required: true
+                          - name: label
+                            label: Label
+                            type: string
+                            required: true
+                          - name: detail
+                            label: Detail
+                            type: string
+                            required: true
+                      - name: item02
+                        label: Leads generated
+                        type: object
+                        fields:
+                          - name: value
+                            label: Value
+                            type: string
+                            required: true
+                          - name: label
+                            label: Label
+                            type: string
+                            required: true
+                          - name: detail
+                            label: Detail
+                            type: string
+                            required: true
+                          - name: ariaLabel
+                            label: Aria Label
+                            type: string
+                            required: true
+                      - name: item03
+                        label: Original social posts
+                        type: object
+                        fields:
+                          - name: value
+                            label: Value
+                            type: string
+                            required: true
+                          - name: label
+                            label: Label
+                            type: string
+                            required: true
+                          - name: detail
+                            label: Detail
+                            type: string
+                            required: true
+                  - name: groups
+                    label: Groups
+                    type: object
+                    fields:
+                      - name: item01
+                        label: Market presence
+                        type: object
+                        fields:
+                          - name: title
+                            label: Title
+                            type: string
+                            required: true
+                          - name: metrics
+                            label: Metrics
+                            type: object
+                            fields:
+                              - name: item01
+                                label: Keynote speeches
+                                type: object
+                                fields:
+                                  - name: value
+                                    label: Value
+                                    type: string
+                                    required: true
+                                  - name: label
+                                    label: Label
+                                    type: string
+                                    required: true
+                              - name: item02
+                                label: Tradeshow designs
+                                type: object
+                                fields:
+                                  - name: value
+                                    label: Value
+                                    type: string
+                                    required: true
+                                  - name: label
+                                    label: Label
+                                    type: string
+                                    required: true
+                              - name: item03
+                                label: Published marketing articles
+                                type: object
+                                fields:
+                                  - name: value
+                                    label: Value
+                                    type: string
+                                    required: true
+                                  - name: label
+                                    label: Label
+                                    type: string
+                                    required: true
+                      - name: item02
+                        label: Campaign scale
+                        type: object
+                        fields:
+                          - name: title
+                            label: Title
+                            type: string
+                            required: true
+                          - name: metrics
+                            label: Metrics
+                            type: object
+                            fields:
+                              - name: item01
+                                label: New marketing materials
+                                type: object
+                                fields:
+                                  - name: value
+                                    label: Value
+                                    type: string
+                                    required: true
+                                  - name: label
+                                    label: Label
+                                    type: string
+                                    required: true
+                              - name: item02
+                                label: Email campaigns
+                                type: object
+                                fields:
+                                  - name: value
+                                    label: Value
+                                    type: string
+                                    required: true
+                                  - name: label
+                                    label: Label
+                                    type: string
+                                    required: true
+                              - name: item03
+                                label: Digital ad spending
+                                type: object
+                                fields:
+                                  - name: value
+                                    label: Value
+                                    type: string
+                                    required: true
+                                  - name: label
+                                    label: Label
+                                    type: string
+                                    required: true
+                      - name: item03
+                        label: Growth & leadership
+                        type: object
+                        fields:
+                          - name: title
+                            label: Title
+                            type: string
+                            required: true
+                          - name: metrics
+                            label: Metrics
+                            type: object
+                            fields:
+                              - name: item01
+                                label: New product launches
+                                type: object
+                                fields:
+                                  - name: value
+                                    label: Value
+                                    type: string
+                                    required: true
+                                  - name: label
+                                    label: Label
+                                    type: string
+                                    required: true
+                              - name: item02
+                                label: Product expansions
+                                type: object
+                                fields:
+                                  - name: value
+                                    label: Value
+                                    type: string
+                                    required: true
+                                  - name: label
+                                    label: Label
+                                    type: string
+                                    required: true
+                              - name: item03
+                                label: Direct reports managed
+                                type: object
+                                fields:
+                                  - name: value
+                                    label: Value
+                                    type: string
+                                    required: true
+                                  - name: label
+                                    label: Label
+                                    type: string
+                                    required: true
+                              - name: item04
+                                label: Digital transformation sessions coached
+                                type: object
+                                fields:
+                                  - name: value
+                                    label: Value
+                                    type: string
+                                    required: true
+                                  - name: label
+                                    label: Label
+                                    type: string
+                                    required: true
+              - name: item03
+                label: "2025"
+                type: object
+                fields:
+                  - name: title
+                    label: Title
+                    type: string
+                    required: true
+                  - name: highlights
+                    label: Highlights
+                    type: object
+                    fields:
+                      - name: item01
+                        label: Reported average sales growth
+                        type: object
+                        fields:
+                          - name: value
+                            label: Value
+                            type: string
+                            required: true
+                          - name: label
+                            label: Label
+                            type: string
+                            required: true
+                          - name: detail
+                            label: Detail
+                            type: string
+                            required: true
+                      - name: item02
+                        label: Leads generated
+                        type: object
+                        fields:
+                          - name: value
+                            label: Value
+                            type: string
+                            required: true
+                          - name: label
+                            label: Label
+                            type: string
+                            required: true
+                          - name: detail
+                            label: Detail
+                            type: string
+                            required: true
+                          - name: ariaLabel
+                            label: Aria Label
+                            type: string
+                            required: true
+                      - name: item03
+                        label: Cities worked in
+                        type: object
+                        fields:
+                          - name: value
+                            label: Value
+                            type: string
+                            required: true
+                          - name: label
+                            label: Label
+                            type: string
+                            required: true
+                          - name: detail
+                            label: Detail
+                            type: string
+                            required: true
+                          - name: ariaLabel
+                            label: Aria Label
+                            type: string
+                            required: true
+                  - name: groups
+                    label: Groups
+                    type: object
+                    fields:
+                      - name: item01
+                        label: Market presence
+                        type: object
+                        fields:
+                          - name: title
+                            label: Title
+                            type: string
+                            required: true
+                          - name: metrics
+                            label: Metrics
+                            type: object
+                            fields:
+                              - name: item01
+                                label: Keynote speeches
+                                type: object
+                                fields:
+                                  - name: value
+                                    label: Value
+                                    type: string
+                                    required: true
+                                  - name: label
+                                    label: Label
+                                    type: string
+                                    required: true
+                              - name: item02
+                                label: Tradeshow designs
+                                type: object
+                                fields:
+                                  - name: value
+                                    label: Value
+                                    type: string
+                                    required: true
+                                  - name: label
+                                    label: Label
+                                    type: string
+                                    required: true
+                              - name: item03
+                                label: Original social posts
+                                type: object
+                                fields:
+                                  - name: value
+                                    label: Value
+                                    type: string
+                                    required: true
+                                  - name: label
+                                    label: Label
+                                    type: string
+                                    required: true
+                                  - name: detail
+                                    label: Detail
+                                    type: string
+                                    required: true
+                      - name: item02
+                        label: Campaign scale
+                        type: object
+                        fields:
+                          - name: title
+                            label: Title
+                            type: string
+                            required: true
+                          - name: metrics
+                            label: Metrics
+                            type: object
+                            fields:
+                              - name: item01
+                                label: New marketing materials
+                                type: object
+                                fields:
+                                  - name: value
+                                    label: Value
+                                    type: string
+                                    required: true
+                                  - name: label
+                                    label: Label
+                                    type: string
+                                    required: true
+                              - name: item02
+                                label: Email campaigns
+                                type: object
+                                fields:
+                                  - name: value
+                                    label: Value
+                                    type: string
+                                    required: true
+                                  - name: label
+                                    label: Label
+                                    type: string
+                                    required: true
+                              - name: item03
+                                label: Digital ad spending
+                                type: object
+                                fields:
+                                  - name: value
+                                    label: Value
+                                    type: string
+                                    required: true
+                                  - name: label
+                                    label: Label
+                                    type: string
+                                    required: true
+                      - name: item03
+                        label: Growth & leadership
+                        type: object
+                        fields:
+                          - name: title
+                            label: Title
+                            type: string
+                            required: true
+                          - name: metrics
+                            label: Metrics
+                            type: object
+                            fields:
+                              - name: item01
+                                label: New product launches
+                                type: object
+                                fields:
+                                  - name: value
+                                    label: Value
+                                    type: string
+                                    required: true
+                                  - name: label
+                                    label: Label
+                                    type: string
+                                    required: true
+                              - name: item02
+                                label: Product expansions
+                                type: object
+                                fields:
+                                  - name: value
+                                    label: Value
+                                    type: string
+                                    required: true
+                                  - name: label
+                                    label: Label
+                                    type: string
+                                    required: true
+                              - name: item03
+                                label: Direct reports managed
+                                type: object
+                                fields:
+                                  - name: value
+                                    label: Value
+                                    type: string
+                                    required: true
+                                  - name: label
+                                    label: Label
+                                    type: string
+                                    required: true
+                              - name: item04
+                                label: AI transformation sessions coached
+                                type: object
+                                fields:
+                                  - name: value
+                                    label: Value
+                                    type: string
+                                    required: true
+                                  - name: label
+                                    label: Label
+                                    type: string
+                                    required: true
+          - name: eyebrow
+            label: Eyebrow
+            type: string
+            required: true
+          - name: heading
+            label: Heading — You expect results?
+            type: string
+            required: true
+          - name: text
+            label: Text — Here is the report card.
+            type: string
+            required: true
+          - name: lede
+            label: Lede
+            type: text
+            required: true
+          - name: kicker
+            label: Kicker
+            type: string
+            required: true
+          - name: text2
+            label: Text 2 — View full
+            type: string
+            required: true
+          - name: text3
+            label: Text 3 — report card
+            type: string
+            required: true
+          - name: text4
+            label: Text 4 — supporting measures
+            type: string
+            required: true
+          - name: disclosure
+            label: Disclosure
+            type: text
+            required: true
+  - name: inflectionPoints
+    label: Inflection Points
+    type: file
+    path: src/data/pages/inflectionPoints.json
+    format: json
+    operations:
+      create: false
+      rename: false
+      delete: false
+    fields:
+      - name: page
+        label: Page headings & links
+        type: object
+        fields:
+          - name: title
+            label: Title
+            type: string
+            required: true
+          - name: paragraph
+            label: Paragraph — Inflection Points
+            type: string
+            required: true
+          - name: text
+            label: Text — This is why we
+            type: string
+            required: true
+          - name: text2
+            label: Text 2 — get the call.
+            type: string
+            required: true
+          - name: paragraph2
+            label: Paragraph 2 — Executive marketing leadership for $3M–$50M+ companies,…
+            type: text
+            required: true
+          - name: href
+            label: Link destination
+            type: string
+            required: true
+            pattern:
+              regex: ^(https?://[^\s]+|mailto:[^\s]+|tel:[^\s]+|/(?!/)[^\s]*|#[^\s]+)$
+              message: Use a site path (/about), anchor (#contact), or full https:// URL.
+          - name: linkLabel
+            label: Link Label
+            type: string
+            required: true
+          - name: paragraph3
+            label: Paragraph 3 — Eight critical business inflection points
+            type: string
+            required: true
+          - name: text3
+            label: Text 3 — Choose a moment
+            type: string
+            required: true
+          - name: paragraph4
+            label: Paragraph 4 — Why Companies Choose Wyckoff
+            type: string
+            required: true
+          - name: heading
+            label: Heading — The moments that define a company’s future.
+            type: string
+            required: true
+          - name: text4
+            label: Text 4 — Point
+            type: string
+            required: true
+          - name: text5
+            label: Text 5 — Business moment
+            type: string
+            required: true
+          - name: text6
+            label: Text 6 — The challenge
+            type: string
+            required: true
+          - name: text7
+            label: Text 7 — What’s needed
+            type: string
+            required: true
+          - name: paragraph5
+            label: Paragraph 5 — Inflection Point
+            type: string
+            required: true
+          - name: text8
+            label: Text 8 — The challenge
+            type: string
+            required: true
+          - name: text9
+            label: Text 9 — What’s needed
+            type: string
+            required: true
+      - name: summaries
+        label: Eight business moments · also shown on Home
+        type: object
+        fields:
+          - name: inflectionPoints
+            label: Inflection Points
+            type: object
+            fields:
+              - name: item01
+                label: Growth Has Stalled
+                type: object
+                fields:
+                  - name: title
+                    label: Title
+                    type: string
+                    required: true
+                  - name: challenge
+                    label: Challenge
+                    type: string
+                    required: true
+                  - name: needed
+                    label: Needed
+                    type: string
+                    required: true
+              - name: item02
+                label: Marketing Leadership Gap
+                type: object
+                fields:
+                  - name: title
+                    label: Title
+                    type: string
+                    required: true
+                  - name: challenge
+                    label: Challenge
+                    type: string
+                    required: true
+                  - name: needed
+                    label: Needed
+                    type: string
+                    required: true
+              - name: item03
+                label: Entering a New Market
+                type: object
+                fields:
+                  - name: title
+                    label: Title
+                    type: string
+                    required: true
+                  - name: challenge
+                    label: Challenge
+                    type: string
+                    required: true
+                  - name: needed
+                    label: Needed
+                    type: string
+                    required: true
+              - name: item04
+                label: No Marketing Function
+                type: object
+                fields:
+                  - name: title
+                    label: Title
+                    type: string
+                    required: true
+                  - name: challenge
+                    label: Challenge
+                    type: string
+                    required: true
+                  - name: needed
+                    label: Needed
+                    type: string
+                    required: true
+              - name: item05
+                label: Rebranding or Repositioning
+                type: object
+                fields:
+                  - name: title
+                    label: Title
+                    type: string
+                    required: true
+                  - name: challenge
+                    label: Challenge
+                    type: string
+                    required: true
+                  - name: needed
+                    label: Needed
+                    type: string
+                    required: true
+              - name: item06
+                label: Preparing for Sale
+                type: object
+                fields:
+                  - name: title
+                    label: Title
+                    type: string
+                    required: true
+                  - name: challenge
+                    label: Challenge
+                    type: string
+                    required: true
+                  - name: needed
+                    label: Needed
+                    type: string
+                    required: true
+              - name: item07
+                label: Merger or Acquisition
+                type: object
+                fields:
+                  - name: title
+                    label: Title
+                    type: string
+                    required: true
+                  - name: challenge
+                    label: Challenge
+                    type: string
+                    required: true
+                  - name: needed
+                    label: Needed
+                    type: string
+                    required: true
+              - name: item08
+                label: Private Equity & Venture-Backed Companies
+                type: object
+                fields:
+                  - name: title
+                    label: Title
+                    type: string
+                    required: true
+                  - name: challenge
+                    label: Challenge
+                    type: text
+                    required: true
+                  - name: needed
+                    label: Needed
+                    type: text
+                    required: true
+      - name: details
+        label: Detailed strategies
+        type: object
+        fields:
+          - name: inflectionPointDetails
+            label: Inflection Point Details
+            type: object
+            fields:
+              - name: growth-has-stalled
+                label: Growth has stalled
+                type: object
+                fields:
+                  - name: headline
+                    label: Headline
+                    type: string
+                    required: true
+                  - name: blocks
+                    label: Blocks
+                    type: object
+                    fields:
+                      - name: item01
+                        label: Item 1
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — Has your company’s growth plateaued?
+                            type: string
+                            required: true
+                      - name: item02
+                        label: Item 2
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — Many businesses reach a point where the strategies that…
+                            type: text
+                            required: true
+                      - name: item03
+                        label: Item 3
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — Wyckoff Consulting helps companies from $3 million to $…
+                            type: text
+                            required: true
+                      - name: item04
+                        label: Item 4
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — We begin by identifying the root causes of stalled grow…
+                            type: text
+                            required: true
+                      - name: item05
+                        label: Item 5
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — Whether your organization has hit a ceiling or simply n…
+                            type: text
+                            required: true
+                      - name: item06
+                        label: Common Signs You Need a Growth Strategy
+                        type: object
+                        fields:
+                          - name: heading
+                            label: Heading — Common Signs You Need a Growth Strategy
+                            type: string
+                            required: true
+                          - name: items
+                            label: Items
+                            type: object
+                            fields:
+                              - name: item01
+                                label: Item 01
+                                type: string
+                                required: true
+                              - name: item02
+                                label: Item 02
+                                type: string
+                                required: true
+                              - name: item03
+                                label: Item 03
+                                type: string
+                                required: true
+                              - name: item04
+                                label: Item 04
+                                type: string
+                                required: true
+                              - name: item05
+                                label: Item 05
+                                type: string
+                                required: true
+                              - name: item06
+                                label: Item 06
+                                type: string
+                                required: true
+                      - name: item07
+                        label: How Wyckoff Consulting Helps
+                        type: object
+                        fields:
+                          - name: heading
+                            label: Heading — How Wyckoff Consulting Helps
+                            type: string
+                            required: true
+                          - name: items
+                            label: Items
+                            type: object
+                            fields:
+                              - name: item01
+                                label: Item 01
+                                type: string
+                                required: true
+                              - name: item02
+                                label: Item 02
+                                type: string
+                                required: true
+                              - name: item03
+                                label: Item 03
+                                type: string
+                                required: true
+                              - name: item04
+                                label: Item 04
+                                type: string
+                                required: true
+                              - name: item05
+                                label: Item 05
+                                type: string
+                                required: true
+                              - name: item06
+                                label: Item 06
+                                type: string
+                                required: true
+                      - name: item08
+                        label: Item 8
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — If your business has stopped growing, it may be time fo…
+                            type: string
+                            required: true
+              - name: marketing-leadership-gap
+                label: Marketing leadership gap
+                type: object
+                fields:
+                  - name: headline
+                    label: Headline
+                    type: string
+                    required: true
+                  - name: blocks
+                    label: Blocks
+                    type: object
+                    fields:
+                      - name: item01
+                        label: Item 1
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — Has your marketing leader left the organization?
+                            type: string
+                            required: true
+                      - name: item02
+                        label: Item 2
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — Whether your Chief Marketing Officer, Marketing Directo…
+                            type: text
+                            required: true
+                      - name: item03
+                        label: Item 3
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — Wyckoff Consulting provides experienced Fractional CMO …
+                            type: text
+                            required: true
+                      - name: item04
+                        label: Item 4
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — This allows business owners and CEOs to continue focusi…
+                            type: text
+                            required: true
+                      - name: item05
+                        label: Ideal Situations for Fractional CMO Support
+                        type: object
+                        fields:
+                          - name: heading
+                            label: Heading — Ideal Situations for Fractional CMO Support
+                            type: string
+                            required: true
+                          - name: items
+                            label: Items
+                            type: object
+                            fields:
+                              - name: item01
+                                label: Item 01
+                                type: string
+                                required: true
+                              - name: item02
+                                label: Item 02
+                                type: string
+                                required: true
+                              - name: item03
+                                label: Item 03
+                                type: string
+                                required: true
+                              - name: item04
+                                label: Item 04
+                                type: string
+                                required: true
+                              - name: item05
+                                label: Item 05
+                                type: string
+                                required: true
+                      - name: item06
+                        label: Benefits of an Interim Fractional CMO
+                        type: object
+                        fields:
+                          - name: heading
+                            label: Heading — Benefits of an Interim Fractional CMO
+                            type: string
+                            required: true
+                          - name: items
+                            label: Items
+                            type: object
+                            fields:
+                              - name: item01
+                                label: Item 01
+                                type: string
+                                required: true
+                              - name: item02
+                                label: Item 02
+                                type: string
+                                required: true
+                              - name: item03
+                                label: Item 03
+                                type: string
+                                required: true
+                              - name: item04
+                                label: Item 04
+                                type: string
+                                required: true
+                              - name: item05
+                                label: Item 05
+                                type: string
+                                required: true
+                      - name: item07
+                        label: Item 7
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — When your marketing leadership changes, your growth str…
+                            type: string
+                            required: true
+              - name: entering-a-new-market
+                label: Entering a new market
+                type: object
+                fields:
+                  - name: headline
+                    label: Headline
+                    type: string
+                    required: true
+                  - name: blocks
+                    label: Blocks
+                    type: object
+                    fields:
+                      - name: item01
+                        label: Item 1
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — Expanding into a new market presents significant opport…
+                            type: string
+                            required: true
+                      - name: item02
+                        label: Item 2
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — Whether your organization is launching a new service, t…
+                            type: text
+                            required: true
+                      - name: item03
+                        label: Item 3
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — Wyckoff Consulting helps organizations develop and exec…
+                            type: text
+                            required: true
+                      - name: item04
+                        label: Item 4
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — Our team evaluates market opportunities, competitive la…
+                            type: text
+                            required: true
+                      - name: item05
+                        label: Common Market Expansion Challenges
+                        type: object
+                        fields:
+                          - name: heading
+                            label: Heading — Common Market Expansion Challenges
+                            type: string
+                            required: true
+                          - name: items
+                            label: Items
+                            type: object
+                            fields:
+                              - name: item01
+                                label: Item 01
+                                type: string
+                                required: true
+                              - name: item02
+                                label: Item 02
+                                type: string
+                                required: true
+                              - name: item03
+                                label: Item 03
+                                type: string
+                                required: true
+                              - name: item04
+                                label: Item 04
+                                type: string
+                                required: true
+                              - name: item05
+                                label: Item 05
+                                type: string
+                                required: true
+                      - name: item06
+                        label: Our Market Entry Services Include
+                        type: object
+                        fields:
+                          - name: heading
+                            label: Heading — Our Market Entry Services Include
+                            type: string
+                            required: true
+                          - name: items
+                            label: Items
+                            type: object
+                            fields:
+                              - name: item01
+                                label: Item 01
+                                type: string
+                                required: true
+                              - name: item02
+                                label: Item 02
+                                type: string
+                                required: true
+                              - name: item03
+                                label: Item 03
+                                type: string
+                                required: true
+                              - name: item04
+                                label: Item 04
+                                type: string
+                                required: true
+                              - name: item05
+                                label: Item 05
+                                type: string
+                                required: true
+                              - name: item06
+                                label: Item 06
+                                type: string
+                                required: true
+                      - name: item07
+                        label: Item 7
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — Entering a new market should be a calculated growth str…
+                            type: string
+                            required: true
+              - name: no-marketing-function
+                label: No marketing function
+                type: object
+                fields:
+                  - name: headline
+                    label: Headline
+                    type: string
+                    required: true
+                  - name: blocks
+                    label: Blocks
+                    type: object
+                    fields:
+                      - name: item01
+                        label: Item 1
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — Many successful companies reach $3 million, $10 million…
+                            type: text
+                            required: true
+                      - name: item02
+                        label: Item 2
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — Growth often comes from founder relationships, referral…
+                            type: text
+                            required: true
+                      - name: item03
+                        label: Item 3
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — Wyckoff Consulting helps businesses establish their fir…
+                            type: string
+                            required: true
+                      - name: item04
+                        label: Item 4
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — We provide executive leadership, strategic planning, ma…
+                            type: text
+                            required: true
+                      - name: item05
+                        label: We Help Companies Build
+                        type: object
+                        fields:
+                          - name: heading
+                            label: Heading — We Help Companies Build
+                            type: string
+                            required: true
+                          - name: items
+                            label: Items
+                            type: object
+                            fields:
+                              - name: item01
+                                label: Item 01
+                                type: string
+                                required: true
+                              - name: item02
+                                label: Item 02
+                                type: string
+                                required: true
+                              - name: item03
+                                label: Item 03
+                                type: string
+                                required: true
+                              - name: item04
+                                label: Item 04
+                                type: string
+                                required: true
+                              - name: item05
+                                label: Item 05
+                                type: string
+                                required: true
+                              - name: item06
+                                label: Item 06
+                                type: string
+                                required: true
+                      - name: item06
+                        label: Who This Is For
+                        type: object
+                        fields:
+                          - name: heading
+                            label: Heading — Who This Is For
+                            type: string
+                            required: true
+                          - name: items
+                            label: Items
+                            type: object
+                            fields:
+                              - name: item01
+                                label: Item 01
+                                type: string
+                                required: true
+                              - name: item02
+                                label: Item 02
+                                type: string
+                                required: true
+                              - name: item03
+                                label: Item 03
+                                type: string
+                                required: true
+                              - name: item04
+                                label: Item 04
+                                type: string
+                                required: true
+                      - name: item07
+                        label: Item 7
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — Building a marketing department is one of the most impo…
+                            type: text
+                            required: true
+              - name: rebranding-or-repositioning
+                label: Rebranding or repositioning
+                type: object
+                fields:
+                  - name: headline
+                    label: Headline
+                    type: string
+                    required: true
+                  - name: blocks
+                    label: Blocks
+                    type: object
+                    fields:
+                      - name: item01
+                        label: Item 1
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — Your brand should reflect who your company is today—not…
+                            type: string
+                            required: true
+                      - name: item02
+                        label: Item 2
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — As organizations grow, acquire companies, launch new se…
+                            type: text
+                            required: true
+                      - name: item03
+                        label: Item 3
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — Wyckoff Consulting helps companies modernize their mark…
+                            type: text
+                            required: true
+                      - name: item04
+                        label: Item 4
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — Our approach goes beyond logos and colors. We focus on …
+                            type: text
+                            required: true
+                      - name: item05
+                        label: Reasons Companies Rebrand
+                        type: object
+                        fields:
+                          - name: heading
+                            label: Heading — Reasons Companies Rebrand
+                            type: string
+                            required: true
+                          - name: items
+                            label: Items
+                            type: object
+                            fields:
+                              - name: item01
+                                label: Item 01
+                                type: string
+                                required: true
+                              - name: item02
+                                label: Item 02
+                                type: string
+                                required: true
+                              - name: item03
+                                label: Item 03
+                                type: string
+                                required: true
+                              - name: item04
+                                label: Item 04
+                                type: string
+                                required: true
+                              - name: item05
+                                label: Item 05
+                                type: string
+                                required: true
+                              - name: item06
+                                label: Item 06
+                                type: string
+                                required: true
+                      - name: item06
+                        label: Our Rebranding Services Include
+                        type: object
+                        fields:
+                          - name: heading
+                            label: Heading — Our Rebranding Services Include
+                            type: string
+                            required: true
+                          - name: items
+                            label: Items
+                            type: object
+                            fields:
+                              - name: item01
+                                label: Item 01
+                                type: string
+                                required: true
+                              - name: item02
+                                label: Item 02
+                                type: string
+                                required: true
+                              - name: item03
+                                label: Item 03
+                                type: string
+                                required: true
+                              - name: item04
+                                label: Item 04
+                                type: string
+                                required: true
+                              - name: item05
+                                label: Item 05
+                                type: string
+                                required: true
+                              - name: item06
+                                label: Item 06
+                                type: string
+                                required: true
+                      - name: item07
+                        label: Item 7
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — A successful rebrand creates clarity, confidence, and c…
+                            type: string
+                            required: true
+              - name: preparing-for-sale
+                label: Preparing for sale
+                type: object
+                fields:
+                  - name: headline
+                    label: Headline
+                    type: string
+                    required: true
+                  - name: blocks
+                    label: Blocks
+                    type: object
+                    fields:
+                      - name: item01
+                        label: Item 1
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — A company’s value is not determined solely by financial…
+                            type: string
+                            required: true
+                      - name: item02
+                        label: Item 2
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — Buyers evaluate market position, customer relationships…
+                            type: text
+                            required: true
+                      - name: item03
+                        label: Item 3
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — Wyckoff Consulting helps business owners prepare their …
+                            type: text
+                            required: true
+                      - name: item04
+                        label: Item 4
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — We work with owners 12 to 36 months before a planned ex…
+                            type: text
+                            required: true
+                      - name: item05
+                        label: How Marketing Impacts Company Valuation
+                        type: object
+                        fields:
+                          - name: heading
+                            label: Heading — How Marketing Impacts Company Valuation
+                            type: string
+                            required: true
+                          - name: items
+                            label: Items
+                            type: object
+                            fields:
+                              - name: item01
+                                label: Item 01
+                                type: string
+                                required: true
+                              - name: item02
+                                label: Item 02
+                                type: string
+                                required: true
+                              - name: item03
+                                label: Item 03
+                                type: string
+                                required: true
+                              - name: item04
+                                label: Item 04
+                                type: string
+                                required: true
+                              - name: item05
+                                label: Item 05
+                                type: string
+                                required: true
+                              - name: item06
+                                label: Item 06
+                                type: string
+                                required: true
+                      - name: item06
+                        label: Exit Readiness Services
+                        type: object
+                        fields:
+                          - name: heading
+                            label: Heading — Exit Readiness Services
+                            type: string
+                            required: true
+                          - name: items
+                            label: Items
+                            type: object
+                            fields:
+                              - name: item01
+                                label: Item 01
+                                type: string
+                                required: true
+                              - name: item02
+                                label: Item 02
+                                type: string
+                                required: true
+                              - name: item03
+                                label: Item 03
+                                type: string
+                                required: true
+                              - name: item04
+                                label: Item 04
+                                type: string
+                                required: true
+                              - name: item05
+                                label: Item 05
+                                type: string
+                                required: true
+                              - name: item06
+                                label: Item 06
+                                type: string
+                                required: true
+                      - name: item07
+                        label: Item 7
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — The best time to prepare your business for sale is long…
+                            type: string
+                            required: true
+              - name: merger-or-acquisition
+                label: Merger or acquisition
+                type: object
+                fields:
+                  - name: headline
+                    label: Headline
+                    type: string
+                    required: true
+                  - name: blocks
+                    label: Blocks
+                    type: object
+                    fields:
+                      - name: item01
+                        label: Item 1
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — Mergers and acquisitions create opportunities for growt…
+                            type: text
+                            required: true
+                      - name: item02
+                        label: Item 2
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — Customers, employees, vendors, and stakeholders often h…
+                            type: text
+                            required: true
+                      - name: item03
+                        label: Item 3
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — Wyckoff Consulting helps organizations navigate marketi…
+                            type: text
+                            required: true
+                      - name: item04
+                        label: Item 4
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — We provide executive-level guidance to align brands, me…
+                            type: text
+                            required: true
+                      - name: item05
+                        label: Common M&A Marketing Challenges
+                        type: object
+                        fields:
+                          - name: heading
+                            label: Heading — Common M&A Marketing Challenges
+                            type: string
+                            required: true
+                          - name: items
+                            label: Items
+                            type: object
+                            fields:
+                              - name: item01
+                                label: Item 01
+                                type: string
+                                required: true
+                              - name: item02
+                                label: Item 02
+                                type: string
+                                required: true
+                              - name: item03
+                                label: Item 03
+                                type: string
+                                required: true
+                              - name: item04
+                                label: Item 04
+                                type: string
+                                required: true
+                              - name: item05
+                                label: Item 05
+                                type: string
+                                required: true
+                      - name: item06
+                        label: How We Help
+                        type: object
+                        fields:
+                          - name: heading
+                            label: Heading — How We Help
+                            type: string
+                            required: true
+                          - name: items
+                            label: Items
+                            type: object
+                            fields:
+                              - name: item01
+                                label: Item 01
+                                type: string
+                                required: true
+                              - name: item02
+                                label: Item 02
+                                type: string
+                                required: true
+                              - name: item03
+                                label: Item 03
+                                type: string
+                                required: true
+                              - name: item04
+                                label: Item 04
+                                type: string
+                                required: true
+                              - name: item05
+                                label: Item 05
+                                type: string
+                                required: true
+                              - name: item06
+                                label: Item 06
+                                type: string
+                                required: true
+                      - name: item07
+                        label: Item 7
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — Successful integrations require more than operational a…
+                            type: text
+                            required: true
+              - name: private-equity-venture-backed-companies
+                label: Private equity venture backed companies
+                type: object
+                fields:
+                  - name: headline
+                    label: Headline
+                    type: string
+                    required: true
+                  - name: subtitle
+                    label: Subtitle
+                    type: text
+                    required: true
+                  - name: blocks
+                    label: Blocks
+                    type: object
+                    fields:
+                      - name: item01
+                        label: Item 1
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — Private equity firms and venture capital investors don’…
+                            type: string
+                            required: true
+                      - name: item02
+                        label: Item 2
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — They invest in growth.
+                            type: string
+                            required: true
+                      - name: item03
+                        label: Item 3
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — When a portfolio company isn’t reaching its revenue pot…
+                            type: text
+                            required: true
+                      - name: item04
+                        label: Item 4
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — Wyckoff Consulting partners with private equity firms, …
+                            type: text
+                            required: true
+                      - name: item05
+                        label: Item 5
+                        type: object
+                        fields:
+                          - name: text
+                            label: Text — Rather than hiring a full-time executive for every port…
+                            type: text
+                            required: true
+                      - name: item06
+                        label: Item 6
+                        type: object
+                        fields:
+                          - name: eyebrow
+                            label: Eyebrow
+                            type: string
+                            required: true
+                          - name: text
+                            label: Text — Increase company value while reducing execution risk.
+                            type: string
+                            required: true
+                      - name: item07
+                        label: How Wyckoff Consulting Supports Portfolio Companies
+                        type: object
+                        fields:
+                          - name: heading
+                            label: Heading — How Wyckoff Consulting Supports Portfolio Companies
+                            type: string
+                            required: true
+                          - name: intro
+                            label: Intro
+                            type: string
+                            required: true
+                          - name: items
+                            label: Items
+                            type: object
+                            fields:
+                              - name: item01
+                                label: Item 01
+                                type: string
+                                required: true
+                              - name: item02
+                                label: Item 02
+                                type: string
+                                required: true
+                              - name: item03
+                                label: Item 03
+                                type: string
+                                required: true
+                              - name: item04
+                                label: Item 04
+                                type: string
+                                required: true
+                              - name: item05
+                                label: Item 05
+                                type: string
+                                required: true
+                              - name: item06
+                                label: Item 06
+                                type: string
+                                required: true
+                              - name: item07
+                                label: Item 07
+                                type: text
+                                required: true
+                          - name: outro
+                            label: Outro
+                            type: text
+                            required: true
+                      - name: item08
+                        label: Strategic Services for Investors and Portfolio Companies
+                        type: object
+                        fields:
+                          - name: heading
+                            label: Heading — Strategic Services for Investors and Portfolio Companie…
+                            type: string
+                            required: true
+                          - name: items
+                            label: Items
+                            type: object
+                            fields:
+                              - name: item01
+                                label: Executive Marketing Leadership
+                                type: object
+                                fields:
+                                  - name: title
+                                    label: Title
+                                    type: string
+                                    required: true
+                                  - name: description
+                                    label: Description
+                                    type: text
+                                    required: true
+                              - name: item02
+                                label: Growth Strategy Development
+                                type: object
+                                fields:
+                                  - name: title
+                                    label: Title
+                                    type: string
+                                    required: true
+                                  - name: description
+                                    label: Description
+                                    type: text
+                                    required: true
+                              - name: item03
+                                label: Due Diligence Support
+                                type: object
+                                fields:
+                                  - name: title
+                                    label: Title
+                                    type: string
+                                    required: true
+                                  - name: description
+                                    label: Description
+                                    type: text
+                                    required: true
+                              - name: item04
+                                label: 100-Day Growth Planning
+                                type: object
+                                fields:
+                                  - name: title
+                                    label: Title
+                                    type: string
+                                    required: true
+                                  - name: description
+                                    label: Description
+                                    type: text
+                                    required: true
+                              - name: item05
+                                label: Sales and Marketing Alignment
+                                type: object
+                                fields:
+                                  - name: title
+                                    label: Title
+                                    type: string
+                                    required: true
+                                  - name: description
+                                    label: Description
+                                    type: text
+                                    required: true
+                              - name: item06
+                                label: Brand and Market Positioning
+                                type: object
+                                fields:
+                                  - name: title
+                                    label: Title
+                                    type: string
+                                    required: true
+                                  - name: description
+                                    label: Description
+                                    type: text
+                                    required: true
+                              - name: item07
+                                label: Exit Preparation
+                                type: object
+                                fields:
+                                  - name: title
+                                    label: Title
+                                    type: string
+                                    required: true
+                                  - name: description
+                                    label: Description
+                                    type: text
+                                    required: true
+                      - name: item09
+                        label: Why Private Equity Firms Choose Wyckoff Consulting
+                        type: object
+                        fields:
+                          - name: heading
+                            label: Heading — Why Private Equity Firms Choose Wyckoff Consulting
+                            type: string
+                            required: true
+                          - name: content
+                            label: Content
+                            type: object
+                            fields:
+                              - name: item01
+                                label: Item 1
+                                type: object
+                                fields:
+                                  - name: text
+                                    label: Text — Investment firms need experienced operators—not agencie…
+                                    type: string
+                                    required: true
+                              - name: item02
+                                label: Item 2
+                                type: object
+                                fields:
+                                  - name: text
+                                    label: Text — Wyckoff Consulting provides executive-level leadership …
+                                    type: text
+                                    required: true
+                              - name: item03
+                                label: Item 3
+                                type: object
+                                fields:
+                                  - name: text
+                                    label: Text — Because every engagement is customized, investors gain …
+                                    type: text
+                                    required: true
+                              - name: item04
+                                label: Item 4
+                                type: object
+                                fields:
+                                  - name: text
+                                    label: Text — Our role is to help management teams make better strate…
+                                    type: text
+                                    required: true
+                      - name: item10
+                        label: Ideal Clients
+                        type: object
+                        fields:
+                          - name: heading
+                            label: Heading — Ideal Clients
+                            type: string
+                            required: true
+                          - name: content
+                            label: Content
+                            type: object
+                            fields:
+                              - name: item01
+                                label: Item 1
+                                type: object
+                                fields:
+                                  - name: intro
+                                    label: Intro
+                                    type: string
+                                    required: true
+                                  - name: items
+                                    label: Items
+                                    type: object
+                                    fields:
+                                      - name: item01
+                                        label: Item 01
+                                        type: string
+                                        required: true
+                                      - name: item02
+                                        label: Item 02
+                                        type: string
+                                        required: true
+                                      - name: item03
+                                        label: Item 03
+                                        type: string
+                                        required: true
+                                      - name: item04
+                                        label: Item 04
+                                        type: string
+                                        required: true
+                                      - name: item05
+                                        label: Item 05
+                                        type: string
+                                        required: true
+                                      - name: item06
+                                        label: Item 06
+                                        type: string
+                                        required: true
+                                      - name: item07
+                                        label: Item 07
+                                        type: string
+                                        required: true
+                      - name: item11
+                        label: Common Engagement Scenarios
+                        type: object
+                        fields:
+                          - name: heading
+                            label: Heading — Common Engagement Scenarios
+                            type: string
+                            required: true
+                          - name: content
+                            label: Content
+                            type: object
+                            fields:
+                              - name: item01
+                                label: Item 1
+                                type: object
+                                fields:
+                                  - name: intro
+                                    label: Intro
+                                    type: string
+                                    required: true
+                                  - name: items
+                                    label: Items
+                                    type: object
+                                    fields:
+                                      - name: item01
+                                        label: Item 01
+                                        type: string
+                                        required: true
+                                      - name: item02
+                                        label: Item 02
+                                        type: string
+                                        required: true
+                                      - name: item03
+                                        label: Item 03
+                                        type: string
+                                        required: true
+                                      - name: item04
+                                        label: Item 04
+                                        type: string
+                                        required: true
+                                      - name: item05
+                                        label: Item 05
+                                        type: string
+                                        required: true
+                                      - name: item06
+                                        label: Item 06
+                                        type: text
+                                        required: true
+                      - name: item12
+                        label: Build Stronger Companies. Create Greater Enterprise Value.
+                        type: object
+                        fields:
+                          - name: heading
+                            label: Heading — Build Stronger Companies. Create Greater Enterprise Val…
+                            type: string
+                            required: true
+                          - name: content
+                            label: Content
+                            type: object
+                            fields:
+                              - name: item01
+                                label: Item 1
+                                type: object
+                                fields:
+                                  - name: text
+                                    label: Text — Successful investments require more than operational im…
+                                    type: text
+                                    required: true
+                              - name: item02
+                                label: Item 2
+                                type: object
+                                fields:
+                                  - name: text
+                                    label: Text — Wyckoff Consulting helps investment firms and portfolio…
+                                    type: text
+                                    required: true
+      - name: labels
+        label: Strategy controls & labels
+        type: object
+        fields:
+          - name: text
+            label: Text — Detailed strategy
+            type: string
+            required: true
+          - name: moreClosed
+            label: More Closed
+            type: string
+            required: true
+          - name: text2
+            label: Text 2 — with
+            type: string
+            required: true
+          - name: moreOpen
+            label: More Open
+            type: string
+            required: true
+          - name: text3
+            label: Text 3 — for
+            type: string
+            required: true
+          - name: paragraph
+            label: Paragraph — Inflection Point
+            type: string
+            required: true
+          - name: paragraph2
+            label: Paragraph 2 — · In depth
+            type: string
+            required: true
+          - name: backHref
+            label: Link destination
+            type: string
+            required: true
+            pattern:
+              regex: ^(https?://[^\s]+|mailto:[^\s]+|tel:[^\s]+|/(?!/)[^\s]*|#[^\s]+)$
+              message: Use a site path (/about), anchor (#contact), or full https:// URL.
+          - name: back
+            label: Back
+            type: string
+            required: true
+  - name: insights
+    label: Insights · listing & article labels
+    type: file
+    path: src/data/pages/insights.json
+    format: json
+    operations:
+      create: false
+      rename: false
+      delete: false
+    fields:
+      - name: listing
+        label: Listing headings & empty states
+        type: object
+        fields:
+          - name: title
+            label: Title
+            type: string
+            required: true
+          - name: description
+            label: Description
+            type: text
+            required: true
+          - name: paragraph2
+            label: Paragraph 2 — Full collection
+            type: string
+            required: true
+          - name: heading2
+            label: Heading 2 — All insights.
+            type: string
+            required: true
+          - name: empty
+            label: Empty
+            type: string
+            required: true
+          - name: empty2
+            label: Empty 2
+            type: string
+            required: true
+          - name: articleSingular
+            label: Article Singular
+            type: string
+            required: true
+          - name: articlePlural
+            label: Article Plural
+            type: string
+            required: true
+      - name: hero
+        label: Hero
+        type: object
+        fields:
+          - name: eyebrow
+            label: Eyebrow
+            type: string
+            required: true
+          - name: heading
+            label: Heading — Wyckoff’s Thought Leadership
+            type: string
+            required: true
+          - name: text
+            label: Text — Perspectives in the collection
+            type: string
+            required: true
+          - name: label
+            label: Label
+            type: string
+            required: true
+          - name: action
+            label: Action
+            type: string
+            required: true
+      - name: card
+        label: Article cards
+        type: object
+        fields:
+          - name: action
+            label: Action
+            type: string
+            required: true
+      - name: article
+        label: Article navigation & related reading
+        type: object
+        fields:
+          - name: backHref
+            label: Link destination
+            type: string
+            required: true
+            pattern:
+              regex: ^(https?://[^\s]+|mailto:[^\s]+|tel:[^\s]+|/(?!/)[^\s]*|#[^\s]+)$
+              message: Use a site path (/about), anchor (#contact), or full https:// URL.
+          - name: back
+            label: Back
+            type: string
+            required: true
+          - name: text
+            label: Text — Insight
+            type: string
+            required: true
+          - name: text2
+            label: Text 2 — By
+            type: string
+            required: true
+          - name: updated
+            label: Updated
+            type: string
+            required: true
+          - name: paragraph3
+            label: Paragraph 3 — More insights
+            type: string
+            required: true
+          - name: heading2
+            label: Heading 2 — Continue reading.
+            type: string
+            required: true
+          - name: href2
+            label: Href 2
+            type: string
+            required: true
+          - name: linkLabel2
+            label: Link Label 2
+            type: string
+            required: true
+  - name: articles
+    label: Insights · existing articles
+    type: collection
+    path: src/content/insights
+    format: yaml-frontmatter
+    subfolders: false
+    operations:
+      create: false
+      rename: false
+      delete: false
+    view:
+      primary: title
+      fields:
+        - title
+        - author
+      sort:
+        - title
+      search:
+        - title
+        - description
+        - author
+    fields:
+      - name: title
+        label: Article title
+        type: string
+        required: true
+      - name: description
+        label: Summary / search description
+        type: text
+        required: true
+      - name: author
+        label: Author
+        type: string
+      - name: categories
+        label: Categories
+        type: string
+        list: true
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+      - name: featuredImage
+        label: Featured image
+        type: image
+        required: true
+        options:
+          media: images
+          path: public/images/insights
+        description: Replacement dimensions are detected from the image automatically. Use a landscape image
+          for the listing cards.
+      - name: featuredImageAlt
+        label: Featured image description (alt text)
+        type: string
+      - name: body
+        label: Article content
+        type: rich-text
+        options:
+          format: markdown
+          switcher: false
+          media: images
+          path: public/images/insights
+        description: Edit the existing article text, links and inline images. Publication dates and draft
+          status are managed by the site developer.
+settings:
+  hide: true
+  content:
+    merge: true

@@ -1,0 +1,60 @@
+{
+  "contact": {
+    "eyebrow": "The next step",
+    "heading": "Let's discuss profitable growth.",
+    "intro": "Tell us what's shifted in the business. If there's a fit, you'll hear back directly from Luke.",
+    "nameLabel": "Name",
+    "companyLabel": "Company",
+    "emailLabel": "Email",
+    "revenueLabel": "Annual revenue",
+    "revenuePlaceholder": "Select a revenue range",
+    "messageLabel": "What's changed?",
+    "submitLabel": "Send it to Luke",
+    "privacyNote": "Every inquiry is read personally. Nothing is shared, sold, or added to a list.",
+    "linkLabel": "Start a conversation",
+    "messages": {
+      "required": "Please fill in your name, email, and what’s changed.",
+      "sending": "Sending…",
+      "success": "Thank you — your note is on its way to Luke.",
+      "failure": "Something went wrong. Please try again in a moment.",
+      "network": "Network error — please try again."
+    }
+  },
+  "header": {
+    "overlayLabel": "Navigate",
+    "overlayNote": "Executive marketing leadership since 1993."
+  },
+  "footer": {
+    "tagline": "Strategy. Growth. Enterprise Value."
+  },
+  "business": {
+    "name": "Wyckoff Consulting",
+    "linkedInUrl": "https://www.linkedin.com/in/lukewyckoff/",
+    "homeLabel": "Wyckoff Consulting, home",
+    "socialImage": "/images/brand/wyckoff-social-share.png",
+    "socialImageAlt": "Wyckoff Consulting logo",
+    "portrait": {
+      "src": "/images/wyckoff/luke-headshot.webp",
+      "alt": "Luke Wyckoff, Fractional Chief Marketing Officer"
+    }
+  },
+  "navigation": {
+    "inflectionPoints": {
+      "label": "Inflection Points",
+      "href": "/inflection-points/"
+    },
+    "about": {
+      "label": "About",
+      "href": "/about"
+    },
+    "insights": {
+      "label": "Insights",
+      "href": "/insights"
+    },
+    "contact": {
+      "label": "Start a Conversation",
+      "footerLabel": "Contact",
+      "href": "/#contact"
+    }
+  }
+}

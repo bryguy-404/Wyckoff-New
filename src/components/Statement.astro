@@ -1,6 +1,11 @@
+---
+import { contentImageSize } from "../lib/contentImages";
+import pageContent from "../data/pages/home.json";
+const content = pageContent.statement;
+---
 <section class="statement">
-  <img class="statement__bg" data-plx="0.12" src="/images/statement-bg.jpg" alt="" loading="lazy" aria-hidden="true" />
+  <img class="statement__bg" data-plx="0.12" src={content.bgSrc} alt="" loading="lazy" aria-hidden="true" {...await contentImageSize(content.bgSrc)} />
   <div class="wrap">
-    <p class="wordrise">Marketing exists for one reason. <span class="statement__emphasis">To create profitable growth.</span></p>
+    <p class="wordrise">{content.paragraph} <span class="statement__emphasis">{content.emphasis}</span></p>
   </div>
 </section>

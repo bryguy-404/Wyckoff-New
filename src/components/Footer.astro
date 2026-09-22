@@ -1,4 +1,6 @@
 ---
+import pageContent from "../data/pages/shared.json";
+const content = pageContent.footer;
 import BrandLogo from "./BrandLogo.astro";
 
 const pathname = Astro.url.pathname.replace(/\/+$/, "") || "/";
@@ -6,23 +8,23 @@ const onHome = pathname === "/";
 const onInflectionPoints = pathname === "/inflection-points" || pathname.startsWith("/inflection-points/");
 const onInsights = pathname === "/insights" || pathname.startsWith("/insights/");
 const links = [
-  { href: "/inflection-points/", label: "Inflection Points", current: onInflectionPoints },
-  { href: "/about", label: "About", current: pathname === "/about" },
-  { href: "/insights", label: "Insights", current: onInsights },
-  { href: onHome ? "#contact" : "/#contact", label: "Contact", current: false },
+  { ...pageContent.navigation.inflectionPoints, cta: false, current: onInflectionPoints },
+  { ...pageContent.navigation.about, cta: false, current: pathname === "/about" },
+  { ...pageContent.navigation.insights, cta: false, current: onInsights },
+  { ...pageContent.navigation.contact, label: pageContent.navigation.contact.footerLabel, href: onHome && pageContent.navigation.contact.href === "/#contact" ? "#contact" : pageContent.navigation.contact.href, cta: true, current: false },
 ];
 const year = new Date().getFullYear();
 ---
 <footer class="foot">
   <div class="wrap">
     <div class="foot__top">
-      <a class="foot__brand" href={onHome ? "#top" : "/"} aria-label="Wyckoff Consulting, home">
+      <a class="foot__brand" href={onHome ? "#top" : "/"} aria-label={pageContent.business.homeLabel}>
         <BrandLogo variant="lockup" class="foot__logo" />
       </a>
       <nav class="foot__nav" aria-label="Footer">
         {links.map((link) => <a href={link.href} aria-current={link.current ? "page" : undefined}>{link.label}</a>)}
       </nav>
     </div>
-    <div class="foot__bar"><span>Strategy. Growth. Enterprise Value.</span><span>&copy; {year} Wyckoff Consulting</span></div>
+    <div class="foot__bar"><span>{content.tagline}</span><span>&copy; {year} {pageContent.business.name}</span></div>
   </div>
 </footer>

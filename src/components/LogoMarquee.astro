@@ -1,4 +1,5 @@
 ---
+import { contentImageSize } from "../lib/contentImages";
 import type { LogoItem } from "../data/logos";
 import ExternalArrow from "./ExternalArrow.astro";
 
@@ -42,37 +43,31 @@ const headingId = `${sectionId}-heading`;
         <img
           src={featureImage.src}
           alt={featureImage.alt}
-          width={featureImage.width}
-          height={featureImage.height}
           loading="lazy"
           decoding="async"
-        />
+        {...await contentImageSize(featureImage.src)} />
       </div>
     )}
   </div>
   <div class="mq mq--logos" aria-label={accessibleLabel}>
     <div class="mq__track">
-      {logos.map((logo) => (
+      {logos.map(async (logo) => (
         <img
           src={logo.src}
           alt={logo.alt}
-          width={logo.width}
-          height={logo.height}
           loading="lazy"
           decoding="async"
-        />
+        {...await contentImageSize(logo.src)} />
       ))}
     </div>
     <div class="mq__track" aria-hidden="true">
-      {logos.map((logo) => (
+      {logos.map(async (logo) => (
         <img
           src={logo.src}
           alt=""
-          width={logo.width}
-          height={logo.height}
           loading="lazy"
           decoding="async"
-        />
+        {...await contentImageSize(logo.src)} />
       ))}
     </div>
   </div>

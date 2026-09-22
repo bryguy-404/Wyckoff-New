@@ -1,4 +1,7 @@
 ---
+import sharedContent from "../data/pages/shared.json";
+import pageContent from "../data/pages/inflectionPoints.json";
+const content = pageContent.page;
 import Layout from "../layouts/Layout.astro";
 import InflectionDetail from "../components/InflectionDetail.astro";
 import { inflectionPoints } from "../data/inflectionPoints";
@@ -21,7 +24,7 @@ const structuredData = {
 ---
 
 <Layout
-  title="Inflection Points | Wyckoff Consulting"
+  title={content.title}
   description={pageDescription}
   canonicalPath="/inflection-points/"
   structuredData={structuredData}
@@ -30,13 +33,13 @@ const structuredData = {
     <div class="ip-hero__field" aria-hidden="true"></div>
     <div class="wrap ip-hero__grid">
       <div class="ip-hero__copy">
-        <p class="ip-eyebrow"><span></span>Inflection Points</p>
+        <p class="ip-eyebrow"><span></span>{content.paragraph}</p>
         <h1 id="ip-title">
-          <span>This is why we</span>
-          <span>get the call.</span>
+          <span>{content.text}</span>
+          <span>{content.text2}</span>
         </h1>
-        <p>Executive marketing leadership for $3M–$50M+ companies, at the moments that decide their next decade.</p>
-        <a href="/inflection-points/#point-index">See all eight <span aria-hidden="true">&darr;</span></a>
+        <p>{content.paragraph2}</p>
+        <a href={content.href}>{content.linkLabel} <span aria-hidden="true">&darr;</span></a>
       </div>
     </div>
   </header>
@@ -44,8 +47,8 @@ const structuredData = {
   <nav class="point-index" id="point-index" aria-label="Inflection point index">
     <div class="wrap">
       <div class="point-index__heading">
-        <p>Eight critical business inflection points</p>
-        <span>Choose a moment</span>
+        <p>{content.paragraph3}</p>
+        <span>{content.text3}</span>
       </div>
       <ol>
         {inflectionPoints.map((point) => (
@@ -64,15 +67,15 @@ const structuredData = {
   <section class="point-ledger" aria-labelledby="point-ledger-title">
     <div class="wrap">
       <header class="point-ledger__intro">
-        <p>Why Companies Choose Wyckoff</p>
-        <h2 id="point-ledger-title">The moments that define a company&rsquo;s future.</h2>
+        <p>{content.paragraph4}</p>
+        <h2 id="point-ledger-title">{content.heading}</h2>
       </header>
 
       <div class="point-ledger__labels" aria-hidden="true">
-        <span>Point</span>
-        <span>Business moment</span>
-        <span>The challenge</span>
-        <span>What&rsquo;s needed</span>
+        <span>{content.text4}</span>
+        <span>{content.text5}</span>
+        <span>{content.text6}</span>
+        <span>{content.text7}</span>
       </div>
 
       <div class="point-ledger__rows">
@@ -80,15 +83,15 @@ const structuredData = {
           <article class="point-row" id={point.slug} aria-labelledby={`${point.slug}-title`}>
             <div class="point-row__number" aria-hidden="true">{point.num}</div>
             <div class="point-row__title">
-              <p>Inflection Point {point.num}</p>
+              <p>{content.paragraph5} {point.num}</p>
               <h3 id={`${point.slug}-title`}>{point.title}</h3>
             </div>
             <div class="point-row__detail point-row__detail--challenge">
-              <h4>The challenge</h4>
+              <h4>{content.text8}</h4>
               <p>{point.challenge}</p>
             </div>
             <div class="point-row__detail point-row__detail--needed">
-              <h4>What&rsquo;s needed</h4>
+              <h4>{content.text9}</h4>
               <p>{point.needed}</p>
             </div>
             <InflectionDetail point={point} detail={inflectionPointDetails[point.slug]} />
@@ -101,12 +104,12 @@ const structuredData = {
   <section class="ip-cta" aria-labelledby="ip-cta-title">
     <div class="wrap ip-cta__grid">
       <div>
-        <p>The next step</p>
-        <h2 id="ip-cta-title">Let&rsquo;s discuss profitable growth.</h2>
+        <p>{sharedContent.contact.eyebrow}</p>
+        <h2 id="ip-cta-title">{sharedContent.contact.heading.replaceAll("'", "’")}</h2>
       </div>
       <div>
-        <p>Tell us what&rsquo;s shifted in the business. If there&rsquo;s a fit, you&rsquo;ll hear back directly from Luke.</p>
-        <a href="/#contact">Start a conversation <span aria-hidden="true">&rarr;</span></a>
+        <p>{sharedContent.contact.intro.replaceAll("'", "’")}</p>
+        <a href={sharedContent.navigation.contact.href}>{sharedContent.contact.linkLabel} <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
   </section>

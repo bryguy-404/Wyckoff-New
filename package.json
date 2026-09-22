@@ -9,7 +9,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "check:cms": "node scripts/verify-cms.mjs",
+    "test:cms": "node scripts/verify-cms.mjs --replacements"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.5",
@@ -19,6 +21,8 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
-    "typescript": "^6.0.3"
+    "@types/node": "^26.6.2",
+    "typescript": "^6.0.3",
+    "yaml": "^2.9.1"
   }
 }

@@ -1,161 +1,110 @@
 ---
+import { contentImageSize } from "../lib/contentImages";
+import sharedContent from "../data/pages/shared.json";
+import pageContent from "../data/pages/about.json";
+const content = pageContent;
+import { fromContentSlots } from "../lib/contentSlots";
 import Layout from "../layouts/Layout.astro";
 import LogoMarquee from "../components/LogoMarquee.astro";
 import ResultsShowcase from "../components/ResultsShowcase.astro";
 import { guestLectureLogos } from "../data/logos";
 
-const expectations = [
-  {
-    title: "Executive Perspective",
-    body: "Receive executive-level guidance that aligns marketing, sales, operations, and financial objectives into one cohesive growth strategy.",
-  },
-  {
-    title: "Strategic Partnership",
-    body: "Work with a trusted advisor who becomes an extension of your leadership team and is fully invested in your company's long-term success.",
-  },
-  {
-    title: "Growth-Focused Leadership",
-    body: "Every recommendation is designed to increase revenue, improve profitability, strengthen your competitive position, and create long-term enterprise value.",
-  },
-  {
-    title: "Proven Experience",
-    body: "Benefit from more than three decades of helping organizations across 20+ industries and 12 countries solve complex growth challenges.",
-  },
-  {
-    title: "Decisive Execution",
-    body: "Ideas create opportunity. Execution creates results. Wyckoff Consulting helps leadership teams turn strategy into measurable business outcomes.",
-  },
-  {
-    title: "Customized Solutions",
-    body: "No two companies face the same challenges. Every engagement is tailored to your business, your leadership team, and your growth objectives.",
-  },
-  {
-    title: "Confidence During Change",
-    body: "From leadership transitions and market expansion to mergers, acquisitions, and exit planning, receive experienced guidance during your company's most important moments.",
-  },
-  {
-    title: "A Partner Invested in Your Success",
-    body: "Your business goals become our mission. Every engagement is driven by integrity, accountability, urgency, and an unwavering commitment to helping your company reach its next stage of growth.",
-  },
-];
+const expectations = fromContentSlots(content.expectations.expectations);
 
-const industries = [
-  "Manufacturing & Industrial",
-  "Private Equity & Venture Capital",
-  "Professional, Scientific & Technical Services",
-  "Information Technology & Software",
-  "Healthcare & Healthcare Technology",
-  "Financial Services & Insurance",
-  "Energy & Utilities",
-  "Defense & Aerospace",
-  "Consumer Products",
-  "Retail & E-Commerce",
-  "Telecommunications",
-  "Education & Higher Education",
-  "Market Research",
-  "Travel & Hospitality",
-  "Media, Communications & Entertainment",
-  "Natural Resources",
-  "Sports & Recreation",
-  "Faith-Based Organizations",
-  "Political Organizations",
-  "Scientific Research",
-];
+const industries = fromContentSlots(content.industries.industries);
 ---
 
 <Layout
-  title="About Luke Wyckoff | Wyckoff Consulting"
-  description="Meet Luke Wyckoff, a Fractional Chief Marketing Officer bringing more than three decades of executive growth leadership across 20+ industries and 12 countries."
+  title={content.seo.title}
+  description={content.seo.description}
 >
   <section class="about-hero" id="top" aria-labelledby="about-title">
     <div class="about-hero__glow" aria-hidden="true"></div>
     <div class="wrap about-hero__grid" id="aboutHeroInner">
       <div class="about-hero__copy">
-        <p class="about-hero__eyebrow">About Luke Wyckoff</p>
+        <p class="about-hero__eyebrow">{content.hero.eyebrow}</p>
         <h1 class="about-hero__title" id="about-title">
-          <span class="about-hero__sentence"><span class="about-hero__title-line">Three decades of</span> <span class="about-hero__title-line">cross-industry experience.</span></span>
-          <span class="about-hero__sentence about-hero__title-soft"><span class="about-hero__title-line">One goal:</span> <span class="about-hero__title-line">accelerate your growth.</span></span>
+          <span class="about-hero__sentence"><span class="about-hero__title-line">{content.hero.titleLine}</span> <span class="about-hero__title-line">{content.hero.titleLine2}</span></span>
+          <span class="about-hero__sentence about-hero__title-soft"><span class="about-hero__title-line">{content.hero.titleLine3}</span> <span class="about-hero__title-line">{content.hero.titleLine4}</span></span>
         </h1>
         <p class="about-hero__lede">
-          Strategic perspective built across 20+ industries and 12 countries.
+          {content.hero.lede}
         </p>
-        <a class="textlink about-hero__link" href="#executive-leadership">Meet your future Fractional CMO <span aria-hidden="true">&darr;</span></a>
+        <a class="textlink about-hero__link" href={content.hero.linkHref}>{content.hero.link} <span aria-hidden="true">&darr;</span></a>
       </div>
 
       <figure class="about-hero__portrait">
         <div class="about-hero__portrait-frame">
           <img
-            src="/images/wyckoff/luke-headshot.webp"
-            alt="Luke Wyckoff, Fractional Chief Marketing Officer"
-            width="958"
-            height="959"
+            src={sharedContent.business.portrait.src}
+            alt={sharedContent.business.portrait.alt}
             fetchpriority="high"
             decoding="async"
-          />
+          {...await contentImageSize(sharedContent.business.portrait.src)} />
         </div>
         <figcaption>
-          <span>Fractional Chief Marketing Officer</span>
-          <span>In practice since 1993</span>
+          <span>{content.hero.text}</span>
+          <span>{content.hero.text2}</span>
         </figcaption>
       </figure>
     </div>
 
     <div class="wrap about-hero__proof" aria-label="Luke Wyckoff's experience at a glance">
-      <div><strong>30+</strong><span>Years of executive experience</span></div>
-      <div><strong>20+</strong><span>Industries served</span></div>
-      <div><strong>12</strong><span>Countries</span></div>
+      <div><strong>{content.hero.emphasis}</strong><span>{content.hero.text3}</span></div>
+      <div><strong>{content.hero.emphasis2}</strong><span>{content.hero.text4}</span></div>
+      <div><strong>{content.hero.countriesValue}</strong><span>{content.hero.text5}</span></div>
     </div>
   </section>
 
   <section class="perspective" aria-labelledby="perspective-title">
     <div class="wrap perspective__intro">
-      <p class="label rv">Cross-Industry Perspective</p>
+      <p class="label rv">{content.perspective.paragraph}</p>
       <div class="perspective__headline rv">
-        <h2 class="display" id="perspective-title"><span class="about-heading__line">The best idea for</span> <span class="about-heading__line">your business</span> <span class="about-heading__line">may come from</span> <span class="about-heading__line">somewhere else.</span></h2>
-        <p class="perspective__standfirst">The most valuable ideas rarely come from inside your own industry.</p>
+        <h2 class="display" id="perspective-title"><span class="about-heading__line">{content.perspective.line}</span> <span class="about-heading__line">{content.perspective.line2}</span> <span class="about-heading__line">{content.perspective.line3}</span> <span class="about-heading__line">{content.perspective.line4}</span></h2>
+        <p class="perspective__standfirst">{content.perspective.standfirst}</p>
       </div>
     </div>
 
     <div class="wrap perspective__story">
       <div class="perspective__copy rv">
-        <p>Companies engage Wyckoff Consulting because they want more than industry expertise—they want an executive advisor who brings fresh thinking, proven growth strategies, and executive-level experience from organizations around the world.</p>
-        <p>For more than 30 years, Luke Wyckoff has helped business owners, CEOs, executive teams, private equity firms, and portfolio companies solve complex growth challenges across more than <strong>20 industries in 12 countries</strong>.</p>
-        <p>This breadth of experience allows clients to benefit from proven strategies that competitors often overlook because they're too focused on &ldquo;the way our industry has always done it.&rdquo;</p>
-        <p>Instead of applying a one-size-fits-all marketing approach, Wyckoff Consulting identifies the best ideas from multiple industries and adapts them to fit your business, your market, and your growth objectives.</p>
+        <p>{content.perspective.paragraph2}</p>
+        <p>{content.perspective.paragraph3} <strong>{content.perspective.emphasis3}</strong>.</p>
+        <p>{content.perspective.paragraph4}</p>
+        <p>{content.perspective.paragraph5}</p>
       </div>
 
       <aside class="perspective__principle rv" aria-label="Wyckoff Consulting principle">
-        <span aria-hidden="true">Wyckoff Principle</span>
-        <p>Innovation happens when successful ideas cross industry boundaries.</p>
-        <strong>That's where competitive advantage is created.</strong>
+        <span aria-hidden="true">{content.perspective.text6}</span>
+        <p>{content.perspective.paragraph6}</p>
+        <strong>{content.perspective.emphasis4}</strong>
       </aside>
     </div>
 
     <div class="wrap industries rv">
       <div class="industries__heading">
-        <p class="label">Industries Served</p>
-        <p>Perspective earned across markets, business models, and moments of change.</p>
+        <p class="label">{content.industries.paragraph7}</p>
+        <p>{content.industries.paragraph8}</p>
       </div>
       <ol class="industries__list">
         {industries.map((industry, index) => (
           <li><span>{String(index + 1).padStart(2, "0")}</span>{industry}</li>
         ))}
       </ol>
-      <p class="industries__closing">Whether your company generates <strong>$3 million or $50 million+ in annual revenue</strong>, the challenges of growth, differentiation, leadership, and value creation are remarkably similar. Wyckoff Consulting brings the strategic perspective, cross-industry experience, and executive leadership needed to help organizations solve those challenges—and capitalize on opportunities others never see.</p>
+      <p class="industries__closing">{content.industries.closing} <strong>{content.industries.emphasis5}</strong>{content.industries.closing2}</p>
     </div>
   </section>
 
   <section class="about-leadership band" id="executive-leadership" aria-labelledby="leadership-title">
     <div class="wrap about-leadership__grid">
       <div class="about-leadership__heading rv">
-        <p class="label">The Fractional Chief Marketing Officer</p>
-        <h2 class="display" id="leadership-title"><span class="about-heading__line">Executive leadership</span> <span class="about-heading__line">when your business</span> <span class="about-heading__line">needs it most.</span></h2>
+        <p class="label">{content.leadership.paragraph9}</p>
+        <h2 class="display" id="leadership-title"><span class="about-heading__line">{content.leadership.line5}</span> <span class="about-heading__line">{content.leadership.line6}</span> <span class="about-heading__line">{content.leadership.line7}</span></h2>
       </div>
       <div class="about-leadership__body rv">
-        <p class="about-leadership__opening">Growing companies don't hire Wyckoff Consulting because they need another marketing agency.</p>
-        <p>They engage a Fractional Chief Marketing Officer because they're facing an important business decision—and they need experienced executive leadership to help them move forward with confidence.</p>
-        <p>For more than 30 years, Luke Wyckoff has partnered with business owners, CEOs, executive teams, private equity firms, and portfolio companies to navigate the moments that define a company's future.</p>
-        <p>Whether growth has stalled, leadership has changed, a company is entering a new market, preparing for a sale, integrating an acquisition, or building its first marketing function, Wyckoff Consulting provides the strategic direction and executive leadership needed to accelerate growth and increase enterprise value.</p>
+        <p class="about-leadership__opening">{content.leadership.opening}</p>
+        <p>{content.leadership.paragraph10}</p>
+        <p>{content.leadership.paragraph11}</p>
+        <p>{content.leadership.paragraph12}</p>
       </div>
     </div>
   </section>
@@ -163,9 +112,9 @@ const industries = [
   <section class="expectations band" aria-labelledby="expectations-title">
     <div class="wrap">
       <div class="expectations__heading rv">
-        <p class="label">What You Can Expect</p>
-        <h2 class="display" id="expectations-title"><span class="about-heading__line">A senior partner for</span> <span class="about-heading__line">the decisions that shape</span> <span class="about-heading__line">what comes next.</span></h2>
-        <p>Clear thinking, decisive execution, and an unwavering commitment to creating long-term enterprise value.</p>
+        <p class="label">{content.expectations.paragraph13}</p>
+        <h2 class="display" id="expectations-title"><span class="about-heading__line">{content.expectations.line8}</span> <span class="about-heading__line">{content.expectations.line9}</span> <span class="about-heading__line">{content.expectations.line10}</span></h2>
+        <p>{content.expectations.paragraph14}</p>
       </div>
 
       <ol class="expectations__grid">
@@ -184,19 +133,11 @@ const industries = [
 
   <LogoMarquee
     id="guest-lectures"
-    visibleLabel="Where Luke has guest lectured"
-    accessibleLabel="Colleges and universities where Luke Wyckoff has guest lectured"
+    visibleLabel={content.lectures.visibleLabel}
+    accessibleLabel={content.lectures.accessibleLabel}
     logos={guestLectureLogos}
-    externalCta={{
-      label: "Explore Luke's keynote work",
-      href: "https://lukewyckoff.com/",
-    }}
-    featureImage={{
-      src: "/images/wyckoff/luke-speaking.webp",
-      alt: "A collage of Luke Wyckoff speaking and engaging with an audience",
-      width: 940,
-      height: 788,
-    }}
+    externalCta={content.lectures.keynoteLink}
+    featureImage={content.lectures.speakingImage}
   />
 
   <ResultsShowcase />

@@ -1,4 +1,6 @@
 ---
+import pageContent from "../data/pages/home.json";
+const content = pageContent.page;
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import TaglineMarquee from "../components/TaglineMarquee.astro";
@@ -20,8 +22,8 @@ import { clientLogos } from "../data/logos";
   <ParallaxBand />
   <LogoMarquee
     id="past-clients"
-    visibleLabel="Selected past clients"
-    accessibleLabel="Past clients of Wyckoff Consulting"
+    visibleLabel={content.visibleLabel}
+    accessibleLabel={content.accessibleLabel}
     logos={clientLogos}
   />
   <InflectionPoints />
