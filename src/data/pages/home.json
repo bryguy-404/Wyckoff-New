@@ -28,7 +28,6 @@
     "stats": {
       "item01": {
         "count": 33,
-        "suffix": "",
         "label": "Years in practice"
       },
       "item02": {
@@ -38,7 +37,6 @@
       },
       "item03": {
         "count": 12,
-        "suffix": "",
         "label": "Countries"
       },
       "item04": {
@@ -251,7 +249,7 @@
   "hero": {
     "fallbackSrc": "/images/hero-fallback.jpg",
     "videoPoster": "/images/hero-poster.jpg",
-    "kicker": "Fractional Chief Marketing Officer",
+    "kicker": "Fractional Chief Marketing Officer - preview test",
     "headingLine1": "The EBITDA you want next year",
     "headingLine2": "will have a direct causation",
     "headingLine3": "to the Marketing decisions you",
